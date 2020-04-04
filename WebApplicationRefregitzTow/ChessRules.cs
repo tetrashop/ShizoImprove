@@ -165,7 +165,9 @@ namespace RefrigtzW
 
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t) { }
+#pragma warning restore CS0168 // The variable 't' is declared but never used
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
         {

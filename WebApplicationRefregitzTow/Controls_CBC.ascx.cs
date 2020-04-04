@@ -90,10 +90,14 @@ namespace WebApplicationRefregitzTow
         public static int CurrentClickedNumber;
         public static bool Found = false;
 //#pragma warning disable CS3008 // Identifier '_1' is not CLS-compliant
+#pragma warning disable CS3008 // Identifier '_1' is not CLS-compliant
         public static Control _1 = null;
+#pragma warning restore CS3008 // Identifier '_1' is not CLS-compliant
 //#pragma warning restore CS3008 // Identifier '_1' is not CLS-compliant
 //#pragma warning disable CS3008 // Identifier '_2' is not CLS-compliant
+#pragma warning disable CS3008 // Identifier '_2' is not CLS-compliant
         public static Control _2 = null;
+#pragma warning restore CS3008 // Identifier '_2' is not CLS-compliant
 //#pragma warning restore CS3008 // Identifier '_2' is not CLS-compliant
         public double MaxHeuristicxT = Double.MinValue;
         public bool MovementsAStarGreedyHeuristicFound = false;

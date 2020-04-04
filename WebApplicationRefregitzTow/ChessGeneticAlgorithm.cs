@@ -70,7 +70,9 @@ namespace RefrigtzW
                     Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t) {  }
+#pragma warning restore CS0168 // The variable 't' is declared but never used
         }
         //Constructor.
         public ChessGeneticAlgorithm(bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)

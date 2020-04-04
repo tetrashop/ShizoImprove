@@ -77,6 +77,8 @@ using System.Media;
 using System.IO;
 using Refrigtz;
 using System.Threading.Tasks;
+using System.Collections;
+using Chess;
 
 [assembly: CLSCompliant(true)]
 
@@ -85,9 +87,17 @@ namespace RefrigtzW
 {
     [Serializable]
     //Constructor
-    public partial class FormRefrigtz
+    public class FormRefrigtz
     {
-
+        bool FOUND = false;
+        int AllDrawKind = 0;
+        public AllDraw Draw;
+        readonly String path3 = @"temp";
+        public static String AllDrawReplacement = "";
+        bool NotFoundBegin = false;
+        public static String AllDrawKindString = "";
+        bool Deeperthandeeper = false;
+    
         //Initiate Global Variable.
         //public bool DisableTemporarlyTimerUpdate = false;
         public static double MaxHeuristicx = Double.MinValue;
@@ -108,11 +118,15 @@ namespace RefrigtzW
         public static OleDbCommand oleDbCmd = new OleDbCommand();
         public static OleDbCommand oleDbCmdUser = new OleDbCommand();
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
          bool BobWithStockfishFinished = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
         bool Stockfish = false;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
         bool RefregitzisCurrent = true;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
         bool SettingPRFALSE = false;
         public static bool ProfesionalWithComputer = false;
@@ -122,7 +136,9 @@ namespace RefrigtzW
         public static int MaxCurrentMovmentsNumber = 1;
         public static bool ErrorTrueMonitorFalse = true;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
         Thread tM = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
         bool Clicked = true;
         public static int MaxAStarGreedyHeuristicProgress = 0;
@@ -130,76 +146,120 @@ namespace RefrigtzW
         public bool MouseClicked = false;
         public static bool Blitz = false;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
         static bool LoadAG = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
         static bool _1 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
         static bool _2 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
         static bool _3 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
         static bool _4 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
         static bool Hideag = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
         bool exit = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
         bool AllDrawLoad = false;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
         Thread AllOperate = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
         static bool Paused = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
         static bool UpdateConfigurationTableVal = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
         static bool NewTable = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
         Image TimerImage = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
         Graphics g1 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
         Image TimerImage1 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
         Graphics g2 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
         Graphics g = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
         Image ChessTable = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
         public static int LastRowQ = -1;
         public static int LastColumn = -1;
         Thread t1 = null;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
         Thread t2 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
         Thread t3 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
         Thread t4 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
         Thread TTimerSet;
         public static bool LoadedTable = false;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
         bool GrayWinner = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
         bool BrownWiner = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
         public Refrigtz.Timer TimerText = null;
         public Refrigtz.Timer GrayTimer = null;
@@ -207,13 +267,23 @@ namespace RefrigtzW
         public static int MovmentsNumber = 0;
         public static bool EndOfGame = false;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
         bool Maximize = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RowS' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowS' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
         static int RowP = 0, ColP = 0, RowS = 0, ColS = 0;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowS' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
@@ -222,28 +292,41 @@ namespace RefrigtzW
         bool AliceSection = false;
         public static bool Person = true;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         static int CurrentKind = 0;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         public static bool StateCC = false;//Computer With Computer
         public static bool StateCP = false;//Person With Computer
         public static bool StateGe = false;//For Genetic Games.
-        AllDraw Draw;
         public static int OrderPlate = 1;
         // int AllDraw.MouseClick;
         float RowClickP = -1, ColumnClickP = -1;
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
         int RowClick = -1, ColumnClick = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
         float RowRealesedP = -1, ColumnRealeasedP = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
 //#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
         float RowRealesed = -1, ColumnRealeased = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
         public static int[,] Table = new int[8, 8];
@@ -1295,7 +1378,7 @@ namespace RefrigtzW
         }
 
         //Inserting of New Tabler at Database.
-        AllDraw RootFound()
+        public AllDraw RootFound()
         {
             try
             {
@@ -1356,11 +1439,62 @@ namespace RefrigtzW
                 for (int j = 0; j < 8; j++)
                     TableA[i, j] = Table[i, j];
 
-            Draw.TableList.Clear();
-            Draw.TableList.Add(CloneATable(TableA));
-            Draw.SetRowColumn(0);
-            while (!ReadF) ;
+            Object O = new Object();
+            lock (O)
+            {
+                {
+                    RefrigtzW.AllDraw.OrderPlateDraw = -1;
+                    RefrigtzW.AllDraw.TableListAction.Add(CloneATable(Table));
+                    RefrigtzW.ThinkingChess.TableInitiation = CloneATable(Table);
+                    if (DrawManagement())
+                    {
+                        //Load AllDraw.asd
+                        bool LoadTree = true;
+                        TakeRoot y = new TakeRoot();
+                        bool DrawDrawen = y.Load(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                        if (!DrawDrawen)
+                        {
+                            Draw = new RefrigtzW.AllDraw(OrderPlate, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                            Draw.TableList.Clear();
+                            Draw.TableList.Add(CloneATable(Table));
+                            Draw.SetRowColumn(0);
+                            RefrigtzW.AllDraw.DepthIterative = 0;
+                            bool Store = Deeperthandeeper;
+                            Deeperthandeeper = false;
+                            OrderPlate = 1;
+                            AllDraw.OrderPlate = OrderPlate;
+                            int Ord = OrderPlate;
+                            Color aa = Color.Gray;
+                            if (Ord == -1)
+                                aa = Color.Brown;
+                            bool B = AllDraw.Blitz;
+                            AllDraw.Blitz = false;
+                            RefrigtzW.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
 
+                            if (Draw.IsAtLeastAllObjectIsNull())
+                            {
+                                Draw.TableList.Clear();
+                                Draw.TableList.Add(CloneATable(RefrigtzW.AllDraw.TableListAction[RefrigtzW.AllDraw.TableListAction.Count - 2]));
+                                Draw.SetRowColumn(0);
+                                Draw.IsCurrentDraw = true;
+                            }
+                            Draw.InitiateAStarGreedyt(RefrigtzW.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzW.AllDraw.TableListAction[RefrigtzW.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+                            AllDraw.Blitz = B;
+                            Deeperthandeeper = Store;
+
+                        }
+                        else
+                        {
+                            FOUND = false;
+                            Draw = y.t;
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+                        }
+                    }
+                }
+            }
+     
 
             //GC.Collect();
             //GC.WaitForPendingFinalizers();
@@ -1403,13 +1537,9 @@ namespace RefrigtzW
                             Tab[i, j] = Table[i, j];
                     OrderPlate *= -1;
                     ChessRules.CurrentOrder *= -1;
-                    Draw.TableList.Clear();
-                    Draw.TableList.Add(CloneATable(Tab));
-                    Draw.SetRowColumn(0);
-                    RefrigtzW.AllDraw.TableListAction.Add(Tab);
-                    //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
+                     //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
 
-                    
+
                     InsertTableAtDataBase(Tab);
 
 
@@ -1478,32 +1608,7 @@ namespace RefrigtzW
                         ttt = new WebApplicationRefregitzTow._Default();
                     }
                 }
-                if (!File.Exists("AllDraw.asd"))
-                {
-                    RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
-                        );
-                    if (Draw != null)
-                    {
-                        Draw = RootFound();
-                        rt.AllDrawCurrentAccess = Draw;
-                        rt.RewriteAllDraw(OrderPlate);
-                        RefrigtzW.AllDraw.DrawTable = false;
-                        }
-                }
-                else
-                    if (File.Exists("AllDraw.asd"))
-                {
-                    File.Delete("AllDraw.asd");
-                    RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
-                        );
-                    //"Universal Root Founding";
-                    if (Draw != null)
-                    {
-                        Draw = RootFound();
-                        rt.AllDrawCurrentAccess = Draw;
-                        rt.RewriteAllDraw(OrderPlate);
-                      }
-                }
+                SetDrawFound();
             } while (true);
         }
         //Inserting of New Tabler at Database.
@@ -1796,8 +1901,223 @@ namespace RefrigtzW
                 }
                 catch (Exception t) { Log(t); }                      
         }
+        public void SetDrawFounding(ref bool FOUNDI, ref RefrigtzW.AllDraw THISI, bool FirstI)
+        {
 
-    }
+            Object OO = new Object();
+            lock (OO)
+            {
+                if (Draw == null)
+                    return;
+                int Dummy = OrderPlate;
+                RefrigtzW.AllDraw THISB = Draw.AStarGreedyString;
+                RefrigtzW.AllDraw THISStore = Draw;
+                //while (Draw.AStarGreedyString != null)
+                bool FOUND = false;
+                RefrigtzW.AllDraw THIS = null;
+                bool First = false;
+
+                Object O = new Object();
+                lock (O)
+                {
+                    FOUND = false;
+                    THIS = null;
+                    Color a = Color.Brown;
+                    //if (First)
+                    //else
+                    int Ord = OrderPlate;
+                    AllDraw.OrderPlate = Ord;
+                    var output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND));
+                    output.Wait();
+                    output.Dispose();
+                    if (FOUND)
+                    {
+                        Draw = THIS;
+
+                        bool LoadTree = true;
+                        Ord = OrderPlate;
+                        //if (MovmentsNumber > 1)
+                        (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                        Draw.IsCurrentDraw = true;
+
+                    }
+                    else
+                    {
+                        bool Store = Deeperthandeeper;
+                        Deeperthandeeper = false;
+
+                        Color aa = Color.Gray;
+                        if (Ord == -1)
+                            aa = Color.Brown;
+                        bool B = AllDraw.Blitz;
+                        AllDraw.Blitz = false;
+                        RefrigtzW.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount * 2;
+                        FOUND = false;
+                        AllDraw thiB = Draw.AStarGreedyString;
+                        if (Draw.IsAtLeastAllObjectIsNull())
+                        {
+                            Draw.TableList.Clear();
+                            Draw.TableList.Add(CloneATable(RefrigtzW.AllDraw.TableListAction[RefrigtzW.AllDraw.TableListAction.Count - 1]));
+                            Draw.SetRowColumn(0);
+                            Draw.IsCurrentDraw = true;
+                        }
+                        Draw.AStarGreedyString = thiB;
+
+                        output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzW.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzW.AllDraw.TableListAction[RefrigtzW.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                        output.Wait();
+                        output.Dispose();
+                        AllDraw.Blitz = B;
+                        Deeperthandeeper = Store;
+                        //while (Draw.AStarGreedyString != null)
+                        FOUND = false;
+
+                        output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzW.AllDraw.TableListAction[RefrigtzW.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND));
+                        output.Wait();
+                        output.Dispose();
+                        if (FOUND)
+                        {
+                            Draw = THIS;
+
+
+                            bool LoadTree = true;
+                            (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                            AllDraw.OrderPlate = Ord;
+
+                        }
+                        else
+                        {
+                            Draw = THISStore;
+                            if (MovmentsNumber == 1)
+                                NotFoundBegin = true;
+                            bool LoadTree = true;
+
+                            Draw.TableList.Clear();
+                            Draw.TableList.Add(CloneATable(Table));
+                            Draw.SetRowColumn(0);
+                            Draw.IsCurrentDraw = true;
+                            Draw.AStarGreedyString = THISB;
+                            RefrigtzW.ChessRules.CurrentOrder = OrderPlate;
+                            RefrigtzW.AllDraw.DepthIterative = 0;
+                            (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+
+                        }
+                    }
+                }
+                if (RefrigtzW.AllDraw.FirstTraversalTree)
+                    FOUND = false;
+                FOUNDI = FOUND;
+                THISI = THIS;
+                FirstI = First;
+                DrawManagement();
+            }
+        }
+        bool DrawManagement()
+        {
+            Object OO = new Object();
+            lock (OO)
+            {
+                SetAllDrawKind();
+                //Set Configuration To True for some unknown reason!.
+
+                SetAllDrawKindString();
+                bool Found = false;
+                String P = Path.GetFullPath(path3);
+                AllDrawReplacement = Path.Combine(P, AllDrawKindString);
+                Logger y = new Logger(AllDrawReplacement);
+
+                y = new Logger(AllDrawKindString);
+
+                if (!NotFoundBegin)
+                {
+                    if (File.Exists(AllDrawKindString))
+                    {
+                        if (File.Exists(AllDrawReplacement))
+                        {
+                            if (((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                            {
+                                File.Delete(AllDrawKindString);
+                                File.Copy(AllDrawReplacement, AllDrawKindString);
+                                Found = true;
+                            }
+                            else if (((new System.IO.FileInfo(AllDrawKindString).Length) > (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                            {
+                                if (File.Exists(AllDrawReplacement))
+                                    File.Delete(AllDrawReplacement);
+                                File.Copy(AllDrawKindString, AllDrawReplacement);
+                                Found = true;
+                            }
+                        }
+                        else
+                        {
+                            if (!Directory.Exists(Path.GetFullPath(path3)))
+                                Directory.CreateDirectory(Path.GetFullPath(path3));
+                            File.Copy(AllDrawKindString, AllDrawReplacement);
+                            Found = true;
+                        }
+                        Found = true;
+                    }
+                    else if (File.Exists(AllDrawReplacement))
+                    {
+                        File.Copy(AllDrawReplacement, AllDrawKindString);
+                        Found = true;
+                    }
+                }
+                else
+                {
+                    if (File.Exists(AllDrawKindString))
+                        File.Delete(AllDrawKindString);
+                    if (File.Exists(AllDrawReplacement))
+                        File.Delete(AllDrawReplacement);
+                    NotFoundBegin = false;
+                }
+                return Found;
+            }
+        }
+        void SetAllDrawKindString()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (AllDrawKind == 4)
+                    AllDrawKindString = "AllDrawBT.asd";
+                else
+                if (AllDrawKind == 3)
+                    AllDrawKindString = "AllDrawFFST.asd";
+                else
+                if (AllDrawKind == 2)
+                    AllDrawKindString = "AllDrawFTSF.asd";
+                else
+                if (AllDrawKind == 1)
+                    AllDrawKindString = "AllDrawFFSF.asd";
+            }
+        }
+        void SetAllDrawKind()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (UsePenaltyRegardMechnisam && AStarGreedyHeuristic)
+                    AllDrawKind = 4;
+                else
+          if ((!UsePenaltyRegardMechnisam) && AStarGreedyHeuristic)
+                    AllDrawKind = 3;
+                if (UsePenaltyRegardMechnisam && (!AStarGreedyHeuristic))
+                    AllDrawKind = 2;
+                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHeuristic))
+                    AllDrawKind = 1;
+            }
+        }
+        void SetDrawFound()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                FOUND = false;
+                RefrigtzW.AllDraw THIS = null;
+                SetDrawFounding(ref FOUND, ref THIS, false);
+            }
+        }
+     }
 
 
 }

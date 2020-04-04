@@ -230,7 +230,9 @@ namespace RefrigtzW
 
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t) { }
+#pragma warning restore CS0168 // The variable 't' is declared but never used
         }
         //Determine when a MoveOccured.
         //Note for before move.At most one  moves.
@@ -411,7 +413,9 @@ namespace RefrigtzW
         }
         [field:NonSerialized] private readonly CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
+#pragma warning disable CS0169 // The field 'AllDraw.feedTask' is never used
         [field:NonSerialized] private readonly Task feedTask;
+#pragma warning restore CS0169 // The field 'AllDraw.feedTask' is never used
 
 
 
@@ -14267,33 +14271,45 @@ namespace RefrigtzW
                     Is = Is || ServeBoundryConditionsSoldier(i, Kind, Order);
 
                 }
+#pragma warning disable CS0642 // Possible mistaken empty statement
                 else;
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 if (Kind == 2)
                 {
                     Is = Is || ServeBoundryConditionsElephant(i, Kind, Order);
                 }
+#pragma warning disable CS0642 // Possible mistaken empty statement
                 else;
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 if (Kind == 3)
                 {
                     Is = Is || ServeBoundryConditionsHourse(i, Kind, Order);
                 }
+#pragma warning disable CS0642 // Possible mistaken empty statement
                 else;
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 if (Kind == 4)
                 {
                     Is = Is || ServeBoundryConditionsCastle(i, Kind, Order);
                 }
+#pragma warning disable CS0642 // Possible mistaken empty statement
                 else;
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 if (Kind == 5)
                 {
                     Is = Is || ServeBoundryConditionsMinister(i, Kind, Order);
                 }
+#pragma warning disable CS0642 // Possible mistaken empty statement
                 else;
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 if (Kind == 6)
                 {
                     Is = Is || ServeBoundryConditionsKing(i, Kind, Order);
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t)
+#pragma warning restore CS0168 // The variable 't' is declared but never used
             {
                 Is = true;
 
@@ -15082,7 +15098,9 @@ namespace RefrigtzW
                     Is = Is || InitiateAStarGreedytKing(i, Kind, Order);
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t)
+#pragma warning restore CS0168 // The variable 't' is declared but never used
             {
                
             }
@@ -16362,7 +16380,9 @@ namespace RefrigtzW
                 int DummyCurrentOrder = new int();
                 DummyCurrentOrder = ChessRules.CurrentOrder;
 //#pragma warning disable CS0219 // The variable 'ik' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'ik' is assigned but its value is never used
                 int i = 0, ik = 0;
+#pragma warning restore CS0219 // The variable 'ik' is assigned but its value is never used
 //#pragma warning restore CS0219 // The variable 'ik' is assigned but its value is never used
                 var j = 0;
 
@@ -16576,7 +16596,9 @@ namespace RefrigtzW
             int DummyCurrentOrder = new int();
             DummyCurrentOrder = ChessRules.CurrentOrder;
 //#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = 0, ik = 0;
+#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
 //#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
             int[,] TablInit = new int[8, 8];
             if (Order == 1)

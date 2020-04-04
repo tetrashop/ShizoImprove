@@ -15,6 +15,7 @@ namespace WebApplicationRefregitzTow.Account
     {
 
 //#pragma warning disable CS3005 // Identifier 'Manage.successMessage' differing only in case is not CLS-compliant
+#pragma warning disable CS3005 // Identifier 'Manage.successMessage' differing only in case is not CLS-compliant
         /// <summary>
         /// successMessage control.
         /// </summary>
@@ -23,6 +24,7 @@ namespace WebApplicationRefregitzTow.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
+#pragma warning restore CS3005 // Identifier 'Manage.successMessage' differing only in case is not CLS-compliant
 //#pragma warning restore CS3005 // Identifier 'Manage.successMessage' differing only in case is not CLS-compliant
 
         /// <summary>

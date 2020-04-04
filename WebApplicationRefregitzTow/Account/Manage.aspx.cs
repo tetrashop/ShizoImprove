@@ -69,7 +69,9 @@ namespace WebApplicationRefregitzTow.Account
 
 
 //#pragma warning disable CS3002 // Return type of 'Manage.GetExternalLogins()' is not CLS-compliant
+#pragma warning disable CS3002 // Return type of 'Manage.GetExternalLogins()' is not CLS-compliant
         public IEnumerable<OpenAuthAccountData> GetExternalLogins()
+#pragma warning restore CS3002 // Return type of 'Manage.GetExternalLogins()' is not CLS-compliant
 //#pragma warning restore CS3002 // Return type of 'Manage.GetExternalLogins()' is not CLS-compliant
         {
             var accounts = OpenAuth.GetAccountsForUser(User.Identity.Name);

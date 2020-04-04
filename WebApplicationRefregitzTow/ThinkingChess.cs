@@ -114,8 +114,12 @@ namespace RefrigtzW
             };
         int RationalRegard = 10;
         int RationalPenalty = -10;
+#pragma warning disable CS0414 // The field 'ThinkingChess.RationalWin' is assigned but its value is never used
         int RationalWin = 1000;
+#pragma warning restore CS0414 // The field 'ThinkingChess.RationalWin' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'ThinkingChess.RationalLose' is assigned but its value is never used
         int RationalLose = -1000;
+#pragma warning restore CS0414 // The field 'ThinkingChess.RationalLose' is assigned but its value is never used
 
 
         public static bool FullGameAllow = false;
@@ -125,7 +129,9 @@ namespace RefrigtzW
         public bool KishEnemy = false;
         readonly StringBuilder Space = new StringBuilder("&nbsp;");
 //#pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         readonly int Spaces = 0;
+#pragma warning restore CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
 //#pragma warning restore CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         public int HeuristicAttackValueSup = new int();
         public int HeuristicMovementValueSup = new int();
@@ -268,7 +274,9 @@ namespace RefrigtzW
                     Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t) { }
+#pragma warning restore CS0168 // The variable 't' is declared but never used
         }
         //create a tow dimension list of all object boundry
         void SetObjectNumbersInList(int[,] Tab)
@@ -376,7 +384,9 @@ namespace RefrigtzW
         [field: NonSerialized]
         private readonly CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
+#pragma warning disable CS0169 // The field 'ThinkingChess.feedTask' is never used
         [field: NonSerialized] private readonly Task feedTask;
+#pragma warning restore CS0169 // The field 'ThinkingChess.feedTask' is never used
 
         public void Dispose()
         {
@@ -4432,28 +4442,60 @@ namespace RefrigtzW
                     int RowK = -1, ColK = -1;
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
-                    if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
+                    bool S1 = false;
+                    var H1 = Task.Factory.StartNew(() => S1 = CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)));
+                    H1.Wait();
+                    H1.Dispose();
+                    if (S1)
                         HA += RationalRegard;
                     else
-                    if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RationalRegard;
-                    else
-                    if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RationalRegard;
+                    {
+                        bool S2 = false;
+                        var H2 = Task.Factory.StartNew(() => S2 = CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)));
+                        H2.Wait();
+                        H2.Dispose();
+                        if (S2)
+                            HA += RationalRegard;
+                        else
+                        {
+                            bool S3 = false;
+                            var H3 = Task.Factory.StartNew(() => S3 = IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order));
+                            H3.Wait();
+                            H3.Dispose();
+                            if (S3)
+                                HA += RationalRegard;
+                        }
+                    }
                 }
                 else
                 {
                     int RowK = -1, ColK = -1;
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
-                    if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
+                    bool S1 = false;
+                    var H1 = Task.Factory.StartNew(() => S1 = CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)));
+                    H1.Wait();
+                    H1.Dispose();
+                    if (S1)
                         HA += RationalRegard;
                     else
-                    if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RationalRegard;
-                    else
-                    if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RationalRegard;
+                    {
+                        bool S2 = false;
+                        var H2 = Task.Factory.StartNew(() => S2 = CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)));
+                        H2.Wait();
+                        H2.Dispose();
+                        if (S2)
+                            HA += RationalRegard;
+                        else
+                        {
+                            bool S3 = false;
+                            var H3 = Task.Factory.StartNew(() => S2 = IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order));
+                            H3.Wait();
+                            H3.Dispose();
+                            if (S3)
+                                HA += RationalRegard;
+                        }
+                    }
                 }
                 return HA;
             }
@@ -4579,7 +4621,9 @@ namespace RefrigtzW
             lock (O)
             {
 //#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
                 int NIs = 0;
+#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
 //#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
                 for (int k = 0; k < 8; k++)
                 {
@@ -4774,22 +4818,42 @@ namespace RefrigtzW
             lock (O)
             {
                 int HA = 0;
-                HA += SimpleMate_Zero(RowS, ColS, RowD, ColD, CloneATable(Table), a);
-                if (HA == 0)
-                    HA += SimpleMate_One(RowS, ColS, RowD, ColD, CloneATable(Table), a);
+                var H1 = Task.Factory.StartNew(() => HA += SimpleMate_Zero(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                H1.Wait();
+                H1.Dispose();
+
                 if (HA == 0)
                 {
-                    HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, CloneATable(Table), a);
+                    var H2 = Task.Factory.StartNew(() => HA += SimpleMate_One(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                    H2.Wait();
+                    H2.Dispose();
                 }
                 if (HA == 0)
                 {
-                    HA += SimpleMate_Three_And_Four(RowS, ColS, RowD, ColD, CloneATable(Table), a);
+                    var H3 = Task.Factory.StartNew(() => HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                    H3.Dispose();
                 }
-                if (IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a))
+                if (HA == 0)
+                {
+                    var H4 = Task.Factory.StartNew(() => HA += SimpleMate_Three_And_Four(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                    H4.Wait();
+                    H4.Dispose();
+                }
+                bool S1 = false;
+
+                var H5 = Task.Factory.StartNew(() => S1 = IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                H5.Wait();
+                H5.Dispose();
+                if (S1)
                 {
                     HA += RationalRegard;
                 }
-                if (IsMinisterOrElephantBecomeActive(RowS, ColS, RowD, ColD, CloneATable(Table), a))
+                bool S2 = false;
+
+                var H6 = Task.Factory.StartNew(() => S2 = IsMinisterOrElephantBecomeActive(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                H6.Wait();
+                H6.Dispose();
+                if (S2)
                 {
                     HA += RationalRegard;
                 }
@@ -5316,7 +5380,11 @@ namespace RefrigtzW
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
-                IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order);
+
+                var H1 = Task.Factory.StartNew(() => IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order));
+                H1.Wait();
+                H1.Dispose();
+
                 if (IKIsCentralPawnIsOk && HeuristicAllReducedAttacked.Count == 0)
                     Dis += RationalRegard;
                 else
@@ -5347,7 +5415,11 @@ namespace RefrigtzW
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
-                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
+                        int Cor = 0;
+                        var H2 = Task.Factory.StartNew(() => Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
+                        H2.Wait();
+                        H2.Dispose();
+
                         if (Cor > Colleralation)
                         {
                             Colleralation = Cor;
@@ -5376,7 +5448,11 @@ namespace RefrigtzW
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
+                            int Cor = 0;
+                            var H3 = Task.Factory.StartNew(() => Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
+                            H3.Wait();
+                            H3.Dispose();
+
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
@@ -5409,7 +5485,10 @@ namespace RefrigtzW
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
-                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
+                        int Cor = 0;
+                        var H4 = Task.Factory.StartNew(() => Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
+                        H4.Wait();
+                        H4.Dispose();
                         if (Cor > Colleralation)
                         {
                             Colleralation = Cor;
@@ -5435,7 +5514,11 @@ namespace RefrigtzW
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
+                            int Cor = 0;
+                            var H5 = Task.Factory.StartNew(() => Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
+                            H5.Wait();
+                            H5.Dispose();
+
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
@@ -6279,140 +6362,181 @@ namespace RefrigtzW
                             {
                                 Parallel.For(0, 8, ColD =>
                                 {
-                                    //if (!feedCancellationTokenSource.IsCancellationRequested)
+
+                                    var output = Task.Factory.StartNew(() =>
                                     {
-                                        var output = Task.Factory.StartNew(() =>
+                                        Parallel.Invoke(() =>
                                         {
-                                            Parallel.Invoke(() =>
+
+                                            Object OO = new Object();
+                                            lock (OO)
                                             {
-                                                Object OO = new Object();
-                                                lock (OO)
+                                                if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                 {
-                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                     {
-                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
                                                         {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowD;
-                                                                A[1] = ColD;
-                                                                A[2] = RowS;
-                                                                A[3] = ColS;
-                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
-                                                                HeuristicAllReducedAttacked.Add(A);
-                                                                Exchange[ReducedAttacked]++;
-                                                            }
+                                                            int[] A = new int[5];
+                                                            A[0] = RowD;
+                                                            A[1] = ColD;
+                                                            A[2] = RowS;
+                                                            A[3] = ColS;
+                                                            A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
+                                                            HeuristicAllReducedAttacked.Add(A);
+                                                            Exchange[ReducedAttacked]++;
                                                         }
                                                     }
-                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
-                                                    {
-                                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                        {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowD;
-                                                                A[1] = ColD;
-                                                                A[2] = RowS;
-                                                                A[3] = ColS;
-                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
-                                                                HeuristicAllReducedSupport.Add(A);
-                                                                Exchange[ReducedSupport]++;
-                                                            }
-                                                        }
-                                                    }
-                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
-                                                    {
-                                                        if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                        {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowD;
-                                                                A[1] = ColD;
-                                                                A[2] = RowS;
-                                                                A[3] = ColS;
-                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
-                                                                HeuristicAllReducedMove.Add(A);
-                                                                Exchange[ReducedMove]++;
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
-                                                    {
-                                                        if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                        {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowS;
-                                                                A[1] = ColS;
-                                                                A[2] = RowD;
-                                                                A[3] = ColD;
-                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
-                                                                HeuristicAllAttacked.Add(A);
-                                                                Exchange[ToAttacked]++;
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
-                                                    {
-                                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                        {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowS;
-                                                                A[1] = ColS;
-                                                                A[2] = RowD;
-                                                                A[3] = ColD;
-                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
-                                                                HeuristicAllSupport.Add(A);
-                                                                Exchange[ToSupport]++;
-                                                            }
-                                                        }
-                                                    }
-                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
-                                                    {
-                                                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                        {
-                                                            Object OOO = new Object();
-                                                            lock (OOO)
-                                                            {
-                                                                int[] A = new int[5];
-                                                                A[0] = RowS;
-                                                                A[1] = ColS;
-                                                                A[2] = RowD;
-                                                                A[3] = ColD;
-                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
-                                                                HeuristicAllMove.Add(A);
-                                                                Exchange[ToMoved]++;
-                                                            }
-                                                        }
-                                                    }
-
                                                 }
-                                            });
-                                        });
 
-                                        output.Wait(); output.Dispose();
-                                    }
+                                            }
+                                        }
+                                                , () =>
+                                                     {
+                                                         Object OO = new Object();
+                                                         lock (OO)
+                                                         {
+                                                             if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                             {
+                                                                 if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                                 {
+                                                                     Object OOO = new Object();
+                                                                     lock (OOO)
+                                                                     {
+                                                                         int[] A = new int[5];
+                                                                         A[0] = RowD;
+                                                                         A[1] = ColD;
+                                                                         A[2] = RowS;
+                                                                         A[3] = ColS;
+                                                                         A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
+                                                                         HeuristicAllReducedSupport.Add(A);
+                                                                         Exchange[ReducedSupport]++;
+                                                                     }
+                                                                 }
+                                                             }
+                                                         }
+                                                     }
+                                                , () =>
+                                                     {
+                                                         Object OO = new Object();
+                                                         lock (OO)
+                                                         {
+                                                             if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
+                                                             {
+                                                                 if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                                 {
+                                                                     Object OOO = new Object();
+                                                                     lock (OOO)
+                                                                     {
+                                                                         int[] A = new int[5];
+                                                                         A[0] = RowD;
+                                                                         A[1] = ColD;
+                                                                         A[2] = RowS;
+                                                                         A[3] = ColS;
+                                                                         A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
+                                                                         HeuristicAllReducedMove.Add(A);
+                                                                         Exchange[ReducedMove]++;
+                                                                     }
+                                                                 }
+                                                             }
+                                                         }
+                                                     }, () =>
+                                                     {
+
+                                                         Object OO = new Object();
+                                                         lock (OO)
+                                                         {
+                                                             if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
+                                                             {
+                                                                 if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                                 {
+                                                                     Object OOO = new Object();
+                                                                     lock (OOO)
+                                                                     {
+                                                                         int[] A = new int[5];
+                                                                         A[0] = RowS;
+                                                                         A[1] = ColS;
+                                                                         A[2] = RowD;
+                                                                         A[3] = ColD;
+                                                                         A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
+                                                                         HeuristicAllAttacked.Add(A);
+                                                                         Exchange[ToAttacked]++;
+                                                                     }
+                                                                 }
+                                                             }
+                                                         }
+                                                     }, () =>
+                                                          {
+                                                              Object OO = new Object();
+                                                              lock (OO)
+                                                              {
+                                                                  if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                                  {
+                                                                      if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                                      {
+                                                                          Object OOO = new Object();
+                                                                          lock (OOO)
+                                                                          {
+                                                                              int[] A = new int[5];
+                                                                              A[0] = RowS;
+                                                                              A[1] = ColS;
+                                                                              A[2] = RowD;
+                                                                              A[3] = ColD;
+                                                                              A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
+                                                                              HeuristicAllSupport.Add(A);
+                                                                              Exchange[ToSupport]++;
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              }
+                                                          }, () =>
+                                                          {
+                                                              Object OO = new Object();
+                                                              lock (OO)
+                                                              {
+                                                                  if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
+                                                                  {
+                                                                      if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                                      {
+                                                                          Object OOO = new Object();
+                                                                          lock (OOO)
+                                                                          {
+                                                                              int[] A = new int[5];
+                                                                              A[0] = RowS;
+                                                                              A[1] = ColS;
+                                                                              A[2] = RowD;
+                                                                              A[3] = ColD;
+                                                                              A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
+                                                                              HeuristicAllMove.Add(A);
+                                                                              Exchange[ToMoved]++;
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              }
+                                                          });
+
+
+
+
+
+                                    });
+
+
+
+                                    output.Wait(); output.Dispose();
                                 });
                             });
                         });
                     });
+                   
 
                 }
                 //When situation is closed
-                int A1 = IsSupportLessThanReducedSupport(Exchange[ToSupport], Exchange[ReducedSupport]);
+                int A1 = 0;
+                var H1 = Task.Factory.StartNew(() => A1 =IsSupportLessThanReducedSupport(Exchange[ToSupport], Exchange[ReducedSupport]));
+                H1.Wait();
+                H1.Dispose();
                 if (A1 > 0)
                     ExchangeSeed[0] = RationalPenalty;
                 else
@@ -6436,7 +6560,9 @@ namespace RefrigtzW
                     }
                 }
                 //when situation is closed and restriction
-                A1 = IsAttackLessThanReducedAttack(Exchange[ToAttacked], Exchange[ReducedAttacked]);
+                var H2 = Task.Factory.StartNew(() => A1 = IsAttackLessThanReducedAttack(Exchange[ToAttacked], Exchange[ReducedAttacked]));
+                H2.Wait();
+                H2.Dispose();
                 if (A1 > 0)
                     ExchangeSeed[1] = RationalPenalty;
                 else
@@ -6462,7 +6588,9 @@ namespace RefrigtzW
                             int[,] Table6 = CloneATable(Table);
                             int Ord6 = Ord;
                             Color aa6 = aa;
-                            HAA6 = HeuristicEnemySupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6);
+                            var H3 = Task.Factory.StartNew(() => HAA6 = HeuristicEnemySupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6));
+                            H3.Wait();
+                            H3.Dispose();
                         }
                         if (HAA6 != 0)
                         {
@@ -6486,11 +6614,19 @@ namespace RefrigtzW
                 //Remove of most impressive defensive enemy Objects
                 double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
                 ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
-                ExchangeSeed[2] += HeuristicPromotion(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
-                ExchangeSeed[2] += HeuristicElephantOpen(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
-                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
+                var H4 = Task.Factory.StartNew(() => ExchangeSeed[2] += HeuristicPromotion(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod));
+                H4.Wait();
+                H4.Dispose();
+                var H5 = Task.Factory.StartNew(() => ExchangeSeed[2] += HeuristicElephantOpen(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod));
+                H5.Wait();
+                H5.Dispose();
+                var H6 = Task.Factory.StartNew(() => ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod));
+                H6.Wait();
+                H6.Dispose();
                 //Safty before Attack
-                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)));
+                var H7 = Task.Factory.StartNew(() => ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod))));
+                H7.Wait();
+                H7.Dispose();
                 Ord = DummyOrd;
                 ChessRules.CurrentOrder = DummyCurrentOrd;
                 Ord = DumOrd;
@@ -10147,7 +10283,9 @@ namespace RefrigtzW
                         else
                         {
 //#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
+#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
 //#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
@@ -11105,9 +11243,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
                                         Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order);
-                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11133,9 +11277,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
                                         Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order);
-                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11209,9 +11359,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
                                         Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order);
-                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11235,9 +11391,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
                                         Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order);
-                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11311,9 +11473,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]);
                                         Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order);
-                                        No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11337,9 +11505,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]);
                                         Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order);
-                                        No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11413,9 +11587,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]]);
                                         Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1);
-                                        No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -11439,9 +11619,15 @@ namespace RefrigtzW
                                     {
                                         int Killed = Math.Abs(Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]]);
                                         Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] = 0;
-                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
-                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1);
-                                        No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2);
+                                        var th1 = Task.Factory.StartNew(() => t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        var th2 = Task.Factory.StartNew(() => t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
+                                        var th3 = Task.Factory.StartNew(() => No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2));
+                                        th3.Wait();
+                                        th3.Dispose();
                                     }
                                 }
 
@@ -12497,50 +12683,15 @@ namespace RefrigtzW
                     AchmazReducedMidle = AchmazReduced.Count;
                 }
                 //if (Order != AllDraw.OrderPlateDraw)
-                
+
                 int[] Hu = null;
                 var th = Task.Factory.StartNew(() => Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color));
                 th.Wait();
                 th.Dispose();
                 Task H1 = null, H2 = null, H3 = null;
-                int HAchmaz = 0;
-                int HDoubleAttack = 0, HDoubleDefense = 0;
-                int HWin = 0, HLose = 0;
-                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0 && (Order == AllDraw.OrderPlateDraw))
-                {
-                    H1 = Task.Factory.StartNew(() => Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
-                    H1.Wait();
-                    H1.Dispose();
-                    if (Before)
-                    {
-                        int TotalS = 0;
-                        int IsSC = 0;
-                        NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
-                        if ((16 - ColleralationGray) + IsSC >= TotalS)
-                            GoldenFinished = true;
-                        HAchmaz = (RationalPenalty * (AchmazReducedBefore(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredBefore(Before, CloneATable(TableS))));
-                    }
-                    else
-                    {
-                        int TotalS = 0;
-                        int IsSC = 0;
-                        NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
-                        if ((16 - ColleralationBrown) + IsSC >= TotalS)
-                            GoldenFinished = true;
-                        HAchmaz = (RationalPenalty * (AchmazReducedAfter(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredAfter(Before, CloneATable(TableS))));
-                    }
-                    if (HAchmaz > 0)
-                        WinOcuuredatChiled = 7;
-                    else
-                        if (HAchmaz < 0)
-                    {
-                        IsSupHu[IsSupHu.Count - 1] = true;
-                        LoseOcuuredatChiled[0] = -7;
-                    }
-                }
 
                 //if (UsePenaltyRegardMechnisamT)
-                
+
 
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
@@ -12555,7 +12706,10 @@ namespace RefrigtzW
                 HFromCenter = Hu[10];
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
-                
+                int HAchmaz = 0;
+                int HDoubleAttack = 0, HDoubleDefense = 0;
+                int HWin = 0, HLose = 0;
+
                 H2 = Task.Factory.StartNew(() => HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
                 H3 = Task.Factory.StartNew(() => HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
                 H2.Wait();
@@ -12571,6 +12725,293 @@ namespace RefrigtzW
                 Object O1 = new Object();
                 lock (O1)
                 {
+                    if (!IsSupHu[IsSupHu.Count - 1])
+                    {
+                        if (Before)
+                        {
+                            if (Order == AllDraw.OrderPlateDraw)
+                            {
+                                if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                                {
+                                    //if (Before)
+                                    SetSupHuTrue();
+                                    IsS = true;
+                                }
+                            }
+                            if (!GoldenFinished && WinOcuuredatChiled == 0)
+                            {  //Disturbe on huge traversal exchange prevention 
+                               //Ignore of atack and checkedmate at first until all move
+                                bool A = false, B = false, C = false;
+                                if (Order == 1)
+                                {
+                                    A = ColleralationGray < 30;
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    {
+                                        B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                    }
+                                }
+                                else
+                                {
+                                    A = ColleralationBrown < 30;
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    {
+                                        B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                    }
+                                }
+                                if (A && ((B) || (C)))
+                                {
+                                    SetSupHuTrue();
+                                    IsS = true;
+                                }
+                                //Every objects one move at game begin
+                                int Total = 0;
+                                int Is = 0;
+                                NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
+                                if (Order == 1)
+                                {
+                                    if (
+                                            //((NoOfBoardMoved + Is >= Total) && 
+                                            TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                    //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                    )
+                                    {
+                                        IsS = true;
+                                        SetSupHuTrue();
+                                    }
+                                }
+                                else
+                                {
+                                    if (
+                                            //((NoOfBoardMoved + Is >= Total) && 
+                                            TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                    //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                    )
+                                    {
+                                        IsS = true;
+                                        SetSupHuTrue();
+                                    }
+                                }
+                                //Empire more
+                                if (A)
+                                {
+                                    if (ColleralationGray < 16)
+                                    {
+                                        if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportGray)
+                                        {
+                                            DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
+                                        }
+                                        else
+                                        if (DifOfNoOfSupporteAndReducedSupportGray < 64)
+                                        {
+                                            IsS = true;
+                                            SetSupHuTrue();
+                                        }
+                                    }
+                                }
+                                //Hourse before elephants
+                                if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[2, 7] && TableS[2, 7] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[5, 7] && TableS[5, 7] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                                {
+                                    Color a = Color.Gray;
+                                    if (Order == -1)
+                                        a = Color.Brown;
+                                    if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, CloneATable(TableS), Order, a)))
+                                    {
+                                        IsS = true;
+                                        SetSupHuTrue();
+                                    }
+                                }
+                            }
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+                            }
+                            if (HDoubleAttack > 0)
+                            {
+                                if (!IsSupHu[IsSupHu.Count - 1])
+                                    WinOcuuredatChiled = 5;
+                            }
+                        }
+                        else
+                        {
+                            //Disturbe on huge traversal exchange prevention 
+                            //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            if (Order == AllDraw.OrderPlateDraw)
+                            {
+                                if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                                {
+                                    //if (Before)
+                                    SetSupHuTrue();
+                                    IsS = true;
+                                }
+                                if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
+                                {
+                                    //if (Before)
+                                    SetSupHuTrue();
+                                    IsS = true;
+                                }
+                                else
+                                {
+                                    if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && IsS)
+                                    {
+                                        TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                        IsS = false;
+                                    }
+                                }
+                            }
+                            if (!GoldenFinished)
+                            {   //Ignore of atack and checkedmate at first until all move
+                                bool A = false, B = false, C = false;
+                                if (Order == 1)
+                                {
+                                    A = ColleralationGray < 30;
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    {
+                                        B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
+                                    }
+                                }
+                                else
+                                {
+                                    A = ColleralationBrown < 30;
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    {
+                                        B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
+                                    }
+                                }
+                                if (A && ((B) || (C)))
+                                {
+                                    SetSupHuTrue();
+                                    IsS = true;
+                                }
+                                else
+                                {
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    {//if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
+
+                                        //Empire more
+                                        if (A)
+                                        {
+                                            if (ColleralationBrown < 16)
+                                            {
+                                                if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportBrown)
+                                                {
+                                                    DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
+                                                }
+                                                else
+                                                if (DifOfNoOfSupporteAndReducedSupportBrown < 64)
+                                                {
+                                                    {
+                                                        SetSupHuTrue();
+                                                        IsS = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        //Hourse before elephants
+                                        if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableS[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
+                                        {
+                                            Color a = Color.Gray;
+                                            if (Order == -1)
+                                                a = Color.Brown;
+                                            if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == -3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, CloneATable(TableS), Order, a)))
+                                            {
+                                                SetSupHuTrue();
+                                                IsS = true;
+                                            }
+                                        }
+                                        //Every objects one move at game begin
+                                        int Total = 0;
+                                        int Is = 0;
+                                        NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
+                                        if (Order == 1)
+                                        {
+                                            if (
+                                                 //((NoOfBoardMoved + Is >= Total) && 
+                                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                         //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0
+                                         )
+                                            {
+                                                IsS = true;
+                                                SetSupHuTrue();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (
+                                                  //((NoOfBoardMoved + Is >= Total) && 
+                                                  TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                          //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0
+                                          )
+                                            {
+                                                IsS = true;
+                                                SetSupHuTrue();
+                                            }
+                                        }
+                                    }
+                                    //when thre is most reduced support finding
+                                    int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                                    if (IsNo != null)
+                                    {
+                                        if (IsNo[1] < HeuristicAllReducedSupport.Count && IsNo[1] >= HeuristicAllReducedSupportMidel)
+                                        {
+                                            if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                                ClearSupHuTrue();
+                                        }
+                                    }
+
+                                    if (!IsS)
+                                        ClearSupHuTrue();
+                                }
+                            }
+                            if (HDoubleAttack > 0)
+                            {
+                                if (!IsSupHu[IsSupHu.Count - 1])
+                                {
+                                    WinOcuuredatChiled = 5;
+                                }
+                                else
+                                    WinOcuuredatChiled = 0;
+                            }
+                        }
+                    }
+                    if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0 && (Order == AllDraw.OrderPlateDraw))
+                    {
+                        H1 = Task.Factory.StartNew(() => Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
+                        H1.Wait();
+                        H1.Dispose();
+                        if (Before)
+                        {
+                            int TotalS = 0;
+                            int IsSC = 0;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+                            if ((16 - ColleralationGray) + IsSC >= TotalS)
+                                GoldenFinished = true;
+                            HAchmaz = (RationalPenalty * (AchmazReducedBefore(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredBefore(Before, CloneATable(TableS))));
+                        }
+                        else
+                        {
+                            int TotalS = 0;
+                            int IsSC = 0;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+                            if ((16 - ColleralationBrown) + IsSC >= TotalS)
+                                GoldenFinished = true;
+                            HAchmaz = (RationalPenalty * (AchmazReducedAfter(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredAfter(Before, CloneATable(TableS))));
+                        }
+                        if (HAchmaz > 0)
+                            WinOcuuredatChiled = 7;
+                        else
+                            if (HAchmaz < 0)
+                            LoseOcuuredatChiled[0] = -7;
+                    }
                     if (Before)
                     {
                         HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
@@ -12584,115 +13025,6 @@ namespace RefrigtzW
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        if (Order == AllDraw.OrderPlateDraw)
-                        {
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                            {
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                        }
-                        if (!GoldenFinished && WinOcuuredatChiled == 0)
-                        {  //Disturbe on huge traversal exchange prevention 
-                           //Ignore of atack and checkedmate at first until all move
-                            bool A = false, B = false, C = false;
-                            if (Order == 1)
-                            {
-                                A = ColleralationGray < 30;
-                                if (Order == AllDraw.OrderPlateDraw)
-                                {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                    C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
-                                }
-                            }
-                            else
-                            {
-                                A = ColleralationBrown < 30;
-                                if (Order == AllDraw.OrderPlateDraw)
-                                {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                    C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
-                                }
-                            }
-                            if (A && ((B) || (C)))
-                            {
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            //Every objects one move at game begin
-                            int Total = 0;
-                            int Is = 0;
-                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if (Order == 1)
-                            {
-                                if (
-                                        //((NoOfBoardMoved + Is >= Total) && 
-                                        TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
-                                )
-                                {
-                                    IsS = true;
-                                    SetSupHuTrue();
-                                }
-                            }
-                            else
-                            {
-                                if (
-                                        //((NoOfBoardMoved + Is >= Total) && 
-                                        TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
-                                )
-                                {
-                                    IsS = true;
-                                    SetSupHuTrue();
-                                }
-                            }
-                            //Empire more
-                            if (A)
-                            {
-                                if (ColleralationGray < 16)
-                                {
-                                    if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportGray)
-                                    {
-                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
-                                    }
-                                    else
-                                    if (DifOfNoOfSupporteAndReducedSupportGray < 64)
-                                    {
-                                        IsS = true;
-                                        SetSupHuTrue();
-                                    }
-                                }
-                            }
-                            //Hourse before elephants
-                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[2, 7] && TableS[2, 7] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[5, 7] && TableS[5, 7] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
-                            {
-                                Color a = Color.Gray;
-                                if (Order == -1)
-                                    a = Color.Brown;
-                                if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, CloneATable(TableS), Order, a)))
-                                {
-                                    IsS = true;
-                                    SetSupHuTrue();
-                                }
-                            }
-                        }
-                        //when thre is most reduced support finding
-                        int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                        if (IsNo != null)
-                        {
-                            if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                            {
-                                if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                    ClearSupHuTrue();
-                            }
-                        }
-                        if (HDoubleAttack > 0)
-                        {
-                            if (!IsSupHu[IsSupHu.Count - 1])
-                                WinOcuuredatChiled = 5;
-                        }
                     }
                     else
                     {
@@ -12707,146 +13039,6 @@ namespace RefrigtzW
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
-                        //Disturbe on huge traversal exchange prevention 
-                        //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        if (Order == AllDraw.OrderPlateDraw)
-                        {
-                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
-                            {
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
-                            {
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            else
-                            {
-                                if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && IsS)
-                                {
-                                    TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                    IsS = false;
-                                }
-                            }
-                        }
-                        if (!GoldenFinished)
-                        {   //Ignore of atack and checkedmate at first until all move
-                            bool A = false, B = false, C = false;
-                            if (Order == 1)
-                            {
-                                A = ColleralationGray < 30;
-                                if (Order == AllDraw.OrderPlateDraw)
-                                {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                    C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
-                                }
-                            }
-                            else
-                            {
-                                A = ColleralationBrown < 30;
-                                if (Order == AllDraw.OrderPlateDraw)
-                                {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                    C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
-                                }
-                            }
-                            if (A && ((B) || (C)))
-                            {
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            else
-                            {
-                                if (Order == AllDraw.OrderPlateDraw)
-                                {//if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
-                                 
-                                 //Empire more
-                                    if (A)
-                                    {
-                                        if (ColleralationBrown < 16)
-                                        {
-                                            if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportBrown)
-                                            {
-                                                DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
-                                            }
-                                            else
-                                            if (DifOfNoOfSupporteAndReducedSupportBrown < 64)
-                                            {
-                                                {
-                                                    SetSupHuTrue();
-                                                    IsS = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    //Hourse before elephants
-                                    if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableS[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
-                                    {
-                                        Color a = Color.Gray;
-                                        if (Order == -1)
-                                            a = Color.Brown;
-                                        if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == -3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, CloneATable(TableS), Order, a)))
-                                        {
-                                            SetSupHuTrue();
-                                            IsS = true;
-                                        }
-                                    }
-                                    //Every objects one move at game begin
-                                    int Total = 0;
-                                    int Is = 0;
-                                    NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                                    if (Order == 1)
-                                    {
-                                        if (
-                                             //((NoOfBoardMoved + Is >= Total) && 
-                                             TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                     //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0
-                                     )
-                                        {
-                                            IsS = true;
-                                            SetSupHuTrue();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (
-                                              //((NoOfBoardMoved + Is >= Total) && 
-                                              TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                      //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0
-                                      )
-                                        {
-                                            IsS = true;
-                                            SetSupHuTrue();
-                                        }
-                                    }
-                                }
-                                //when thre is most reduced support finding
-                                int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                                if (IsNo != null)
-                                {
-                                    if (IsNo[1] < HeuristicAllReducedSupport.Count && IsNo[1] >= HeuristicAllReducedSupportMidel)
-                                    {
-                                        if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                            ClearSupHuTrue();
-                                    }
-                                }
-
-                                if (!IsS)
-                                    ClearSupHuTrue();
-                            }
-                        }
-                        if (HDoubleAttack > 0)
-                        {
-                            if (!IsSupHu[IsSupHu.Count - 1])
-                            {
-                                WinOcuuredatChiled = 5;
-                            }
-                            else
-                                WinOcuuredatChiled = 0;
-                        }
                     }
                 }
             }
@@ -14529,7 +14721,9 @@ namespace RefrigtzW
         }
         int IndexOfMoved()
         {
+#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = -1;
+#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
             for (int j = 0; j < HeuristicAllReducedAttackedMidel; j++)
             {
                 bool Is = false;
@@ -14593,8 +14787,12 @@ namespace RefrigtzW
         }
         int IndexOfIsSupTRUE(int Kind, int RowD, int ColD)
         {
+#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = -1;
+#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'Is' is assigned but its value is never used
             bool Is = false;
+#pragma warning restore CS0219 // The variable 'Is' is assigned but its value is never used
             if (Kind == 1)
             {
                 for (int j = 0; j < RowColumnSoldier.Count; j++)
