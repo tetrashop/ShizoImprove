@@ -15132,6 +15132,29 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (!Quantum)
+                {
+                    if (!RefrigtzDLL.AllDraw.AllowedSupTrue)
+                    {
+                        RefrigtzDLL.AllDraw.AllowedSupTrue = true;
+                        return;
+                    }
+
+
+                }
+                else
+                {
+                    if (!QuantumRefrigiz.AllDraw.AllowedSupTrue)
+                    {
+                        QuantumRefrigiz.AllDraw.AllowedSupTrue = true;
+                        return;
+                    }
+                }
+                if (!Quantum)
+                    RefrigtzDLL.AllDraw.AllowedSupTrue = false;
+                else
+                    QuantumRefrigiz.AllDraw.AllowedSupTrue = false;
+
 
                 SetAllDrawKind();
                 //Set Configuration To True for some unknown reason!.

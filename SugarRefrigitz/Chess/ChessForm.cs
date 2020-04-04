@@ -1525,14 +1525,17 @@ namespace Chess
                             Draw.SetRowColumn(0);
                             Draw.IsCurrentDraw = true;
                             RefrigtzDLL.ThinkingChess.NoOfMovableAllObjectMove++;
+                            RefrigtzDLL.AllDraw.AllowedSupTrue = true;
+
                             goto Again;
                             
                         }
-                        
-                        
-                        
-                        
-                      
+                        RefrigtzDLL.AllDraw.AllowedSupTrue = false;
+
+
+
+
+
                         R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
                         if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, 1 , true))
                         {

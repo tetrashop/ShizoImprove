@@ -4831,6 +4831,7 @@ namespace RefrigtzW
                 if (HA == 0)
                 {
                     var H3 = Task.Factory.StartNew(() => HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, CloneATable(Table), a));
+                    H3.Wait();
                     H3.Dispose();
                 }
                 if (HA == 0)

@@ -18,6 +18,7 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
+        public static bool AllowedSupTrue = false;
         public static int OrderPlateDraw = 1;
 
         public static bool UniqueLeafDetection = false;
@@ -9497,23 +9498,26 @@ namespace QuantumRefrigiz
         bool IsSupHuTrue(int i, int j, int k, int Kind)
         {
             bool Is = false;
-            if (Kind == 1)
-                Is = SolderesOnTable[i].SoldierThinkingQuantum[0].IsSupHu[j];
-            else
-   if (Kind == 2)
-                Is = ElephantOnTable[i].ElefantThinkingQuantum[0].IsSupHu[j];
-            else
-   if (Kind == 3)
-                Is = HoursesOnTable[i].HourseThinkingQuantum[0].IsSupHu[j];
-            else
-   if (Kind == 4)
-                Is = CastlesOnTable[i].CastleThinkingQuantum[0].IsSupHu[j];
-            else
-   if (Kind == 5)
-                Is = MinisterOnTable[i].MinisterThinkingQuantum[0].IsSupHu[j];
-            else
-   if (Kind == 6)
-                Is = KingOnTable[i].KingThinkingQuantum[0].IsSupHu[j];
+            if (!AllowedSupTrue)
+            {
+                if (Kind == 1)
+                    Is = SolderesOnTable[i].SoldierThinkingQuantum[0].IsSupHu[j];
+                else
+       if (Kind == 2)
+                    Is = ElephantOnTable[i].ElefantThinkingQuantum[0].IsSupHu[j];
+                else
+       if (Kind == 3)
+                    Is = HoursesOnTable[i].HourseThinkingQuantum[0].IsSupHu[j];
+                else
+       if (Kind == 4)
+                    Is = CastlesOnTable[i].CastleThinkingQuantum[0].IsSupHu[j];
+                else
+       if (Kind == 5)
+                    Is = MinisterOnTable[i].MinisterThinkingQuantum[0].IsSupHu[j];
+                else
+       if (Kind == 6)
+                    Is = KingOnTable[i].KingThinkingQuantum[0].IsSupHu[j];
+            }
             return Is;
         }
 
