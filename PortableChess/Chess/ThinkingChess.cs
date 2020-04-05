@@ -4167,62 +4167,66 @@ namespace RefrigtzChessPortable
                     return false;
                 bool Is = false;
                 int IsN = 0;
-                int Sign = (System.Math.Abs(Table[RowK, ColK]) / Table[RowK, ColK]) * -1;
-                int Obj1 = Sign * 4;
-                int Obj2 = Sign * 5;
-                for (int k = 0; k < 8; k++)
+                if (Table[RowK, ColK] != 0)
                 {
-                    if (RowK == k)
-                        continue;
-                    if (Table[k, ColK] == Obj1 || Table[k, ColK] == Obj2)
+                    int Sign = (System.Math.Abs(Table[RowK, ColK]) / Table[RowK, ColK]) * -1;
+                    int Obj1 = Sign * 4;
+                    int Obj2 = Sign * 5;
+                    for (int k = 0; k < 8; k++)
                     {
-                        IsN++;
-                    }
-                    else
-                    if (Table[k, ColK] != 0)
-                        IsN = 0;
-                    for (int p = 0; p < 8; p++)
-                    {
-                        if (p == ColK)
+                        if (RowK == k)
                             continue;
-                        if (Table[k, p] == Obj1 || Table[k, p] == Obj2)
+                        if (Table[k, ColK] == Obj1 || Table[k, ColK] == Obj2)
                         {
                             IsN++;
                         }
                         else
-                    if (Table[k, p] != 0)
+                        if (Table[k, ColK] != 0)
                             IsN = 0;
+                        for (int p = 0; p < 8; p++)
+                        {
+                            if (p == ColK)
+                                continue;
+                            if (Table[k, p] == Obj1 || Table[k, p] == Obj2)
+                            {
+                                IsN++;
+                            }
+                            else
+                        if (Table[k, p] != 0)
+                                IsN = 0;
+                        }
                     }
-                }
-                if (IsN >= 2)
-                    return true;
-                IsN = 0;
-                for (int k = 0; k < 8; k++)
-                {
-                    if (ColK == k)
-                        continue;
-                    if (Table[RowK, k] == Obj1 || Table[RowK, k] == Obj2)
+
+                    if (IsN >= 2)
+                        return true;
+                    IsN = 0;
+                    for (int k = 0; k < 8; k++)
                     {
-                        IsN++;
-                    }
-                    else
-                    if (Table[RowK, 0] != 0)
-                        IsN = 0;
-                    for (int p = 0; p < 8; p++)
-                    {
-                        if (p == RowK)
+                        if (ColK == k)
                             continue;
-                        if (Table[p, k] == Obj1 || Table[p, k] == Obj2)
+                        if (Table[RowK, k] == Obj1 || Table[RowK, k] == Obj2)
                         {
                             IsN++;
                         }
                         else
-                    if (Table[p, k] != 0)
+                        if (Table[RowK, 0] != 0)
                             IsN = 0;
+                        for (int p = 0; p < 8; p++)
+                        {
+                            if (p == RowK)
+                                continue;
+                            if (Table[p, k] == Obj1 || Table[p, k] == Obj2)
+                            {
+                                IsN++;
+                            }
+                            else
+                        if (Table[p, k] != 0)
+                                IsN = 0;
+                        }
                     }
+                    if (IsN >= 2)
+                        Is = true;
                 }
-                if (IsN >= 2)
-                    Is = true;
                 return Is;
             }
         }
@@ -4277,13 +4281,16 @@ namespace RefrigtzChessPortable
                         {
                             if (!SameSign(Table[RowK, ColK], Table[p, k]))
                             {
-                                int Obj = System.Math.Abs(Table[p, k]) / Table[p, k];
-                                int Obj1 = Obj * 4;
-                                int Obj2 = Obj * 5;
-                                if (Table[p, k] == Obj1)
-                                    return true;
-                                if (Table[p, k] == Obj2)
-                                    return true;
+                                if (Table[p, k] != 0)
+                                {
+                                    int Obj = System.Math.Abs(Table[p, k]) / Table[p, k];
+                                    int Obj1 = Obj * 4;
+                                    int Obj2 = Obj * 5;
+                                    if (Table[p, k] == Obj1)
+                                        return true;
+                                    if (Table[p, k] == Obj2)
+                                        return true;
+                                }
                             }
                         }
                     }
@@ -4295,13 +4302,16 @@ namespace RefrigtzChessPortable
                         {
                             if (!SameSign(Table[RowK, ColK], Table[k, p]))
                             {
-                                int Obj = System.Math.Abs(Table[k, p]) / Table[k, p];
-                                int Obj1 = Obj * 4;
-                                int Obj2 = Obj * 5;
-                                if (Table[k, p] == Obj1)
-                                    return true;
-                                if (Table[k, p] == Obj2)
-                                    return true;
+                                if (Table[k, p] != 0)
+                                {
+                                    int Obj = System.Math.Abs(Table[k, p]) / Table[k, p];
+                                    int Obj1 = Obj * 4;
+                                    int Obj2 = Obj * 5;
+                                    if (Table[k, p] == Obj1)
+                                        return true;
+                                    if (Table[k, p] == Obj2)
+                                        return true;
+                                }
                             }
                         }
                     }
