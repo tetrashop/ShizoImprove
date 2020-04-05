@@ -11711,7 +11711,7 @@ namespace RefrigtzChessPortable
             lock (O)
             {
                 int[,] TableHeuristic = new int[8, 8];
-                AStarGreedyi++;
+                //AStarGreedyi++;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.
@@ -11805,7 +11805,7 @@ namespace RefrigtzChessPortable
             lock (O)
             {
                 int[,] TableHeuristic = new int[8, 8];
-                AStarGreedyi++;
+                //AStarGreedyi++;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.

@@ -8442,16 +8442,18 @@ namespace QuantumRefrigiz
             return Heuristic;
         }
         //main insider method for manage Heuristic count
-        public int ReturnHeuristicCalculartor(int iAStarGready, int ii, int j, int Order, ref int HaveKilled)
+        public int ReturnHeuristicCalculartor(int iAstarGready, int ii, int j, int Order, ref int HaveKilled)
         {
             int BOUND = 0;
-
+            if (iAstarGready > AllDraw.MaxAStarGreedy)
+                return 0;
+            iAstarGready++;
             Object O = new Object();
             lock (O)
             {
                 int Heuristic = 0;
                 //when deeper there is not or level exceed
-                if (AStarGreedy == null && iAStarGready != 0)
+                if (AStarGreedy == null && iAstarGready != 0)
                 {
                     return 0;
                 }
@@ -8461,22 +8463,22 @@ namespace QuantumRefrigiz
                 if (ii != -1)
                 {
                     //kiiler Heuristic determination//main deeper Heuristic
-                    Heuristic += ReturnHeuristicCalculartorKiller(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Heuristic += ReturnHeuristicCalculartorKiller(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                     //main deeper Heuristic
-                    Heuristic += ReturnHeuristicCalculartorDeeper(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Heuristic += ReturnHeuristicCalculartorDeeper(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
 
                 }
                 else
                 {
                     //sufacive Heuristic
-                    Heuristic += ReturnHeuristicCalculartorSurface(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Heuristic += ReturnHeuristicCalculartorSurface(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                 }
                 Order = DummyOrder;
-                if (BOUND < 0)
+                /*if (BOUND < 0)
                     Heuristic = int.MinValue;
                 else
                     if (BOUND > 0)
-                    Heuristic = int.MaxValue;
+                    Heuristic = int.MaxValue;*/
 
                 return Heuristic;
             }
@@ -10075,7 +10077,8 @@ namespace QuantumRefrigiz
                     }
                     if (RETURN)
                         return;
-                    //if (Order != AllDraw.OrderPlateDraw)
+                    if (Order != AllDraw.OrderPlateDraw)
+                        return;
                         
                 }
                 //Initiate Local Variables.
@@ -12716,7 +12719,8 @@ namespace QuantumRefrigiz
                     AchmazPureMidle = AchmazPure.Count;
                     AchmazReducedMidle = AchmazReduced.Count;
                 }
-                //if (Order != AllDraw.OrderPlateDraw)
+                if (Order != AllDraw.OrderPlateDraw)
+                    return;
 
                 int[] Hu = null;
                 var th = Task.Factory.StartNew(() => Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color));
@@ -13390,7 +13394,7 @@ namespace QuantumRefrigiz
                             HeuristicAttackValue--;
                     }
                     else
-                        if (AllDraw.OrderPlate != Order)
+                        if (AllDraw.OrderPlateDraw != Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
                             HeuristicAttackValue++;
@@ -13401,7 +13405,7 @@ namespace QuantumRefrigiz
                             HeuristicAttackValue++;
                     }
                     else
-                        if (AllDraw.OrderPlate != Order)
+                        if (AllDraw.OrderPlateDraw != Order)
                     {
                         if (Current.IsRewardAction() == 1)
                             HeuristicAttackValue++;
@@ -13417,7 +13421,7 @@ namespace QuantumRefrigiz
                                 HeuristicAttackValue -= 2;
                         }
                         else
-                          if (AllDraw.OrderPlate != Order)
+                          if (AllDraw.OrderPlateDraw != Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
                                 HeuristicAttackValue += 2;
@@ -13428,7 +13432,7 @@ namespace QuantumRefrigiz
                                 HeuristicAttackValue += 2;
                         }
                         else
-                            if (AllDraw.OrderPlate != Order)
+                            if (AllDraw.OrderPlateDraw != Order)
                         {
                             if (Current.IsRewardAction() == 1)
                                 HeuristicAttackValue -= 2;
@@ -14680,9 +14684,11 @@ namespace QuantumRefrigiz
                                 }
                             }
                         }
-                        
+
                     }
                 }
+                else
+                    LoseOcuuredatChiled[0] = -6;
             }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
@@ -14733,6 +14739,8 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
+                else
+                    LoseOcuuredatChiled[0] = -6;
             }
         }
         int IndexOfMoved()

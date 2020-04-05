@@ -8427,7 +8427,9 @@ namespace RefrigtzChessPortable
         public int ReturnHeuristicCalculartor(int iAstarGready, int ii, int j, int Order, ref int HaveKilled)
         {
             int BOUND = 0;
-
+            if (iAstarGready > AllDraw.MaxAStarGreedy)
+                return 0;
+            iAstarGready++;
             Object O = new Object();
             lock (O)
             {
@@ -8454,11 +8456,11 @@ namespace RefrigtzChessPortable
                     Heuristic += ReturnHeuristicCalculartorSurface(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                 }
                 Order = DummyOrder;
-                if (BOUND < 0)
+                /*if (BOUND < 0)
                     Heuristic = int.MinValue;
                 else
                     if (BOUND > 0)
-                    Heuristic = int.MaxValue;
+                    Heuristic = int.MaxValue;*/
 
                 return Heuristic;
             }
@@ -10047,7 +10049,8 @@ namespace RefrigtzChessPortable
                     }
                     if (RETURN)
                         return;
-                    //if (AllDraw.OrderPlate != Order)
+                    if (AllDraw.OrderPlateDraw != Order)
+                        return;
                     
 
                 }
@@ -12690,7 +12693,8 @@ namespace RefrigtzChessPortable
                     AchmazPureMidle = AchmazPure.Count;
                     AchmazReducedMidle = AchmazReduced.Count;
                 }
-                //if (Order != AllDraw.OrderPlateDraw)
+                if (Order != AllDraw.OrderPlateDraw)
+                    return;
 
                 int[] Hu = null;
                 var th = Task.Factory.StartNew(() => Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color));
@@ -13362,7 +13366,7 @@ namespace RefrigtzChessPortable
                             HeuristicAttackValue--;
                     }
                     else
-                        if (AllDraw.OrderPlate != Order)
+                        if (AllDraw.OrderPlateDraw != Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
                             HeuristicAttackValue++;
@@ -13373,7 +13377,7 @@ namespace RefrigtzChessPortable
                             HeuristicAttackValue++;
                     }
                     else
-                        if (AllDraw.OrderPlate != Order)
+                        if (AllDraw.OrderPlateDraw != Order)
                     {
                         if (Current.IsRewardAction() == 1)
                             HeuristicAttackValue++;
@@ -13389,7 +13393,7 @@ namespace RefrigtzChessPortable
                                 HeuristicAttackValue -= 2;
                         }
                         else
-                          if (AllDraw.OrderPlate != Order)
+                          if (AllDraw.OrderPlateDraw != Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
                                 HeuristicAttackValue += 2;
@@ -13400,7 +13404,7 @@ namespace RefrigtzChessPortable
                                 HeuristicAttackValue += 2;
                         }
                         else
-                            if (AllDraw.OrderPlate != Order)
+                            if (AllDraw.OrderPlateDraw != Order)
                         {
                             if (Current.IsRewardAction() == 1)
                                 HeuristicAttackValue -= 2;
@@ -14652,9 +14656,11 @@ namespace RefrigtzChessPortable
                                 }
                             }
                         }
-                        
+
                     }
                 }
+                else
+                    LoseOcuuredatChiled[0] = -6;
             }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
@@ -14705,6 +14711,8 @@ namespace RefrigtzChessPortable
                         }
                     }
                 }
+                else
+                    LoseOcuuredatChiled[0] = -6;
             }
         }
         int IndexOfMoved()
