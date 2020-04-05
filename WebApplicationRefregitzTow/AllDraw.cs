@@ -5415,7 +5415,7 @@ namespace RefrigtzW
             }
             return Found;
         }
-        public AllDraw FoundOfLeafDepenOfKindSoldier(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindSoldier(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5473,7 +5473,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
-                            SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
 
                 }
@@ -5482,7 +5482,7 @@ namespace RefrigtzW
                 return Leaf;
             }
         }
-        public AllDraw FoundOfLeafDepenOfKindElephant(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindElephant(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5541,7 +5541,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
-                            ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
 
 
@@ -5550,7 +5550,7 @@ namespace RefrigtzW
                 return Leaf;
             }
         }
-        public AllDraw FoundOfLeafDepenOfKindHourse(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindHourse(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5608,7 +5608,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
-                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
 
                 }
@@ -5619,7 +5619,7 @@ namespace RefrigtzW
                 return Leaf;
             }
         }
-        public AllDraw FoundOfLeafDepenOfKindCastle(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindCastle(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5678,7 +5678,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
-                            CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
                 }
 
@@ -5686,7 +5686,7 @@ namespace RefrigtzW
                 return Leaf;
             }
         }
-        public AllDraw FoundOfLeafDepenOfKindMinister(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindMinister(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5744,7 +5744,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
-                            MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
 
 
@@ -5755,7 +5755,7 @@ namespace RefrigtzW
                 return Leaf;
             }
         }
-        public AllDraw FoundOfLeafDepenOfKindKing(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKindKing(int i, ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
 
             Object a = new Object();
@@ -5811,7 +5811,7 @@ namespace RefrigtzW
                     }
                     else//deeper
                         for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
-                            KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+                            KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, LeafDeep, ik, jk, iii, jjj);
 
 
 
@@ -5822,12 +5822,15 @@ namespace RefrigtzW
             }
         }
         //found of leadfs of created tree depend of orderic 
-        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, int LeafDeep, int ik, int jk, int iii, int jjj)
         {
             
             Object a = new Object();
             lock (a)
             {
+                if (LeafDeep > MaxAStarGreedy)
+                    return Leaf;
+                LeafDeep++;
                 //when found return recursive
                 if (UniqueLeafDetection)
                 {
@@ -5839,7 +5842,7 @@ namespace RefrigtzW
 
                     for (var i = 0; i < SodierMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5848,7 +5851,7 @@ namespace RefrigtzW
                     }
                     for (var i = 0; i < ElefantMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5857,7 +5860,7 @@ namespace RefrigtzW
                     }
                     for (var i = 0; i < HourseMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
 
                     }
 
@@ -5868,7 +5871,7 @@ namespace RefrigtzW
                     }
                     for (var i = 0; i < CastleMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5877,7 +5880,7 @@ namespace RefrigtzW
                     }
                     for (var i = 0; i < MinisterMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5886,7 +5889,7 @@ namespace RefrigtzW
                     }
                     for (var i = 0; i < KingMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                 }
                 else
@@ -5898,7 +5901,7 @@ namespace RefrigtzW
                     }
                     for (var i = SodierMidle; i < SodierHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                         if (UniqueLeafDetection)
                         {
@@ -5907,7 +5910,7 @@ namespace RefrigtzW
                         }
                       for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5916,7 +5919,7 @@ namespace RefrigtzW
                     }
                     for (var i = HourseMidle; i < HourseHight; i++)
                     {
-                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5925,7 +5928,7 @@ namespace RefrigtzW
                     }
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                     if (UniqueLeafDetection)
                     {
@@ -5934,7 +5937,7 @@ namespace RefrigtzW
                     }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
 
                     if (UniqueLeafDetection)
@@ -5944,7 +5947,7 @@ namespace RefrigtzW
                     }
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
+                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
                     }
                 }
                 
@@ -16687,8 +16690,8 @@ namespace RefrigtzW
                     FOUND = false;
                     RefrigtzW.AllDraw Leaf = null;
                     Tabl = CloneATable(Table);
-                    int OrderLeaf = Order;
-                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
+                    int LeafDeep = MaxAStarGreedy;
+                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, LeafDeep, 0, 0, 0, 0));
 
 
 
