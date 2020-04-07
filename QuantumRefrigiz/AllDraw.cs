@@ -5989,7 +5989,7 @@ namespace QuantumRefrigiz
                         {
 
                             //when is victory
-                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].IsThereMateOfEnemy// && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].IsThereMateOfEnemy[j]// && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 1)
                             {
                                 Found = true;
@@ -6007,7 +6007,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             //when is victory
-                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].IsThereMateOfEnemy[j] //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0 
                         && Kind == 2)
                             {
                                 Found = true;
@@ -6026,7 +6026,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             //when is victory
-                            if (HoursesOnTable[i].HourseThinkingQuantum[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (HoursesOnTable[i].HourseThinkingQuantum[0].IsThereMateOfEnemy[j] //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0 
 && Kind == 3)
                             {
                                 Found = true;
@@ -6046,7 +6046,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             //when is victory
-                            if (CastlesOnTable[i].CastleThinkingQuantum[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (CastlesOnTable[i].CastleThinkingQuantum[0].IsThereMateOfEnemy[j] //&& CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 4)
                             {
                                 Found = true;
@@ -6064,7 +6064,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //when is victory
-                            if (MinisterOnTable[i].MinisterThinkingQuantum[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (MinisterOnTable[i].MinisterThinkingQuantum[0].IsThereMateOfEnemy[j] //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 5)
                             {
                                 Found = true;
@@ -6083,7 +6083,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //when is victory
-                            if (KingOnTable[i].KingThinkingQuantum[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (KingOnTable[i].KingThinkingQuantum[0].IsThereMateOfEnemy[j] //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 6)
                             {
                                 Found = true;
@@ -6106,7 +6106,7 @@ namespace QuantumRefrigiz
                         {
 
                             //when is victory
-                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].IsThereMateOfEnemy //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].IsThereMateOfEnemy[j] //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 1)
                             {
                                 Found = true;
@@ -6124,7 +6124,7 @@ namespace QuantumRefrigiz
                         {
 
                             //when is victory
-                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].IsThereMateOfEnemy[j] //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 2)
                             {
                                 Found = true;
@@ -6142,7 +6142,7 @@ namespace QuantumRefrigiz
                         {
 
                             //when is victory
-                            if (HoursesOnTable[i].HourseThinkingQuantum[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (HoursesOnTable[i].HourseThinkingQuantum[0].IsThereMateOfEnemy[j] //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 3)
                             {
                                 Found = true;
@@ -6160,7 +6160,7 @@ namespace QuantumRefrigiz
                         {
 
                             //when is victory
-                            if (CastlesOnTable[i].CastleThinkingQuantum[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (CastlesOnTable[i].CastleThinkingQuantum[0].IsThereMateOfEnemy[j] //&& CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 4)
                             {
                                 Found = true;
@@ -6178,7 +6178,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //when is victory
-                            if (MinisterOnTable[i].MinisterThinkingQuantum[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0
+                            if (MinisterOnTable[i].MinisterThinkingQuantum[0].IsThereMateOfEnemy[j] //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0
                                 && Kind == 5)
                             {
                                 Found = true;
@@ -6196,7 +6196,7 @@ namespace QuantumRefrigiz
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //when is victory
-                            if (KingOnTable[i].KingThinkingQuantum[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0 
+                            if (KingOnTable[i].KingThinkingQuantum[0].IsThereMateOfEnemy[j] //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0 
                                 && Kind == 6)
                             {
                                 Found = true;

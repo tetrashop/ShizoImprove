@@ -123,8 +123,8 @@ namespace QuantumRefrigiz
         public static bool FullGameAllow = false;
         int iIndex = -1;
         public static bool IsAtLeAStOneKillerAtDraw = false;
-        public bool KishSelf = false;
-        public bool KishEnemy = false;
+        public List<bool> KishSelf = new List<bool>();
+        public List<bool> KishEnemy = new List<bool>();
         readonly StringBuilder Space = new StringBuilder("&nbsp;");
 //#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
         readonly int Spaces = 0;
@@ -143,10 +143,10 @@ namespace QuantumRefrigiz
         public List<bool> IsSupHu = new List<bool>();
         readonly StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
-        public bool IsThereMateOfEnemy = false;
-        public bool IsThereMateOfSelf = false;
-        public bool IsThereCheckOfEnemy = false;
-        public bool IsThereCheckOfSelf = false;
+        public List<bool> IsThereMateOfEnemy = new List<bool>();
+        public List<bool> IsThereMateOfSelf = new List<bool>();
+        public List<bool> IsThereCheckOfEnemy = new List<bool>();
+        public List<bool> IsThereCheckOfSelf = new List<bool>();
 //#pragma warning disable CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
 //#pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
@@ -9891,7 +9891,7 @@ namespace QuantumRefrigiz
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
-                        
+
                     }
                     //Consideration to go to Check.  
                     //if (!UsePenaltyRegardMechnisamT)
@@ -9902,7 +9902,12 @@ namespace QuantumRefrigiz
                             Object A = new Object();
                             lock (A)
                             {
-                                IsThereMateOfEnemy = true;
+                                IsThereMateOfEnemy.Add(true);
+                                IsThereCheckOfSelf.Add(false);
+                                IsThereCheckOfEnemy.Add(false);
+                                IsThereMateOfSelf.Add(false);
+                                KishEnemy.Add(true);
+                                KishSelf.Add(false);
                                 FoundFirstMating++;
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
@@ -9927,7 +9932,12 @@ namespace QuantumRefrigiz
                             Object A = new Object();
                             lock (A)
                             {
-                                IsThereMateOfEnemy = true;
+                                IsThereMateOfEnemy.Add(true);
+                                IsThereCheckOfSelf.Add(false);
+                                IsThereCheckOfEnemy.Add(false);
+                                IsThereMateOfSelf.Add(false);
+                                KishEnemy.Add(true);
+                                KishSelf.Add(false);
                                 FoundFirstMating++;
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
@@ -9951,7 +9961,12 @@ namespace QuantumRefrigiz
                             Object A = new Object();
                             lock (A)
                             {
-                                IsThereMateOfSelf = true;
+                                IsThereMateOfEnemy.Add(false);
+                                IsThereMateOfSelf.Add(true);
+                                IsThereCheckOfSelf.Add(false);
+                                IsThereCheckOfEnemy.Add(false);
+                                KishEnemy.Add(false);
+                                KishSelf.Add(true);
                                 FoundFirstSelfMating++;
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
@@ -9977,6 +9992,12 @@ namespace QuantumRefrigiz
                             Object A = new Object();
                             lock (A)
                             {
+                                IsThereMateOfEnemy.Add(false);
+                                IsThereMateOfSelf.Add(true);
+                                IsThereCheckOfSelf.Add(false);
+                                IsThereCheckOfEnemy.Add(false);
+                                KishEnemy.Add(false);
+                                KishSelf.Add(true);
                                 FoundFirstSelfMating++;
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
@@ -9996,34 +10017,60 @@ namespace QuantumRefrigiz
                         }
                         if (Order == 1 && AA.CheckMateBrown)
                         {
-                            IsThereCheckOfEnemy = true;
+                            IsThereCheckOfEnemy.Add(true);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(true);
+                            KishSelf.Add(false);
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
-                            IsThereCheckOfEnemy = true;
+
+                            IsThereCheckOfEnemy.Add(true);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(true);
+                            KishSelf.Add(false);
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
-                            IsThereMateOfSelf = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(true);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(false);
+                            KishSelf.Add(true);
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
-                            IsThereMateOfSelf = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(true);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(false);
+                            KishSelf.Add(true);
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                         }
                         if (Order == 1 && AA.CheckGray)
                         {
-                            IsThereCheckOfSelf = true;
-                            KishSelf = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishSelf.Add(true);
+                            KishEnemy.Add(false);
+
                             Object A = new object();
                             lock (A)
                             {
@@ -10034,8 +10081,12 @@ namespace QuantumRefrigiz
                         else
                             if (Order == -1 && AA.CheckBrown)
                         {
-                            IsThereCheckOfSelf = true;
-                            KishSelf = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishSelf.Add(true);
+                            KishEnemy.Add(false);
                             Object A = new object();
                             lock (A)
                             {
@@ -10045,8 +10096,12 @@ namespace QuantumRefrigiz
                         }
                         if (Order == 1 && AA.CheckBrown)
                         {
-                            IsThereCheckOfEnemy = true;
-                            KishEnemy = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(true);
+                            KishSelf.Add(false);
                             Object A = new object();
                             lock (A)
                             {
@@ -10056,8 +10111,12 @@ namespace QuantumRefrigiz
                         }
                         if (Order == -1 && AA.CheckGray)
                         {
-                            IsThereCheckOfEnemy = true;
-                            KishEnemy = true;
+                            IsThereCheckOfEnemy.Add(false);
+                            IsThereMateOfEnemy.Add(false);
+                            IsThereMateOfSelf.Add(false);
+                            IsThereCheckOfSelf.Add(false);
+                            KishEnemy.Add(true);
+                            KishSelf.Add(false);
                             Object A = new object();
                             lock (A)
                             {
@@ -10070,16 +10129,25 @@ namespace QuantumRefrigiz
                         }
 
                     }
-                    if (CheckedM!=3)
+                    if (CheckedM != 3)
                     {
                         WinChiled.Add(0);
                         LoseChiled.Add(0);
                     }
+                    if (CheckedM != -2 && CheckedM != -1)
+                    {
+                        IsThereCheckOfEnemy.Add(false);
+                        IsThereMateOfEnemy.Add(false);
+                        IsThereMateOfSelf.Add(false);
+                        IsThereCheckOfSelf.Add(false);
+                        KishEnemy.Add(false);
+                        KishSelf.Add(false);
+                    }
                     if (RETURN)
                         return;
-                    if (Order != AllDraw.OrderPlateDraw)
+                    if (AllDraw.OrderPlateDraw != Order)
                         return;
-                        
+
                 }
                 //Initiate Local Variables.
                 bool IsCurrentCanGardHighPriorityEne = new bool();
@@ -10324,9 +10392,11 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-//#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+                            //#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
-//#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
+#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
+                            //#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -12786,7 +12856,7 @@ namespace QuantumRefrigiz
                                     if (Order == AllDraw.OrderPlateDraw)
                                     {
                                         B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf[IsThereMateOfSelf.Count-1] || IsThereMateOfEnemy[IsThereMateOfEnemy.Count-1]);
                                     }
                                 }
                                 else
@@ -12795,7 +12865,7 @@ namespace QuantumRefrigiz
                                     if (Order == AllDraw.OrderPlateDraw)
                                     {
                                         B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf[IsThereMateOfSelf.Count-1] || IsThereMateOfEnemy[IsThereMateOfEnemy.Count-1]);
                                     }
                                 }
                                 if (A && ((B) || (C)))
@@ -12913,7 +12983,7 @@ namespace QuantumRefrigiz
                                     if (Order == AllDraw.OrderPlateDraw)
                                     {
                                         B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf[IsThereMateOfSelf.Count-1] || IsThereMateOfEnemy[IsThereMateOfEnemy.Count-1]);
                                     }
                                 }
                                 else
@@ -12922,7 +12992,7 @@ namespace QuantumRefrigiz
                                     if (Order == AllDraw.OrderPlateDraw)
                                     {
                                         B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);
+                                        C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf[IsThereMateOfSelf.Count-1] || IsThereMateOfEnemy[IsThereMateOfEnemy.Count-1]);
                                     }
                                 }
                                 if (A && ((B) || (C)))
@@ -14501,14 +14571,14 @@ namespace QuantumRefrigiz
                                     FoundFirstSelfMating++;
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled[0] = -2;
-                                    IsThereMateOfSelf = true;
+                                    IsThereMateOfSelf.Add(true);
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlateDraw == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlateDraw == 1))
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         WinOcuuredatChiled = 3;
                                     FoundFirstMating++;
-                                    IsThereMateOfEnemy = true;
+                                    IsThereMateOfEnemy.Add(true);
                                 }
                                 EndThread++;
                             }
@@ -14517,28 +14587,28 @@ namespace QuantumRefrigiz
                     }
                     if (Order == -1 && AAA.CheckBrown)
                     {
-                        IsThereCheckOfSelf = true;
+                        IsThereCheckOfSelf.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == -1 && AAA.CheckGray)
                     {
-                        IsThereCheckOfEnemy = true;
+                        IsThereCheckOfEnemy.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == -1 && AAA.CheckGray)
                     {
-                        IsThereCheckOfEnemy = true;
+                        IsThereCheckOfEnemy.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == 1 && AAA.CheckBrown)
                     {
-                        IsThereCheckOfSelf = true;
+                        IsThereCheckOfSelf.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
@@ -14645,50 +14715,50 @@ namespace QuantumRefrigiz
             Object OI = new Object();
             lock (OI)
             {
-                if (!IsThereCheckOfSelf)
+
+                if (RemoveOfDisturbIndex == -1)
                 {
-                    if (RemoveOfDisturbIndex == -1)
+                    if (IsSupHu.Count > 0)
                     {
-                        if (IsSupHu.Count > 0)
+                        bool IsSup = true;
+                        for (int i = 0; i < IsSupHu.Count; i++)
                         {
-                            bool IsSup = true;
-                            for (int i = 0; i < IsSupHu.Count; i++)
-                                IsSup = IsSup && IsSupHu[i];
-                            if (IsSup)
+                            if (IsThereMateOfSelf[i])
+                                LoseChiled[i] = -8;
+                            IsSup = IsSup && IsSupHu[i];
+                        }
+                        if (IsSup)
+                        {
+                            if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
                             {
-                                if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                                int i = IndexOfMoved();
+                                if (i != -1)
                                 {
-                                    int i = IndexOfMoved();
-                                    if (i != -1)
-                                    {
-                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                                        if (RemoveOfDisturbIndex != -1)
-                                            IsSupHu[RemoveOfDisturbIndex] = false;
-                                        else
-                                        {
-                                            if (Order == AllDraw.OrderPlateDraw)
-                                                LoseOcuuredatChiled[0] = -4;
-                                        }
-                                    }
+                                    RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                    if (RemoveOfDisturbIndex != -1)
+                                        IsSupHu[RemoveOfDisturbIndex] = false;
                                     else
                                     {
                                         if (Order == AllDraw.OrderPlateDraw)
                                             LoseOcuuredatChiled[0] = -4;
                                     }
-
                                 }
                                 else
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled[0] = -4;
                                 }
+
+                            }
+                            else
+                            {
+                                if (Order == AllDraw.OrderPlateDraw)
+                                    LoseOcuuredatChiled[0] = -4;
                             }
                         }
-
                     }
+
                 }
-                else
-                    LoseOcuuredatChiled[0] = -6;
             }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
@@ -14696,51 +14766,51 @@ namespace QuantumRefrigiz
             Object OI = new Object();
             lock (OI)
             {
-                if (!IsThereCheckOfSelf)
+
+                if (RemoveOfDisturbIndex == -1)
                 {
-                    if (RemoveOfDisturbIndex == -1)
+                    if (IsSupHu.Count > 0)
                     {
-                        if (IsSupHu.Count > 0)
+                        bool IsSup = true;
+                        for (int i = 0; i < IsSupHu.Count; i++)
                         {
-                            bool IsSup = true;
-                            for (int i = 0; i < IsSupHu.Count; i++)
-                                IsSup = IsSup && IsSupHu[i];
-                            if (IsSup)
+                            if (IsThereMateOfSelf[i])
+                                LoseChiled[i] = -8;
+                            IsSup = IsSup && IsSupHu[i];
+                        }
+                        if (IsSup)
+                        {
+                            if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
                             {
-                                if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
+                                int[] i = IndexOfMovedDoubleDefence(Tab);
+                                if (i[0] != -1 & i[1] != -1)
                                 {
-                                    int[] i = IndexOfMovedDoubleDefence(Tab);
-                                    if (i[0] != -1 & i[1] != -1)
-                                    {
-                                        if (Kind != i[2])
-                                            return;
-                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
-                                        bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
-                                        if (RemoveOfDisturbIndex != -1 && a)
-                                            IsSupHu[RemoveOfDisturbIndex] = false;
-                                        else if (!a)
-                                        {
-                                            if (Order == AllDraw.OrderPlateDraw)
-                                            {
-                                                LoseOcuuredatChiled[0] = 5;
-                                                LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
-                                                LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
-                                            }
-                                        }
-                                    }
-                                    else
+                                    if (Kind != i[2])
+                                        return;
+                                    RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
+                                    bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                    if (RemoveOfDisturbIndex != -1 && a)
+                                        IsSupHu[RemoveOfDisturbIndex] = false;
+                                    else if (!a)
                                     {
                                         if (Order == AllDraw.OrderPlateDraw)
-                                            LoseOcuuredatChiled[0] = -4;
+                                        {
+                                            LoseOcuuredatChiled[0] = 5;
+                                            LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
+                                            LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                        }
                                     }
-
                                 }
+                                else
+                                {
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                        LoseOcuuredatChiled[0] = -4;
+                                }
+
                             }
                         }
                     }
                 }
-                else
-                    LoseOcuuredatChiled[0] = -6;
             }
         }
         int IndexOfMoved()

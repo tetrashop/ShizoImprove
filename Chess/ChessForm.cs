@@ -140,6 +140,8 @@ namespace Chess
         [field: NonSerialized]
         private readonly CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
+        private ToolStripMenuItem درختToolStripMenuItem;
+        private ToolStripMenuItem نمایشToolStripMenuItem;
         [field: NonSerialized] private readonly Task feedTask;
 
         public ChessForm()
@@ -593,7 +595,10 @@ namespace Chess
                         //Load AllDraw.asd
                         bool LoadTree = true;
                         TakeRoot y = new TakeRoot();
-                        bool DrawDrawen = y.Load(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                        bool DrawDrawen = false;
+                        var newTask = Task.Factory.StartNew(() => DrawDrawen = y.Load(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true));
+                        newTask.Wait();
+                        newTask.Dispose();
                         if (!DrawDrawen)
                         {
                             Draw = new RefrigtzDLL.AllDraw(OrderPlate, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
@@ -620,7 +625,9 @@ namespace Chess
                                 Draw.SetRowColumn(0);
                                 Draw.IsCurrentDraw = true;
                             }
-                            Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+                            var newTask1 = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                            newTask1.Wait();
+                            newTask1.Dispose();
                             AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
                             
@@ -1650,7 +1657,9 @@ namespace Chess
                                             Draw.IsCurrentDraw = true;
                                         }
                                         Draw.AStarGreedyString = thiB;
-                                        Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+                                        var newTask = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                                        newTask.Wait();
+                                        newTask.Dispose();
                                         AllDraw.Blitz = B;
                                           
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
@@ -1715,7 +1724,9 @@ namespace Chess
                                     Draw.IsCurrentDraw = true;
                                 }
                                 Draw.AStarGreedyString = thiB;
-                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+                                var newTask = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                                newTask.Wait();
+                                newTask.Dispose();
 
                                 AllDraw.Blitz = B;
                                 
@@ -2043,13 +2054,16 @@ namespace Chess
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.درختToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.نمایشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.درختToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(500, 24);
@@ -2068,16 +2082,31 @@ namespace Chess
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AboutToolStripMenuItem.Text = "درباره";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // AboutHelpToolStripMenuItem
             // 
             this.AboutHelpToolStripMenuItem.Name = "AboutHelpToolStripMenuItem";
-            this.AboutHelpToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.AboutHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AboutHelpToolStripMenuItem.Text = "درباره یاری ";
             this.AboutHelpToolStripMenuItem.Click += new System.EventHandler(this.AboutHelpToolStripMenuItem_Click);
+            // 
+            // درختToolStripMenuItem
+            // 
+            this.درختToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.نمایشToolStripMenuItem});
+            this.درختToolStripMenuItem.Name = "درختToolStripMenuItem";
+            this.درختToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.درختToolStripMenuItem.Text = "درخت";
+            // 
+            // نمایشToolStripMenuItem
+            // 
+            this.نمایشToolStripMenuItem.Name = "نمایشToolStripMenuItem";
+            this.نمایشToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.نمایشToolStripMenuItem.Text = "نمایش";
+            this.نمایشToolStripMenuItem.Click += new System.EventHandler(this.نمایشToolStripMenuItem_Click);
             // 
             // ChessForm
             // 
@@ -2092,6 +2121,7 @@ namespace Chess
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2335,6 +2365,12 @@ namespace Chess
                 RefrigtzDLL.AllDraw THIS = null;
                 SetDrawFounding(ref FOUND, ref THIS, false);
             }
+        }
+
+        private void نمایشToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Refrigtz.FormTXT t = new FormTXT(Draw);
+            t.Show();
         }
     }
 }

@@ -5974,7 +5974,7 @@ namespace RefrigtzW
                         {
 
                             //when is victory
-                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy// && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j]// && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 1)
                             {
                                 Found = true;
@@ -5992,7 +5992,7 @@ namespace RefrigtzW
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             //when is victory
-                            if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                            if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j] //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
                         && Kind == 2)
                             {
                                 Found = true;
@@ -6011,7 +6011,7 @@ namespace RefrigtzW
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             //when is victory
-                            if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+                            if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j] //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
 && Kind == 3)
                             {
                                 Found = true;
@@ -6031,7 +6031,7 @@ namespace RefrigtzW
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             //when is victory
-                            if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                            if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j] //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 4)
                             {
                                 Found = true;
@@ -6049,7 +6049,7 @@ namespace RefrigtzW
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             //when is victory
-                            if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 
+                            if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j] //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 5)
                             {
                                 Found = true;
@@ -6068,7 +6068,7 @@ namespace RefrigtzW
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             //when is victory
-                            if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                            if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j] //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 6)
                             {
                                 Found = true;
@@ -6091,7 +6091,7 @@ namespace RefrigtzW
                         {
 
                             //when is victory
-                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j] //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 1)
                             {
                                 Found = true;
@@ -6109,7 +6109,7 @@ namespace RefrigtzW
                         {
 
                             //when is victory
-                            if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                            if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j] //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 2)
                             {
                                 Found = true;
@@ -6127,7 +6127,7 @@ namespace RefrigtzW
                         {
 
                             //when is victory
-                            if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+                            if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j] //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 3)
                             {
                                 Found = true;
@@ -6145,7 +6145,7 @@ namespace RefrigtzW
                         {
 
                             //when is victory
-                            if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                            if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j] //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 4)
                             {
                                 Found = true;
@@ -6163,7 +6163,7 @@ namespace RefrigtzW
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             //when is victory
-                            if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0
+                            if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j] //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0
                                 && Kind == 5)
                             {
                                 Found = true;
@@ -6181,7 +6181,7 @@ namespace RefrigtzW
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             //when is victory
-                            if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                            if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j] //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
                                 && Kind == 6)
                             {
                                 Found = true;
