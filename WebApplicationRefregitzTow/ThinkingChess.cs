@@ -8012,7 +8012,7 @@ namespace RefrigtzW
                 }
             }
             //when there is not served layer
-            if ((!(IsSupHu[j])) && j < IsSupHu.Count && j >= 0)
+            bool A = (!(IsSup[j])) || (AllDraw.AllowedSupTrue); if (A && j < IsSup.Count && j >= 0)
             {
                 //when there is computations
                 for (j = 0; HeuristicListSolder != null && j < HeuristicListSolder.Count; j++)
@@ -8320,7 +8320,7 @@ namespace RefrigtzW
         public int ReturnHeuristicCalculartorSurface(int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
         {
             int Heuristic = 0;
-            if ((!(IsSup[j])) && j < IsSup.Count && j >= 0)
+            bool A = (!(IsSup[j])) || (AllDraw.AllowedSupTrue); if (A && j < IsSup.Count && j >= 0)
             {
                 //When Solder Kind.
                 if (System.Math.Abs(Kind) == 1 && HeuristicListSolder.Count > 0)

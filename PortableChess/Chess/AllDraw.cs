@@ -9493,61 +9493,79 @@ namespace RefrigtzChessPortable
         {
             return ((ThinkingRefrigtzChessPortable.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
-        bool Lose(int Kind, int i, int j,int Order)
+        bool Lose(int Kind, int i, int j, int Order)
         {
             bool Is = false;
 
             if (Kind == 1)
             {
-                if ((SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((SolderesOnTable[i].LoseOcuuredatChiled[0] <= -1 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -2 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((SolderesOnTable[i].LoseOcuuredatChiled[0] <= -1 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -2 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
             else
 
         if (Kind == 2)
             {
-                if ((ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((ElephantOnTable[i].LoseOcuuredatChiled[0] <= -1 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -2 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((ElephantOnTable[i].LoseOcuuredatChiled[0] <= -1 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -2 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
             else
 
         if (Kind == 3)
             {
-                if ((HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((HoursesOnTable[i].LoseOcuuredatChiled[0] <= -1 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -2 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -3)&& UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((HoursesOnTable[i].LoseOcuuredatChiled[0] <= -1 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -2 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
             else
 
         if (Kind == 4)
             {
-                if ((CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((CastlesOnTable[i].LoseOcuuredatChiled[0] <= -1 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -2 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((CastlesOnTable[i].LoseOcuuredatChiled[0] <= -1 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -2 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
             else
 
         if (Kind == 5)
             {
-                if ((MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((MinisterOnTable[i].LoseOcuuredatChiled[0] <= -1 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -2 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((MinisterOnTable[i].LoseOcuuredatChiled[0] <= -1 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -2 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
             else
 
         if (Kind == 6)
             {
-                if ((KingOnTable[i].KingThinking[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
+                if ((KingOnTable[i].KingThinking[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                     return true;
-                if ((KingOnTable[i].LoseOcuuredatChiled[0] <= -1 || KingOnTable[i].LoseOcuuredatChiled[0] <= -2 || KingOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order,i,j) != 1)
-                    return true;
+                if (!AllowedSupTrue)
+                {
+                    if ((KingOnTable[i].LoseOcuuredatChiled[0] <= -1 || KingOnTable[i].LoseOcuuredatChiled[0] <= -2 || KingOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                        return true;
+                }
             }
 
             return Is;

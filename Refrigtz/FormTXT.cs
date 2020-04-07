@@ -314,7 +314,7 @@ namespace Refrigtz
                             t.Text = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                      
+                 
                             if (parentNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
@@ -334,25 +334,6 @@ namespace Refrigtz
                             for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                     if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
-
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
-                                else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
                                 tt.Text = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                                 tt.Name = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                                 tt.Tag = j;
@@ -377,6 +358,28 @@ namespace Refrigtz
                             for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
+                                if (Draw.SolderesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                                   if (Draw.IsCurrentDraw)
+                                    tt.BackColor = Color.DeepPink;
+                                else
+                       if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf[j])
+                                    tt.BackColor = Color.Red;
+                                else
+                     if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j])
+                                    tt.BackColor = Color.Green;
+
+                                if (Draw.SolderesOnTable[i].SoldierThinking[0].KishEnemy[j])
+                                    tt.BackColor = Color.Blue;
+                                else
+                          if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf[j])
+                                    tt.BackColor = Color.Yellow;
+                                else
+                                if (Draw.HaveKilled > 0)
+                                    tt.BackColor = Color.Gray;
+                                else if (Draw.HaveKilled < 0)
+                                    tt.BackColor = Color.Brown;
                                 tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
                                 tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
                                 tt.Tag = j;
@@ -486,7 +489,7 @@ namespace Refrigtz
                             t.Text = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                               if (parentNode == null)
+                                                if (parentNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
                                 {
@@ -506,16 +509,16 @@ namespace Refrigtz
                             for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
-                                tt.Name = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
-                                tt.Tag = j;
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.ElephantOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                                 if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                           if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                        if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
                                 if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
@@ -528,6 +531,9 @@ namespace Refrigtz
                                     tt.BackColor = Color.Gray;
                                 else if (Draw.HaveKilled < 0)
                                     tt.BackColor = Color.Brown;
+                                tt.Text = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                                tt.Name = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                                tt.Tag = j;
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()
@@ -658,7 +664,7 @@ namespace Refrigtz
                             t.Text = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                                   if (parentNode == null)
+                                    if (parentNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
                                 {
@@ -678,29 +684,32 @@ namespace Refrigtz
                             for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
-                                tt.Name = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
-                                tt.Tag = j;
-
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.HoursesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                             if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                         if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                       if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.HoursesOnTable[i].HourseThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
                                     tt.BackColor = Color.Gray;
                                 else if (Draw.HaveKilled < 0)
                                     tt.BackColor = Color.Brown;
+                                tt.Text = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                                tt.Name = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                                tt.Tag = j;
+
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()
@@ -830,7 +839,7 @@ namespace Refrigtz
                             t.Text = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                           
+                         
                             if (parentNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
@@ -851,29 +860,33 @@ namespace Refrigtz
                             for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
-                                tt.Name = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
-                                tt.Tag = j;
+                                if (Draw.CastlesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                               if (Draw.IsCurrentDraw)
 
-                                if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                      if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                    if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                    if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.CastlesOnTable[i].CastleThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
                                     tt.BackColor = Color.Gray;
                                 else if (Draw.HaveKilled < 0)
                                     tt.BackColor = Color.Brown;
+                                tt.Text = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                                tt.Name = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                                tt.Tag = j;
+
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()
@@ -1097,8 +1110,7 @@ namespace Refrigtz
                             t.Text = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                          
-                            if (parentNode == null)
+                             if (parentNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
                                 {
@@ -1118,29 +1130,32 @@ namespace Refrigtz
                             for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
-                                tt.Name = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
-                                tt.Tag = j;
-
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.MinisterOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                               if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                         if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                    if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                       if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.MinisterOnTable[i].MinisterThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
                                     tt.BackColor = Color.Gray;
                                 else if (Draw.HaveKilled < 0)
                                     tt.BackColor = Color.Brown;
+                                tt.Text = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                                tt.Name = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                                tt.Tag = j;
+
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()
@@ -1272,8 +1287,8 @@ namespace Refrigtz
                             t.Text = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Name = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                             t.Tag = parentId;
-                                if (parentNode == null)
-                           {
+                                      if (parentNode == null)
+                            {
                                 Invoke((MethodInvoker)delegate ()
                                 {
                                     treeViewRefregitzDraw.Nodes.Add(t);
@@ -1293,30 +1308,33 @@ namespace Refrigtz
                             for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HeuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HeuristicListKing.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
-                                tt.Name = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
-                                tt.Tag = j;
-
-
+                                if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
                                 if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                      if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.KingOnTable[i].KingThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.KingOnTable[i].KingThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
                                     tt.BackColor = Color.Gray;
                                 else if (Draw.HaveKilled < 0)
                                     tt.BackColor = Color.Brown;
+                                tt.Text = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                                tt.Name = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                                tt.Tag = j;
+
+
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()

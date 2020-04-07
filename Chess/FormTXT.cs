@@ -358,19 +358,22 @@ namespace Refrigtz
                             for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.SolderesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                                   if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                       if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                     if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                     if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.SolderesOnTable[i].SoldierThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
@@ -506,7 +509,10 @@ namespace Refrigtz
                             for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.ElephantOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                                 if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
                            if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
@@ -678,19 +684,22 @@ namespace Refrigtz
                             for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.HoursesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                             if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                         if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                       if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.HoursesOnTable[i].HourseThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
@@ -851,19 +860,23 @@ namespace Refrigtz
                             for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.CastlesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                               if (Draw.IsCurrentDraw)
+
                                     tt.BackColor = Color.DeepPink;
                                 else
-                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                      if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                    if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                    if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.CastlesOnTable[i].CastleThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
@@ -1117,19 +1130,22 @@ namespace Refrigtz
                             for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.IsCurrentDraw)
+                                if (Draw.MinisterOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
+                               if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                         if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                       if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.MinisterOnTable[i].MinisterThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
@@ -1292,19 +1308,22 @@ namespace Refrigtz
                             for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HeuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HeuristicListKing.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
+                                if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                    tt.BackColor = Color.Lime;
+                                else
                                 if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
                                 else
-                        if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf[j])
                                     tt.BackColor = Color.Red;
                                 else
-                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                      if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j])
                                     tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                if (Draw.KingOnTable[i].KingThinking[0].KishEnemy[j])
                                     tt.BackColor = Color.Blue;
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                          if (Draw.KingOnTable[i].KingThinking[0].KishSelf[j])
                                     tt.BackColor = Color.Yellow;
                                 else
                                 if (Draw.HaveKilled > 0)
