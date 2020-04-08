@@ -14294,6 +14294,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsElephantIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14311,6 +14312,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsHourseIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
 
@@ -14329,6 +14331,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsCastleIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14347,6 +14350,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsMinisterIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14365,6 +14369,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsKingIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14382,6 +14387,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsSoldier(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14402,6 +14408,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsElephant(int ikk, int Current, int Order, int iAStarGreedy)
         {
 
@@ -14422,6 +14429,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsHourse(int ikk, int Current, int Order, int iAStarGreedy)
         {
 
@@ -14442,6 +14450,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsCastle(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14462,6 +14471,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsMinister(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14481,6 +14491,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsKing(int ikk, int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14500,6 +14511,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14540,6 +14552,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsBrown(int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -14589,6 +14602,7 @@ namespace RefrigtzDLL
                 return IS;
             }
         }
+        //boundry condition determistic method for break
         bool FullBoundryConditionsGray(int Current, int Order, int iAStarGreedy)
         {
             Object O = new Object();
@@ -19797,6 +19811,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             return Do;
         }
+        //full game main method for deeper decicion and making
         public bool FullGameThinkingTreeGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             Object OOOOO = new Object();
@@ -19941,6 +19956,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 return Do;
             }
         }
+        //full game main method for deeper decicion and making
         public bool FullGameThinkingTreeBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             Object OOOOO = new Object();
