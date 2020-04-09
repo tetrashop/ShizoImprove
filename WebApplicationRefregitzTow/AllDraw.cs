@@ -4549,6 +4549,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreSoldier(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4568,6 +4569,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreElephant(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4588,6 +4590,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreHourse(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4607,6 +4610,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreCastle(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4626,6 +4630,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreMinister(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4645,6 +4650,7 @@ namespace RefrigtzW
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreKing(int Order, int i, int j)
         {
             Object O = new Object();
@@ -9577,7 +9583,7 @@ namespace RefrigtzW
         //same of befor verified existence of begin move and end move location saved in unique results of Last best movments
         void SaveBeginEndLocation(int i, int j, int k, int Kind)
         {
-            
+
             //soldier
             if (Kind == 1)
             {
@@ -9626,8 +9632,9 @@ namespace RefrigtzW
                 AllDraw.NextRow = KingOnTable[i].KingThinking[k].RowColumnKing[j][0];
                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
             }
-            
         }
+
+        //when branches(chield) of tree has heuristic less than current found 
         bool RegardLessOptimized(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         { //soldier
             if (Kind == 1)
@@ -9636,31 +9643,31 @@ namespace RefrigtzW
                     return true;
             }
             else//elephant
-        if (Kind == 2)
+    if (Kind == 2)
             {
                 if (Less < ElephantOnTable[i].ElefantThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
                     return true;
             }
             else//hourse
-        if (Kind == 3)
+    if (Kind == 3)
             {
                 if (Less < HoursesOnTable[i].HourseThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
                     return true;
             }
             else//Castle
-        if (Kind == 4)
+    if (Kind == 4)
             {
                 if (Less < CastlesOnTable[i].CastleThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
                     return true;
             }
             else//minister
-        if (Kind == 5)
+    if (Kind == 5)
             {
                 if (Less < MinisterOnTable[i].MinisterThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
                     return true;
             }
             else//king
-        if (Kind == 6)
+    if (Kind == 6)
             {
                 if (Less < KingOnTable[i].KingThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
                     return true;
@@ -10485,6 +10492,7 @@ namespace RefrigtzW
         {
             return ((ThinkingChess.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
+        //determine when there is lose or checked self
         bool Lose(int Kind, int i, int j, int Order)
         {
             bool Is = false;
@@ -23848,6 +23856,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 return R;
             }
         }
+        //recursive base 'pre-proccessing" writing
         public void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
@@ -24000,6 +24009,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
             }
         }
+        //loads recursive depend of orderic of writing "pre-proccessing" 
         public AllDraw LoaderEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             Object o = new Object();
@@ -24557,6 +24567,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             return Is;
 
         }
+        //return color depend of order
         Color OrderColor(int Ord)
         {
             Object O = new Object();

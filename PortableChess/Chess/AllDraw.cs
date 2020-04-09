@@ -4218,6 +4218,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreSoldier(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4237,6 +4238,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreElephant(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4256,6 +4258,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreHourse(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4275,6 +4278,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreCastle(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4294,6 +4298,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreMinister(int Order, int i, int j)
         {
             Object O = new Object();
@@ -4313,6 +4318,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //When list of alldraw and deeper is not valid clear all lists
         public void ClearAllTablesHeuristicsAndMoreKing(int Order, int i, int j)
         {
             Object O = new Object();
@@ -8761,6 +8767,7 @@ namespace RefrigtzChessPortable
                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
             }
         }
+        //when branches(chield) of tree has heuristic less than current found 
         bool RegardLessOptimized(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         { //soldier
             if (Kind == 1)
@@ -9493,6 +9500,7 @@ namespace RefrigtzChessPortable
         {
             return ((ThinkingRefrigtzChessPortable.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
+        //determine when there is lose or checked self
         bool Lose(int Kind, int i, int j, int Order)
         {
             bool Is = false;
@@ -21768,6 +21776,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 return R;
             }
         }
+        //recursive base 'pre-proccessing" writing
         public void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
@@ -21910,6 +21919,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
             }
         }
+        //loads recursive depend of orderic of writing "pre-proccessing" 
         public AllDraw LoaderEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             Object o = new Object();
@@ -22454,6 +22464,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             return Is;
 
         }
+        //return color depend of order
         Color OrderColor(int Ord)
         {
             Object O = new Object();

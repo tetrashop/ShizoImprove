@@ -5000,6 +5000,7 @@ namespace RefrigtzChessPortable
                 return Count;
             }
         }
+        //clear TableInitiationPreventionOfMultipleMoveWhenAll
         void MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull()
         {
             Object O = new Object();
@@ -5026,6 +5027,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //determine when specified ro column of TableInitiationPreventionOfMultipleMoveWhenAll is zero and empty
         bool IsTableRowColIsZero(int Row, int Col)
         {
             Object O = new Object();
@@ -5040,6 +5042,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //when situation of cerntralized location pawn object is ok
         public bool IsCentralPawnIsOk(int[,] Tab, int Order)
         {
             Object O = new Object();
@@ -5089,6 +5092,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //when center is controled by traversal objects.
         public bool CenrtrallnControlByTraversal(int[,] Tab, Color a, int Order, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
@@ -5264,6 +5268,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //when tow self castle control tow beside row or column
         bool ExistCastleInDouble(int Order, int[,] Table, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
@@ -5544,6 +5549,7 @@ namespace RefrigtzChessPortable
                 return Dis;
             }
         }
+        //when pawn is doubled or isolated at move before return true and rationalpenalty occured
         bool IsPawnIsolatedOrDoubleBackAwayOrHung(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
             Object O = new Object();
@@ -5654,6 +5660,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //when pawn move to center by no reducedattack rational regard and heuristic of attacked and "IsPawnIsolatedOrDoubleBackAwayOrHung" rational penalty
         public int HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {
             Object O = new Object();
@@ -5704,6 +5711,7 @@ namespace RefrigtzChessPortable
                 return HA;
             }
         }
+        //color by order specified
         Color OrderColor(int Ord)
         {
             Object O = new Object();
@@ -5715,6 +5723,7 @@ namespace RefrigtzChessPortable
                 return a;
             }
         }
+        //permit mehod suit for heuristicexchange
         bool Permit(int Order, int TabS, int TabD, bool Self = true, bool Move = false)
         {
             Object O = new Object();
@@ -5758,6 +5767,7 @@ namespace RefrigtzChessPortable
                 return Per;
             }
         }
+        //specific method for calculation of differential tow object
         int Diff(int Obj1, int Obj2, bool Penalty = true)
         {
             Object O = new Object();
@@ -5780,6 +5790,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //specific method for calculation of differential tow object second kind
         int DiffSupport(int Obj1, int Obj2)
         {
             Object O = new Object();
@@ -5789,6 +5800,7 @@ namespace RefrigtzChessPortable
                 return Math.Abs(df) + 1;
             }
         }
+        //all heuristics  of attacked and reduced attacked ans supported and reduced attacked
         public int[] HeuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord)
         {
 
@@ -5886,6 +5898,7 @@ namespace RefrigtzChessPortable
 
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInMoveList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -5914,6 +5927,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInReducedMoveList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -5942,6 +5956,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -5970,6 +5985,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInReducedAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -6170,6 +6186,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -6198,6 +6215,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
@@ -6226,6 +6244,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //number of exists of move situation in Heuristic lists 
         int NoOfExistInSupportList(bool Before, int RowD, int ColD)
         {
             Object O = new Object();
@@ -6260,6 +6279,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //promotion heuristic on pawn
         int HeuristicPromotion(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             Object O = new Object();
@@ -6287,6 +6307,7 @@ namespace RefrigtzChessPortable
                 return HP;
             }
         }
+        //heuristic on trying open elephant of self to move
         int HeuristicElephantOpen(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             Object O = new Object();
@@ -6314,6 +6335,7 @@ namespace RefrigtzChessPortable
                 return HE;
             }
         }
+        //safety of self hourse by value.
         int HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             Object O = new Object();
@@ -6345,7 +6367,7 @@ namespace RefrigtzChessPortable
                 return HH;
             }
         }
-
+        //create heuristic and lists of move and reduced move and attack and reduced attack and support and reduced support
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
 
@@ -6644,6 +6666,7 @@ namespace RefrigtzChessPortable
 
             }
         }
+        //when objectS source less than destination
         bool IsObjectSourceLessThanDestination(int RowS, int ColS, int RowD, int ColD, int[,] TabS)
         {
             Object O = new Object();
@@ -6655,6 +6678,7 @@ namespace RefrigtzChessPortable
                 return Is;
             }
         }
+        //when support less than reduced support
         int IsSupportLessThanReducedSupport(int Support, int ReducedSupport)
         {
             Object O = new Object();
@@ -6670,6 +6694,7 @@ namespace RefrigtzChessPortable
                 return 0;
             }
         }
+        //when attack less than reduced attack
         int IsAttackLessThanReducedAttack(int Attack, int ReducedAttack)
         {
             Object O = new Object();
@@ -6685,6 +6710,7 @@ namespace RefrigtzChessPortable
                 return 0;
             }
         }
+        //when move less than reduced move
         int IsMoveLessThanReducedMove(int Move, int ReducedMove)
         {
             Object O = new Object();
@@ -6700,7 +6726,7 @@ namespace RefrigtzChessPortable
                 return 0;
             }
         }
-        ///Heuristic of Movments.
+        //Heuristic of Movments.
         public int HeuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
@@ -6720,6 +6746,7 @@ namespace RefrigtzChessPortable
                 return HAS + (HAE);
             }
         }
+        //Heuristic of self Movments.
         public int HeuristicMovmentSelf(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
@@ -6943,6 +6970,7 @@ namespace RefrigtzChessPortable
                 return HA * 1;
             }
         }
+        //Heuristic of enemy Movments.
         public int HeuristicMovmentEnemy(bool Before, int[,] Table, Color aa, int Ord, int RowD, int ColD, int RowS, int ColS)
         {
             Object O = new Object();
@@ -11300,6 +11328,7 @@ namespace RefrigtzChessPortable
             }
             return Is;
         }
+        //recursive of found achmaz detection to be tow objects at line of source attacked or reduced attack
         int AchmazPuredBefore(bool Before, int[,] Table, int Level = 1)
         {
             if (!Before)
@@ -11416,6 +11445,7 @@ namespace RefrigtzChessPortable
             }
             return No;
         }
+        //recursive of found achmaz detection to be tow objects at line of source attacked or reduced attack
         int AchmazPuredAfter(bool Before, int[,] Table, int Level = 1)
         {
             if (Before)
@@ -11530,6 +11560,7 @@ namespace RefrigtzChessPortable
             }
             return No;
         }
+        //recursive of found achmaz detection to be tow objects at line of source attacked or reduced attack
         int AchmazReducedBefore(bool Before, int[,] Table, int Level = 1)
         {
             if (!Before)
@@ -11644,6 +11675,7 @@ namespace RefrigtzChessPortable
             }
             return No;
         }
+        //recursive of found achmaz detection to be tow objects at line of source attacked or reduced attack
         int AchmazReducedAfter(bool Before, int[,] Table, int Level = 1)
         {
             if (Before)
@@ -11759,6 +11791,7 @@ namespace RefrigtzChessPortable
             return No;
         }
 
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazReducedElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -11793,6 +11826,7 @@ namespace RefrigtzChessPortable
             
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazReducedCastle(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -11857,6 +11891,7 @@ namespace RefrigtzChessPortable
             
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -11889,6 +11924,7 @@ namespace RefrigtzChessPortable
              //===============================
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazCastle(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -11951,6 +11987,7 @@ namespace RefrigtzChessPortable
 
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazHourse(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -11988,6 +12025,7 @@ namespace RefrigtzChessPortable
 
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazReducedHourse(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -12026,6 +12064,7 @@ namespace RefrigtzChessPortable
 
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazMinister(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -12062,6 +12101,7 @@ namespace RefrigtzChessPortable
             
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazKing(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -12167,6 +12207,7 @@ namespace RefrigtzChessPortable
             
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazReducedKing(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -12286,6 +12327,7 @@ namespace RefrigtzChessPortable
             
             return Existence;
         }
+        //method of list of reduced attack or attack by lists of method found lists by every specified objects on board.
         List<List<int[]>> AchMazReducedMinister(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -12319,6 +12361,7 @@ namespace RefrigtzChessPortable
             return Existence;
         }
 
+        //calculation first level of achmaz by sub metods possible
         void Achmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> EleRedAchmaz = null, EleAchmaz = null, HourAchmaz = null, HourRedAchmaz = null, CastRedAchmaz = null, CastAchmaz = null, MiniRedAchmaz = null, MiniAchmaz = null, KingRedAchmaz = null, KingAchmaz = null;
@@ -12379,6 +12422,7 @@ namespace RefrigtzChessPortable
             ttttth.Dispose();
 
         }
+        //creation of colldection of achmaz lists depend of region of source objects
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
         {
             List<List<int[]>> Col = new List<List<int[]>>();
@@ -12412,6 +12456,7 @@ namespace RefrigtzChessPortable
             if (Co.Count > 0) Col.Add(Co);
             return Col;
         }
+        //creation of one region of collection of achmaz method
         void CollectionSummation(List<List<int[]>> A, int Sum, ref List<int[]> Co)
         {
             if (A == null)
@@ -12425,6 +12470,7 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+        //collection of regionns redistributed from achmaz methods
         List<List<int[]>> CollectionSummation(List<List<int[]>> A, List<List<int[]>> B, List<List<int[]>> C, List<List<int[]>> D, List<List<int[]>> E)
         {
             List<List<int[]>> Col = new List<List<int[]>>();
@@ -12491,6 +12537,7 @@ namespace RefrigtzChessPortable
 
             return Col;
         }
+        //determine sign of 8th regions
         int SignBeforNext(int Row, int Col, int i, int j)
         {
             int Sign = 0;
@@ -12512,6 +12559,7 @@ namespace RefrigtzChessPortable
                 Sign = -1;
             return Sign;
         }
+        //calculate sum of achmazin pure and reduced and beforand after
         int SumAbsSrcPure(bool Before, int[,] Tab)
         {
             int Sum = 0;
@@ -12527,6 +12575,7 @@ namespace RefrigtzChessPortable
             }
             return Sum;
         }
+        //calculate sum of achmazin pure and reduced and beforand after
         int SumAbsSrcReduced(bool Before, int[,] Tab)
         {
             int Sum = 0;
@@ -12542,6 +12591,7 @@ namespace RefrigtzChessPortable
             }
             return Sum;
         }
+        //calculate sum of achmazin pure and reduced and beforand after
         int SumAbsDesPure(bool Before, int[,] Tab)
         {
             int Sum = 0;
@@ -12559,6 +12609,7 @@ namespace RefrigtzChessPortable
      
             return Sum;
         }
+        //calculate sum of achmazin pure and reduced and beforand after
         int SumAbsDesReduced(bool Before, int[,] Tab)
         {
             int Sum = 0;
@@ -12575,6 +12626,7 @@ namespace RefrigtzChessPortable
       
             return Sum;
         }
+        //heuristic creation of double attacked
         int DoubleAttack(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
@@ -12629,6 +12681,7 @@ namespace RefrigtzChessPortable
             DD = (RationalRegard) * (DD);
             return DD;
         }
+        //heuristic creation of double defence
         int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
@@ -12701,6 +12754,7 @@ namespace RefrigtzChessPortable
             DD = (RationalPenalty) * (DD);
             return DD;
         }
+        //when after of move
         bool MidleIndex()
         {
             bool Is = true;
@@ -12722,6 +12776,7 @@ namespace RefrigtzChessPortable
                 return false;
             return Is;
         }
+        //heuristic main method
         public void CalculateHeuristics(int[] LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
             , ref int HeuristicAttackValue
                 , ref int HeuristicMovementValue
@@ -13122,6 +13177,8 @@ namespace RefrigtzChessPortable
                 }
             }
         }
+
+        //find of "FindMostHeuristicAllReducedSupportIsCurrent" in board
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
             int[] IsNo = FindMostHeuristicAllReducedSupportIsCurrent(Before, RowS, ColS);
@@ -13139,6 +13196,7 @@ namespace RefrigtzChessPortable
             }
             return IsNo;
         }
+        //find of most supported objects in enemy
         int[] FindMostHeuristicAllReducedSupportIsCurrent(bool Before, int RowS, int ColS)
         {
             int[] IsNo = new int[2];
@@ -13181,6 +13239,7 @@ namespace RefrigtzChessPortable
             }
             return IsNo;
         }
+        //determine if source objects is movable on board
         bool ObjectMovable(int Row, int Col, int[,] Tab, int Order, Color a)
         {
             bool Is = false;
@@ -13200,6 +13259,7 @@ namespace RefrigtzChessPortable
             }
             return Is;
         }
+        //when exist "s" in list A
         bool Exist(List<int[]> A, int[] s)
         {
             bool Is = false;
@@ -13213,6 +13273,7 @@ namespace RefrigtzChessPortable
             }
             return Is;
         }
+        //when exist complete "s" in list A
         bool ExistFull(List<int[]> A, int[] s)
         {
             bool Is = false;
@@ -13226,6 +13287,7 @@ namespace RefrigtzChessPortable
             }
             return Is;
         }
+        //when exist complete "s" list in list A
         bool ExistFullDoubleList(List<List<int[]>> A, List<int[]> s)
         {
             bool Is = true;
@@ -13243,6 +13305,7 @@ namespace RefrigtzChessPortable
             }
             return Is;
         }
+        //return number of un movable objects on board
         int NoOfObjectNotMovable(int[,] Tab, int Order, Color a, ref int Total, ref int Is)
         {
             List<int[]> IsThere = new List<int[]>();
