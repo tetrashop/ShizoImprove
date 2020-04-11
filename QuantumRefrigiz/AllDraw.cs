@@ -9538,6 +9538,26 @@ namespace QuantumRefrigiz
        if (Kind == 6)
                     Is = KingOnTable[i].KingThinkingQuantum[0].IsSupHu[j];
             }
+            else
+            {
+                if (Kind == 1)
+                    Is = SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j];
+                else
+   if (Kind == 2)
+                    Is = ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j];
+                else
+   if (Kind == 3)
+                    Is = HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j];
+                else
+   if (Kind == 4)
+                    Is = CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j];
+                else
+   if (Kind == 5)
+                    Is = MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j];
+                else
+   if (Kind == 6)
+                    Is = KingOnTable[i].KingThinkingQuantum[0].IsSup[j];
+            }
             return Is;
         }
 

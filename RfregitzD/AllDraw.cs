@@ -8652,6 +8652,26 @@ namespace RefrigtzDLL
        if (Kind == 6)
                     Is = KingOnTable[i].KingThinking[0].IsSupHu[j];
             }
+            else
+            {
+                if (Kind == 1)
+                    Is = SolderesOnTable[i].SoldierThinking[0].IsSup[j];
+                else
+   if (Kind == 2)
+                    Is = ElephantOnTable[i].ElefantThinking[0].IsSup[j];
+                else
+   if (Kind == 3)
+                    Is = HoursesOnTable[i].HourseThinking[0].IsSup[j];
+                else
+   if (Kind == 4)
+                    Is = CastlesOnTable[i].CastleThinking[0].IsSup[j];
+                else
+   if (Kind == 5)
+                    Is = MinisterOnTable[i].MinisterThinking[0].IsSup[j];
+                else
+   if (Kind == 6)
+                    Is = KingOnTable[i].KingThinking[0].IsSupHu[j];
+            }
             return Is;
         }
         //method for return index base calculated Heuristic specified and clear
