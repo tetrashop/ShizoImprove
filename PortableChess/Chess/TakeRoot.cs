@@ -164,7 +164,7 @@ namespace RefrigtzChessPortable
                                     LoadTree = true;
                                     Curent.Draw = Curent.RootFound();
 
-                                    Curent.Draw.UpdateLoseAndWinDepenOfKind(Curent.Draw.OrderP);
+                                    //Curent.Draw.UpdateLoseAndWinDepenOfKind(Curent.Draw.OrderP);
 
 
                                     t = Curent.Draw;
