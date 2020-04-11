@@ -15978,7 +15978,7 @@ namespace RefrigtzW
 
                     if (FullBoundryConditionsSoldierIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (SolderesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (SolderesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16003,7 +16003,7 @@ namespace RefrigtzW
                 {
                     if (FullBoundryConditionsElephantIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (ElephantOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (ElephantOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16030,7 +16030,7 @@ namespace RefrigtzW
 
                     if (FullBoundryConditionsHourseIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (HoursesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (HoursesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16054,7 +16054,7 @@ namespace RefrigtzW
 
                     if (FullBoundryConditionsCastleIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (CastlesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (CastlesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16078,7 +16078,7 @@ namespace RefrigtzW
                 {
                     if (FullBoundryConditionsMinisterIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (MinisterOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (MinisterOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16102,7 +16102,7 @@ namespace RefrigtzW
 
                     if (FullBoundryConditionsKingIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (KingOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (KingOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -24200,6 +24200,90 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 
             }
         }
+        bool UpdateLoseAndWinDepenOfKindBoundryCondition(int kind, int i, int j)
+        {
+
+
+            if (kind == 1)
+            {
+                if (SolderesOnTable == null)
+                    return false;
+                if (SolderesOnTable[i] == null)
+                    return false;
+                if (SolderesOnTable[i].SoldierThinking[0] == null)
+                    return false;
+                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder == null)
+                    return false;
+
+            }
+            else
+            if (kind == 2)
+            {
+                if (ElephantOnTable == null)
+                    return false;
+                if (ElephantOnTable[i] == null)
+                    return false;
+                if (ElephantOnTable[i].ElefantThinking[0] == null)
+                    return false;
+                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant == null)
+                    return false;
+
+            }
+            else
+            if (kind == 3)
+            {
+                if (HoursesOnTable == null)
+                    return false;
+                if (HoursesOnTable[i] == null)
+                    return false;
+                if (HoursesOnTable[i].HourseThinking[0] == null)
+                    return false;
+                if (HoursesOnTable[i].HourseThinking[0].TableListHourse == null)
+                    return false;
+
+            }
+            else
+            if (kind == 4)
+            {
+                if (CastlesOnTable == null)
+                    return false;
+                if (CastlesOnTable[i] == null)
+                    return false;
+                if (CastlesOnTable[i].CastleThinking[0] == null)
+                    return false;
+                if (CastlesOnTable[i].CastleThinking[0].TableListCastle == null)
+                    return false;
+
+            }
+            else
+            if (kind == 5)
+            {
+                if (MinisterOnTable == null)
+                    return false;
+                if (MinisterOnTable[i] == null)
+                    return false;
+                if (MinisterOnTable[i].MinisterThinking[0] == null)
+                    return false;
+                if (MinisterOnTable[i].MinisterThinking[0].TableListMinister == null)
+                    return false;
+
+            }
+            else
+            if (kind == 6)
+            {
+                if (KingOnTable == null)
+                    return false;
+                if (KingOnTable[i] == null)
+                    return false;
+                if (KingOnTable[i].KingThinking[0] == null)
+                    return false;
+                if (KingOnTable[i].KingThinking[0].TableListKing == null)
+                    return false;
+
+            }
+            return true;
+
+        }
         public void UpdateLoseAndWinDepenOfKindSoldier(int i, int Order)
         {
             Object a = new Object();
@@ -24207,7 +24291,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 //when found return recursive
 
-                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(1, i, j) && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 1))
                         continue;
@@ -24238,7 +24322,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 //when found return recursive
 
-                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(2, i, j) &&   j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 2))
                         continue;
@@ -24267,16 +24351,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(3, i, j) &&   j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 3))
                         continue;
 
-                    if (HoursesOnTable[i].WinOcuuredatChiled == 0)
-                        //deeper
+                         //deeper
                         for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                             HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
+                    if (HoursesOnTable[i].WinOcuuredatChiled == 0)
                     {   //non learning autamata victory leafs
                         for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
                             HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinking[0].AStarGreedy[h], Order * -1);
@@ -24297,7 +24381,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(4, i, j) &&   j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 4))
                         continue;
@@ -24327,7 +24411,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(5, i, j) && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 5))
                         continue;
@@ -24355,7 +24439,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(6, i, j) &&   j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 6))
                         continue;

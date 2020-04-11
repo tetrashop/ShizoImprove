@@ -164,8 +164,8 @@ namespace Refrigtz
                                     LoadTree = true;
                                     Curent.Draw = Curent.RootFound();
 
-                                    Curent.Draw.UpdateLoseAndWinDepenOfKind(ChessForm.OrderPlate);
-                                   
+                                    Curent.Draw.UpdateLoseAndWinDepenOfKind(Curent.Draw.OrderP);
+
                                     t = Curent.Draw;
                                     //Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                     DrawDrawen = true;

@@ -10532,10 +10532,11 @@ namespace QuantumRefrigiz
 
             if (Kind == 1)
             {
-                if ((SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
+                    if ((SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+               
                     if ((SolderesOnTable[i].LoseOcuuredatChiled[0] <= -1 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -2 || SolderesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
@@ -10544,11 +10545,11 @@ namespace QuantumRefrigiz
 
         if (Kind == 2)
             {
-                if ((ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
-                    if ((ElephantOnTable[i].LoseOcuuredatChiled[0] <= -1 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -2 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    if ((ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+                  if ((ElephantOnTable[i].LoseOcuuredatChiled[0] <= -1 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -2 || ElephantOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
             }
@@ -10556,10 +10557,11 @@ namespace QuantumRefrigiz
 
         if (Kind == 3)
             {
-                if ((HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
+                    if ((HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+                
                     if ((HoursesOnTable[i].LoseOcuuredatChiled[0] <= -1 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -2 || HoursesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
@@ -10568,10 +10570,11 @@ namespace QuantumRefrigiz
 
         if (Kind == 4)
             {
-                if ((CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
+                    if ((CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+                
                     if ((CastlesOnTable[i].LoseOcuuredatChiled[0] <= -1 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -2 || CastlesOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
@@ -10580,10 +10583,11 @@ namespace QuantumRefrigiz
 
         if (Kind == 5)
             {
-                if ((MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
+                    if ((MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+                
                     if ((MinisterOnTable[i].LoseOcuuredatChiled[0] <= -1 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -2 || MinisterOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
@@ -10592,10 +10596,11 @@ namespace QuantumRefrigiz
 
         if (Kind == 6)
             {
-                if ((KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
-                    return true;
                 if (!AllowedSupTrue)
                 {
+                    if ((KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
+                    return true;
+               
                     if ((KingOnTable[i].LoseOcuuredatChiled[0] <= -1 || KingOnTable[i].LoseOcuuredatChiled[0] <= -2 || KingOnTable[i].LoseOcuuredatChiled[0] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order, i, j) != 1)
                         return true;
                 }
@@ -15991,7 +15996,7 @@ namespace QuantumRefrigiz
 
                     if (FullBoundryConditionsSoldierIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (SolderesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (SolderesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16016,7 +16021,7 @@ namespace QuantumRefrigiz
                 {
                     if (FullBoundryConditionsElephantIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (ElephantOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (ElephantOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16043,7 +16048,7 @@ namespace QuantumRefrigiz
 
                     if (FullBoundryConditionsHourseIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (HoursesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (HoursesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16067,7 +16072,7 @@ namespace QuantumRefrigiz
 
                     if (FullBoundryConditionsCastleIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (CastlesOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (CastlesOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16091,7 +16096,7 @@ namespace QuantumRefrigiz
                 {
                     if (FullBoundryConditionsMinisterIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (MinisterOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (MinisterOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -16115,7 +16120,7 @@ namespace QuantumRefrigiz
 
                     if (FullBoundryConditionsKingIgnore(ikk, Current, Order, iAStarGreedy))
                         return false;
-                    if (KingOnTable[ikk].LoseOcuuredatChiled[0] < -1)
+                    if (KingOnTable[ikk].LoseOcuuredatChiled[0] < -1&&(!AllowedSupTrue))
                     {
 
                         IS = true;
@@ -24253,6 +24258,90 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
             }
         }
+        bool UpdateLoseAndWinDepenOfKindBoundryCondition(int kind, int i, int j)
+        {
+
+
+            if (kind == 1)
+            {
+                if (SolderesOnTable == null)
+                    return false;
+                if (SolderesOnTable[i] == null)
+                    return false;
+                if (SolderesOnTable[i].SoldierThinkingQuantum[0] == null)
+                    return false;
+                if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder == null)
+                    return false;
+
+            }
+            else
+            if (kind == 2)
+            {
+                if (ElephantOnTable == null)
+                    return false;
+                if (ElephantOnTable[i] == null)
+                    return false;
+                if (ElephantOnTable[i].ElefantThinkingQuantum[0] == null)
+                    return false;
+                if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant == null)
+                    return false;
+
+            }
+            else
+            if (kind == 3)
+            {
+                if (HoursesOnTable == null)
+                    return false;
+                if (HoursesOnTable[i] == null)
+                    return false;
+                if (HoursesOnTable[i].HourseThinkingQuantum[0] == null)
+                    return false;
+                if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse == null)
+                    return false;
+
+            }
+            else
+            if (kind == 4)
+            {
+                if (CastlesOnTable == null)
+                    return false;
+                if (CastlesOnTable[i] == null)
+                    return false;
+                if (CastlesOnTable[i].CastleThinkingQuantum[0] == null)
+                    return false;
+                if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle == null)
+                    return false;
+
+            }
+            else
+            if (kind == 5)
+            {
+                if (MinisterOnTable == null)
+                    return false;
+                if (MinisterOnTable[i] == null)
+                    return false;
+                if (MinisterOnTable[i].MinisterThinkingQuantum[0] == null)
+                    return false;
+                if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister == null)
+                    return false;
+
+            }
+            else
+            if (kind == 6)
+            {
+                if (KingOnTable == null)
+                    return false;
+                if (KingOnTable[i] == null)
+                    return false;
+                if (KingOnTable[i].KingThinkingQuantum[0] == null)
+                    return false;
+                if (KingOnTable[i].KingThinkingQuantum[0].TableListKing == null)
+                    return false;
+
+            }
+            return true;
+
+        }
         public void UpdateLoseAndWinDepenOfKindSoldier(int i, int Order)
         {
             Object a = new Object();
@@ -24260,14 +24349,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             {
                 //when found return recursive
 
-                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(1, i, j) && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 1))
                         continue;
 
 
                     //deeper
-                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     if (SolderesOnTable[i].WinOcuuredatChiled == 0)
@@ -24291,13 +24380,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             {
                 //when found return recursive
 
-                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(2, i, j) &&   j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 2))
                         continue;
 
                     //deeper
-                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     if (ElephantOnTable[i].WinOcuuredatChiled == 0)
@@ -24320,14 +24409,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(3, i, j) &&   j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 3))
                         continue;
 
                     if (HoursesOnTable[i].WinOcuuredatChiled == 0)
                         //deeper
-                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                             HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     {   //non learning autamata victory leafs
@@ -24350,14 +24439,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(4, i, j) &&   j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 4))
                         continue;
 
 
                     //deeper
-                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     if (CastlesOnTable[i].WinOcuuredatChiled == 0)
@@ -24380,12 +24469,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(5, i, j) && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 5))
                         continue;
                     //deeper
-                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     if (MinisterOnTable[i].WinOcuuredatChiled == 0)
@@ -24408,12 +24497,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             lock (a)
             {
                 //when found return recursive
-                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
+                for (var j = 0; UpdateLoseAndWinDepenOfKindBoundryCondition(6, i, j) &&   j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 6))
                         continue;
                     //deeper
-                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count ; ii++)
+                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
 
                     if (KingOnTable[i].WinOcuuredatChiled == 0)
