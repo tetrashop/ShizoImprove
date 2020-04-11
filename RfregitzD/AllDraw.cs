@@ -14,6 +14,10 @@ namespace RefrigtzDLL
     [Serializable]
     public class AllDraw//: IDisposable
     {
+        public static int CompleteTreeNumber = 300;
+        public static bool CompleteTreeDo = false;
+        public static bool CompleteTreeCancel = false;
+
         public static bool AllowedSupTrue = false;
         public static int OrderPlateDraw = 1;
 
@@ -5475,9 +5479,15 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
-                if (LeafDeep > MaxAStarGreedy)
+                if (!CompleteTreeDo)
+                {
+                    if (LeafDeep > MaxAStarGreedy)
+                        return Leaf;
+                    LeafDeep++;
+                }
+                else
+                  if (CompleteTreeCancel)
                     return Leaf;
-                LeafDeep++;
                 //when found return recursive
                 if (UniqueLeafDetection)
                 {
@@ -14527,37 +14537,47 @@ namespace RefrigtzDLL
             lock (O)
             {
                 bool IS = false;
-                try
+                if (!CompleteTreeDo)
                 {
-                    if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
-                   )
+                    try
                     {
-                        IS = true;
-                    }
-                    //gray
-                    if (Order == 1)
-                    {
-                        IS = IS || FullBoundryConditionsGray(Current, Order, iAStarGreedy);
-                        //when vicrory count satisfied
-                        if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                        if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
+                       )
                         {
                             IS = true;
                         }
-                    }
-                    else
-                    {
-                        IS = IS || FullBoundryConditionsBrown(Current, Order, iAStarGreedy);
-                        //when victory count satisfied
-                        if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                        //gray
+                        if (Order == 1)
                         {
-                            IS = true;
+                            IS = IS || FullBoundryConditionsGray(Current, Order, iAStarGreedy);
+                            //when vicrory count satisfied
+                            if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                            {
+                                IS = true;
+                            }
                         }
+                        else
+                        {
+                            IS = IS || FullBoundryConditionsBrown(Current, Order, iAStarGreedy);
+                            //when victory count satisfied
+                            if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                            {
+                                IS = true;
+                            }
+                        }
+                        //when nu,bers of computational leafs satisfied 
+                        if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
+                            IS = true;
                     }
-                    //when nu,bers of computational leafs satisfied 
-                    if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
-                        IS = true;
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
+                else
+                {
+                    if (ThinkingChess.NumbersOfAllNode > CompleteTreeNumber)
+                        return true;
+                    if (CompleteTreeCancel)
+                        return true;
+                }
                 return IS;
             }
         }

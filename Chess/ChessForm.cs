@@ -142,6 +142,9 @@ namespace Chess
             new CancellationTokenSource();
         private ToolStripMenuItem درختToolStripMenuItem;
         private ToolStripMenuItem نمایشToolStripMenuItem;
+        private ToolStripMenuItem كاملكرىنىرختToolStripMenuItem;
+        private ToolStripMenuItem دیالالToolStripMenuItem;
+        private ToolStripMenuItem کونتومToolStripMenuItem;
         [field: NonSerialized] private readonly Task feedTask;
 
         public ChessForm()
@@ -2056,6 +2059,9 @@ namespace Chess
             this.AboutHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.درختToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.نمایشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.كاملكرىنىرختToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دیالالToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.کونتومToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -2082,21 +2088,22 @@ namespace Chess
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.AboutToolStripMenuItem.Text = "درباره";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // AboutHelpToolStripMenuItem
             // 
             this.AboutHelpToolStripMenuItem.Name = "AboutHelpToolStripMenuItem";
-            this.AboutHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutHelpToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.AboutHelpToolStripMenuItem.Text = "درباره یاری ";
             this.AboutHelpToolStripMenuItem.Click += new System.EventHandler(this.AboutHelpToolStripMenuItem_Click);
             // 
             // درختToolStripMenuItem
             // 
             this.درختToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.نمایشToolStripMenuItem});
+            this.نمایشToolStripMenuItem,
+            this.كاملكرىنىرختToolStripMenuItem});
             this.درختToolStripMenuItem.Name = "درختToolStripMenuItem";
             this.درختToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.درختToolStripMenuItem.Text = "درخت";
@@ -2107,6 +2114,29 @@ namespace Chess
             this.نمایشToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.نمایشToolStripMenuItem.Text = "نمایش";
             this.نمایشToolStripMenuItem.Click += new System.EventHandler(this.نمایشToolStripMenuItem_Click);
+            // 
+            // كاملكرىنىرختToolStripMenuItem
+            // 
+            this.كاملكرىنىرختToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.دیالالToolStripMenuItem,
+            this.کونتومToolStripMenuItem});
+            this.كاملكرىنىرختToolStripMenuItem.Name = "كاملكرىنىرختToolStripMenuItem";
+            this.كاملكرىنىرختToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.كاملكرىنىرختToolStripMenuItem.Text = "كامل كرىن ىرخت";
+            // 
+            // دیالالToolStripMenuItem
+            // 
+            this.دیالالToolStripMenuItem.Name = "دیالالToolStripMenuItem";
+            this.دیالالToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.دیالالToolStripMenuItem.Text = "دی ال ال";
+            this.دیالالToolStripMenuItem.Click += new System.EventHandler(this.دیالالToolStripMenuItem_Click);
+            // 
+            // کونتومToolStripMenuItem
+            // 
+            this.کونتومToolStripMenuItem.Name = "کونتومToolStripMenuItem";
+            this.کونتومToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.کونتومToolStripMenuItem.Text = "کونتوم";
+            this.کونتومToolStripMenuItem.Click += new System.EventHandler(this.کونتومToolStripMenuItem_Click);
             // 
             // ChessForm
             // 
@@ -2371,6 +2401,64 @@ namespace Chess
         {
             Refrigtz.FormTXT t = new FormTXT(Draw);
             t.Show();
+        }
+
+        private void دیالالToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (LoadP)
+            {
+                MessageBox.Show("Wait...");
+                RefrigtzDLL.AllDraw.CompleteTreeDo = true;
+                RefrigtzDLL.ThinkingChess.NumbersOfAllNode = 0;
+                var parallelOptions = new ParallelOptions();
+                parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount;
+                RefrigtzDLL.AllDraw.OrderPlateDraw = -1;
+                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
+                if (DrawManagement())
+                {
+
+                    RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    bool Store = Deeperthandeeper;
+                    Deeperthandeeper = false;
+                    OrderPlate = 1;
+                    AllDraw.OrderPlate = OrderPlate;
+                    int Ord = OrderPlate;
+                    Color aa = Color.Gray;
+                    if (Ord == -1)
+                        aa = Color.Brown;
+                    bool B = AllDraw.Blitz;
+                    AllDraw.Blitz = false;
+                    RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+
+                    if (Draw.IsAtLeastAllObjectIsNull())
+                    {
+                        Draw.TableList.Clear();
+                        Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]));
+                        Draw.SetRowColumn(0);
+                        Draw.IsCurrentDraw = true;
+                    }
+                    var newTask1 = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                    newTask1.Wait();
+                    newTask1.Dispose();
+                    AllDraw.Blitz = B;
+                    Deeperthandeeper = Store;
+
+                    bool LoadTree = true;
+                    Ord = OrderPlate;
+                    //if (MovmentsNumber > 1)
+                    (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
+                    Draw.IsCurrentDraw = true;
+
+
+                }
+                MessageBox.Show("Ready...");
+                LoadP = true;
+            }
+        }
+
+        private void کونتومToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
