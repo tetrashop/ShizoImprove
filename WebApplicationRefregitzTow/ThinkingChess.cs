@@ -53,7 +53,7 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess//: IDisposable
     {
-        static List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
+        List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
         public int RemoveOfDisturbIndex = -1;
         int HeuristicDoubleDefenceIndexInOnGameMidle = 0;
         List<List<int[]>> HeuristicDoubleDefenceIndexInOnGame = new List<List<int[]>>();
@@ -14434,7 +14434,7 @@ namespace RefrigtzW
             }
             return Is;
         }
-        void MovableAllObjectsListMethos(int[,] TableS, bool Before, int RowS, int ColS, int RowD, int ColD, int con,int  movable=1)
+        void MovableAllObjectsListMethos(int[,] TableS, bool Before, int RowS, int ColS, int RowD, int ColD, int con, int movable = 1)
         {
             if (Before)
             {
@@ -14458,12 +14458,43 @@ namespace RefrigtzW
                     B[4] = con;
                 B[5] = movable;
 
-                MovableAllObjectsList[RowD][ColD].Add(B);
                 for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
                 {
                     if (MovableAllObjectsList[RowS][ColS][i][2] == RowS && MovableAllObjectsList[RowS][ColS][i][3] == ColS && MovableAllObjectsList[RowS][ColS][i][4] == TableS[RowS, ColS])
                         MovableAllObjectsList[RowS][ColS].RemoveAt(i);
                 }
+                MovableAllObjectsList[RowS][ColS].Add(B);
+
+            }
+            else
+            {
+                if (MovableAllObjectsList.Count == 0)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        MovableAllObjectsList.Add(new List<List<int[]>>());
+                        for (int k = 0; k < 8; k++)
+                            MovableAllObjectsList[i].Add(new List<int[]>());
+                    }
+                }
+                int[] B = new int[6];
+                B[0] = RowS;
+                B[1] = ColS;
+                B[2] = RowD;
+                B[3] = ColD;
+                if (con == 1)
+                    B[4] = TableS[RowD, ColD];
+                else
+                    B[4] = con;
+                B[5] = movable;
+
+                for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
+                {
+                    if (MovableAllObjectsList[RowS][ColS][i][2] == RowS && MovableAllObjectsList[RowS][ColS][i][3] == ColS && MovableAllObjectsList[RowS][ColS][i][4] == TableS[RowS, ColS])
+                        MovableAllObjectsList[RowS][ColS].RemoveAt(i);
+                }
+                MovableAllObjectsList[RowD][ColD].Add(B);
+
             }
         }
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled)
@@ -14768,24 +14799,33 @@ namespace RefrigtzW
             }
             return;
         }
+        public bool IsTheeAtleastMAteSelf()
+        {
+            bool Is = false;
+            for (int i = 0; i < IsThereMateOfSelf.Count; i++)
+                Is = Is || IsThereMateOfSelf[i];
+            return Is;
+
+        }
         public void TowDistrurbProperUse(ref int[] LoseOcuuredatChiled)
         {
             Object OI = new Object();
             lock (OI)
             {
-               
+                if (!IsTheeAtleastMAteSelf())
+                {
                     if (RemoveOfDisturbIndex == -1)
                     {
-                    if (IsSupHu.Count > 0)
-                    {
-                        bool IsSup = true;
-                        for (int i = 0; i < IsSupHu.Count; i++)
+                        if (IsSupHu.Count > 0)
                         {
-                            if (IsThereMateOfSelf[i])
-                                LoseChiled[i] = -8;
-                            IsSup = IsSup && IsSupHu[i];
-                        }
-                        if (IsSup)
+                            bool IsSup = true;
+                            for (int i = 0; i < IsSupHu.Count; i++)
+                            {
+                                //if (IsThereMateOfSelf[i])
+                                    //LoseChiled[i] = -8;
+                                IsSup = IsSup && IsSupHu[i];
+                            }
+                            if (IsSup)
                             {
                                 if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
                                 {
@@ -14817,59 +14857,68 @@ namespace RefrigtzW
                         }
 
                     }
-             }
+                }
+                else
+                       if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled[0] = -4;
+            }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
         {
             Object OI = new Object();
-        lock (OI)
-        {
-
-            if (RemoveOfDisturbIndex == -1)
+            lock (OI)
             {
-                if (IsSupHu.Count > 0)
+                if (!IsTheeAtleastMAteSelf())
                 {
-                    bool IsSup = true;
-                        for (int i = 0; i < IsSupHu.Count; i++)
-                        {
-                            if (IsThereMateOfSelf[i])
-                                LoseChiled[i] = -8;
-                            IsSup = IsSup && IsSupHu[i];
-                        }
-                        if (IsSup)
+                    if (RemoveOfDisturbIndex == -1)
                     {
-                        if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
+                        if (IsSupHu.Count > 0)
                         {
-                            int[] i = IndexOfMovedDoubleDefence(Tab);
-                            if (i[0] != -1 & i[1] != -1)
+                            bool IsSup = true;
+                            for (int i = 0; i < IsSupHu.Count; i++)
                             {
-                                if (Kind != i[2])
-                                    return;
-                                RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
-                                bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
-                                if (RemoveOfDisturbIndex != -1 && a)
-                                    IsSupHu[RemoveOfDisturbIndex] = false;
-                                else if (!a)
+                                //if (IsThereMateOfSelf[i])
+                                    //LoseChiled[i] = -8;
+                                IsSup = IsSup && IsSupHu[i];
+                            }
+                            if (IsSup)
+                            {
+                                if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
                                 {
-                                    if (Order == AllDraw.OrderPlateDraw)
+                                    int[] i = IndexOfMovedDoubleDefence(Tab);
+                                    if (i[0] != -1 & i[1] != -1)
                                     {
-                                        LoseOcuuredatChiled[0] = 5;
-                                        LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
-                                        LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                        if (Kind != i[2])
+                                            return;
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
+                                        bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                        if (RemoveOfDisturbIndex != -1 && a)
+                                            IsSupHu[RemoveOfDisturbIndex] = false;
+                                        else if (!a)
+                                        {
+                                            if (Order == AllDraw.OrderPlateDraw)
+                                            {
+                                                LoseOcuuredatChiled[0] = 5;
+                                                LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
+                                                LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                            }
+                                        }
                                     }
+                                    else
+                                    {
+                                        if (Order == AllDraw.OrderPlateDraw)
+                                            LoseOcuuredatChiled[0] = -4;
+                                    }
+
                                 }
                             }
-                            else
-                            {
-                                if (Order == AllDraw.OrderPlateDraw)
-                                    LoseOcuuredatChiled[0] = -4;
-                            }
-
                         }
                     }
                 }
+                else
+                        if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled[0] = -4;
             }
-        }    
         }
         int IndexOfMoved()
         {

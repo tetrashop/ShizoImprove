@@ -54,7 +54,7 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess//: IDisposable
     {
-        static List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
+        List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
         public int RemoveOfDisturbIndex = -1;
       
         int HeuristicDoubleDefenceIndexInOnGameMidle = 0;
@@ -14469,12 +14469,43 @@ namespace QuantumRefrigiz
                     B[4] = con;
                 B[5] = movable;
 
-                MovableAllObjectsList[RowD][ColD].Add(B);
                 for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
                 {
                     if (MovableAllObjectsList[RowS][ColS][i][2] == RowS && MovableAllObjectsList[RowS][ColS][i][3] == ColS && MovableAllObjectsList[RowS][ColS][i][4] == TableS[RowS, ColS])
                         MovableAllObjectsList[RowS][ColS].RemoveAt(i);
                 }
+                MovableAllObjectsList[RowS][ColS].Add(B);
+
+            }
+            else
+            {
+                if (MovableAllObjectsList.Count == 0)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        MovableAllObjectsList.Add(new List<List<int[]>>());
+                        for (int k = 0; k < 8; k++)
+                            MovableAllObjectsList[i].Add(new List<int[]>());
+                    }
+                }
+                int[] B = new int[6];
+                B[0] = RowS;
+                B[1] = ColS;
+                B[2] = RowD;
+                B[3] = ColD;
+                if (con == 1)
+                    B[4] = TableS[RowD, ColD];
+                else
+                    B[4] = con;
+                B[5] = movable;
+
+                for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
+                {
+                    if (MovableAllObjectsList[RowS][ColS][i][2] == RowS && MovableAllObjectsList[RowS][ColS][i][3] == ColS && MovableAllObjectsList[RowS][ColS][i][4] == TableS[RowS, ColS])
+                        MovableAllObjectsList[RowS][ColS].RemoveAt(i);
+                }
+                MovableAllObjectsList[RowD][ColD].Add(B);
+
             }
         }
         public void ThinkingQuantum(int iAStarGreedy, AllDraw THIS, ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled)
@@ -14776,55 +14807,68 @@ namespace QuantumRefrigiz
             }
             return;
         }
+        public bool IsTheeAtleastMAteSelf()
+        {
+            bool Is = false;
+            for (int i = 0; i < IsThereMateOfSelf.Count; i++)
+                Is = Is || IsThereMateOfSelf[i];
+            return Is;
+
+        }
         public void TowDistrurbProperUse(ref int[] LoseOcuuredatChiled)
         {
             Object OI = new Object();
             lock (OI)
             {
-
-                if (RemoveOfDisturbIndex == -1)
+                if (!IsTheeAtleastMAteSelf())
                 {
-                    if (IsSupHu.Count > 0)
+                    if (RemoveOfDisturbIndex == -1)
                     {
-                        bool IsSup = true;
-                        for (int i = 0; i < IsSupHu.Count; i++)
+                        if (IsSupHu.Count > 0)
                         {
-                            if (IsThereMateOfSelf[i])
-                                LoseChiled[i] = -8;
-                            IsSup = IsSup && IsSupHu[i];
-                        }
-                        if (IsSup)
-                        {
-                            if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                            bool IsSup = true;
+                            for (int i = 0; i < IsSupHu.Count; i++)
                             {
-                                int i = IndexOfMoved();
-                                if (i != -1)
+                                //if (IsThereMateOfSelf[i])
+                                    //LoseChiled[i] = -8;
+                                IsSup = IsSup && IsSupHu[i];
+                            }
+                            if (IsSup)
+                            {
+                                if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
                                 {
-                                    RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                                    if (RemoveOfDisturbIndex != -1)
-                                        IsSupHu[RemoveOfDisturbIndex] = false;
+                                    int i = IndexOfMoved();
+                                    if (i != -1)
+                                    {
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                        if (RemoveOfDisturbIndex != -1)
+                                            IsSupHu[RemoveOfDisturbIndex] = false;
+                                        else
+                                        {
+                                            if (Order == AllDraw.OrderPlateDraw)
+                                                LoseOcuuredatChiled[0] = -4;
+                                        }
+                                    }
                                     else
                                     {
                                         if (Order == AllDraw.OrderPlateDraw)
                                             LoseOcuuredatChiled[0] = -4;
                                     }
+
                                 }
                                 else
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled[0] = -4;
                                 }
-
-                            }
-                            else
-                            {
-                                if (Order == AllDraw.OrderPlateDraw)
-                                    LoseOcuuredatChiled[0] = -4;
                             }
                         }
-                    }
 
+                    }
                 }
+                else
+                if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled[0] = -4;
             }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
@@ -14832,51 +14876,56 @@ namespace QuantumRefrigiz
             Object OI = new Object();
             lock (OI)
             {
-
-                if (RemoveOfDisturbIndex == -1)
+                if (!IsTheeAtleastMAteSelf())
                 {
-                    if (IsSupHu.Count > 0)
+                    if (RemoveOfDisturbIndex == -1)
                     {
-                        bool IsSup = true;
-                        for (int i = 0; i < IsSupHu.Count; i++)
+                        if (IsSupHu.Count > 0)
                         {
-                            if (IsThereMateOfSelf[i])
-                                LoseChiled[i] = -8;
-                            IsSup = IsSup && IsSupHu[i];
-                        }
-                        if (IsSup)
-                        {
-                            if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
+                            bool IsSup = true;
+                            for (int i = 0; i < IsSupHu.Count; i++)
                             {
-                                int[] i = IndexOfMovedDoubleDefence(Tab);
-                                if (i[0] != -1 & i[1] != -1)
+                                //if (IsThereMateOfSelf[i])
+                                    //LoseChiled[i] = -8;
+                                IsSup = IsSup && IsSupHu[i];
+                            }
+                            if (IsSup)
+                            {
+                                if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
                                 {
-                                    if (Kind != i[2])
-                                        return;
-                                    RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
-                                    bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
-                                    if (RemoveOfDisturbIndex != -1 && a)
-                                        IsSupHu[RemoveOfDisturbIndex] = false;
-                                    else if (!a)
+                                    int[] i = IndexOfMovedDoubleDefence(Tab);
+                                    if (i[0] != -1 & i[1] != -1)
                                     {
-                                        if (Order == AllDraw.OrderPlateDraw)
+                                        if (Kind != i[2])
+                                            return;
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
+                                        bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                        if (RemoveOfDisturbIndex != -1 && a)
+                                            IsSupHu[RemoveOfDisturbIndex] = false;
+                                        else if (!a)
                                         {
-                                            LoseOcuuredatChiled[0] = 5;
-                                            LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
-                                            LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                            if (Order == AllDraw.OrderPlateDraw)
+                                            {
+                                                LoseOcuuredatChiled[0] = 5;
+                                                LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
+                                                LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                            }
                                         }
                                     }
-                                }
-                                else
-                                {
-                                    if (Order == AllDraw.OrderPlateDraw)
-                                        LoseOcuuredatChiled[0] = -4;
-                                }
+                                    else
+                                    {
+                                        if (Order == AllDraw.OrderPlateDraw)
+                                            LoseOcuuredatChiled[0] = -4;
+                                    }
 
+                                }
                             }
                         }
                     }
                 }
+                else
+              if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled[0] = -4;
             }
         }
         int IndexOfMoved()
