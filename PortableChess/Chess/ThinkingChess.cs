@@ -2082,7 +2082,11 @@ namespace RefrigtzChessPortable
                             Object OO = new Object();
                             lock (OO)
                             {
-                                if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1));
+                                th.Wait();
+                                th.Dispose();
+                                if (ab)
                                 {
                                     InAttackedNotSelfSupported = true;
                                     a = Color.Gray;
@@ -2107,8 +2111,11 @@ namespace RefrigtzChessPortable
                                                     Tab[ik, jk] = TableS[ik, jk];
                                             //When there is support and cuurent is less than enemy.
                                             //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                            if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order))
-                                            {
+                                            var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowD, ColD, i, j, a, Order));
+                                            th1.Wait();
+                                            th1.Dispose();
+                                            if (ab)
+                                             {
                                                 SelfSupported = true;
                                                 S = S && true;
                                                 break;
@@ -2167,7 +2174,11 @@ namespace RefrigtzChessPortable
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(CloneATable(TableS), Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
+                    var th = Task.Factory.StartNew(() => IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(CloneATable(TableS), Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported));
+                    th.Wait();
+                    th.Dispose();
+
+
                     //Initiate Variables.
                     int[,] Tab = new int[8, 8];
                     for (var ik = 0; ik < 8; ik++)
@@ -2184,7 +2195,11 @@ namespace RefrigtzChessPortable
                         if (Order == -1 && Tab[i, j] >= 0)
                         return false;
                     //when there is another object valuable in List continue.
-                    if (IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupported)))
+                    bool ab = false;
+                    var th1 = Task.Factory.StartNew(() => ab = IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupported)));
+                    th1.Wait();
+                    th1.Dispose();
+                    if (ab)
                         return false;
                     Order = Ord;
                     //Ignore of Current
@@ -2211,7 +2226,10 @@ namespace RefrigtzChessPortable
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
+                        var th2 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1));
+                        th2.Wait();
+                        th2.Dispose();
+                        if (ab)
                         {
                             InAttackedNotSelfSupported = true;
                             a = Color.Gray;
@@ -2238,7 +2256,10 @@ namespace RefrigtzChessPortable
                                             Tab[ik, jk] = TableS[ik, jk];
                                     //When there is supporte and cuurent is less than enemy.
                                     //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                    if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
+                                    var th3 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)));
+                                    th3.Wait();
+                                    th3.Dispose();
+                                    if (ab)
                                     {
                                         SelfSupported = true;
                                         S = S && true;
