@@ -5827,51 +5827,62 @@ namespace RefrigtzDLL
                                             Object OO = new Object();
                                             lock (OO)
                                             {
-
-                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                if (HeuristicA[0] == 0)
                                                 {
-                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                     {
-                                                        if (HeuristicA[0] == 0)
-                                                            HeuristicA[0] = RationalPenalty;
-                                                        HeuristicB[0] += RationalPenalty;
+                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                        {
+                                                            if (HeuristicA[0] == 0)
+                                                                HeuristicA[0] = RationalPenalty;
+                                                            HeuristicB[0] += RationalPenalty;
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                         , () =>
                                         {
-                                            if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                            if (HeuristicA[2] == 0)
                                             {
-                                                if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                 {
-                                                    if (HeuristicA[2] == 0)
-                                                        HeuristicA[2] = RationalPenalty;
-                                                    HeuristicB[2] += RationalPenalty;
+                                                    if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    {
+                                                        if (HeuristicA[2] == 0)
+                                                            HeuristicA[2] = RationalPenalty;
+                                                        HeuristicB[2] += RationalPenalty;
+                                                    }
                                                 }
                                             }
                                         }
                                         , () =>
                                         {
-                                            if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
+                                            if (HeuristicA[1] == 0)
                                             {
-                                                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                 {
-                                                    if (HeuristicA[1] == 0)
-                                                        HeuristicA[1] = RationalRegard;
-                                                    HeuristicB[1] += RationalRegard;
+                                                    if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    {
+                                                        if (HeuristicA[1] == 0)
+                                                            HeuristicA[1] = RationalRegard;
+                                                        HeuristicB[1] += RationalRegard;
+                                                    }
                                                 }
                                             }
                                         }
                                          , () =>
                                          {
-                                             if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                             if (HeuristicA[3] == 0)
                                              {
-                                                 if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                 if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                  {
-                                                     if (HeuristicA[3] == 0)
-                                                         HeuristicA[3] = RationalRegard;
-                                                     HeuristicB[3] += RationalRegard;
+                                                     if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                     {
+                                                         if (HeuristicA[3] == 0)
+                                                             HeuristicA[3] = RationalRegard;
+                                                         HeuristicB[3] += RationalRegard;
+                                                     }
                                                  }
                                              }
                                          });
@@ -5883,7 +5894,7 @@ namespace RefrigtzDLL
 
                     output.Wait(); output.Dispose();
                 }
-                return HeuristicB;
+                return HeuristicA;
 
             }
         }
@@ -10008,54 +10019,55 @@ namespace RefrigtzDLL
                                 RETURN = true; return;
                             }
                         }
-                        if (Order == 1 && AA.CheckMateBrown)
-                        {
-                            IsThereCheckOfEnemy.Add(true);
-                            IsThereMateOfEnemy.Add(false);
-                            IsThereMateOfSelf.Add(false);
-                            IsThereCheckOfSelf.Add(false);
-                            KishEnemy.Add(true);
-                            KishSelf.Add(false);
-                            DoEnemySelf = false;
-                            EnemyCheckMateActionsString = true;
-                            CheckedM = -2;
-                        }
-                        if (Order == -1 && AA.CheckMateGray)
-                        {
+                        /*  if (Order == 1 && AA.CheckMateBrown)
+                          {
+                              IsThereCheckOfEnemy.Add(true);
+                              IsThereMateOfEnemy.Add(false);
+                              IsThereMateOfSelf.Add(false);
+                              IsThereCheckOfSelf.Add(false);
+                              KishEnemy.Add(true);
+                              KishSelf.Add(false);
+                              DoEnemySelf = false;
+                              EnemyCheckMateActionsString = true;
+                              CheckedM = -2;
+                          }
+                          if (Order == -1 && AA.CheckMateGray)
+                          {
 
-                            IsThereCheckOfEnemy.Add(true);
-                            IsThereMateOfEnemy.Add(false);
-                            IsThereMateOfSelf.Add(false);
-                            IsThereCheckOfSelf.Add(false);
-                            KishEnemy.Add(true);
-                            KishSelf.Add(false);
-                            DoEnemySelf = false;
-                            EnemyCheckMateActionsString = true;
-                            CheckedM = -2;
-                        }
-                        if (Order == 1 && AA.CheckMateGray)
-                        {
-                            IsThereCheckOfEnemy.Add(false);
-                            IsThereMateOfEnemy.Add(false);
-                            IsThereMateOfSelf.Add(true);
-                            IsThereCheckOfSelf.Add(false);
-                            KishEnemy.Add(false);
-                            KishSelf.Add(true);
-                            EnemyCheckMateActionsString = false;
-                            CheckedM = -2;
-                        }
-                        if (Order == -1 && AA.CheckMateBrown)
-                        {
-                            IsThereCheckOfEnemy.Add(false);
-                            IsThereMateOfEnemy.Add(false);
-                            IsThereMateOfSelf.Add(true);
-                            IsThereCheckOfSelf.Add(false);
-                            KishEnemy.Add(false);
-                            KishSelf.Add(true);
-                            EnemyCheckMateActionsString = false;
-                            CheckedM = -2;
-                        }
-                        if (Order == 1 && AA.CheckGray)
+                              IsThereCheckOfEnemy.Add(true);
+                              IsThereMateOfEnemy.Add(false);
+                              IsThereMateOfSelf.Add(false);
+                              IsThereCheckOfSelf.Add(false);
+                              KishEnemy.Add(true);
+                              KishSelf.Add(false);
+                              DoEnemySelf = false;
+                              EnemyCheckMateActionsString = true;
+                              CheckedM = -2;
+                          }
+                          if (Order == 1 && AA.CheckMateGray)
+                          {
+                              IsThereCheckOfEnemy.Add(false);
+                              IsThereMateOfEnemy.Add(false);
+                              IsThereMateOfSelf.Add(true);
+                              IsThereCheckOfSelf.Add(false);
+                              KishEnemy.Add(false);
+                              KishSelf.Add(true);
+                              EnemyCheckMateActionsString = false;
+                              CheckedM = -2;
+                          }
+                          if (Order == -1 && AA.CheckMateBrown)
+                          {
+                              IsThereCheckOfEnemy.Add(false);
+                              IsThereMateOfEnemy.Add(false);
+                              IsThereMateOfSelf.Add(true);
+                              IsThereCheckOfSelf.Add(false);
+                              KishEnemy.Add(false);
+                              KishSelf.Add(true);
+                              EnemyCheckMateActionsString = false;
+                              CheckedM = -2;
+                          }
+                        */
+                        if (AllDraw.OrderPlateDraw == 1 && AA.CheckGray)
                         {
                             IsThereCheckOfEnemy.Add(false);
                             IsThereMateOfEnemy.Add(false);
@@ -10072,7 +10084,7 @@ namespace RefrigtzDLL
                             CheckedM = -1;
                         }
                         else
-                            if (Order == -1 && AA.CheckBrown)
+                            if (AllDraw.OrderPlateDraw == -1 && AA.CheckBrown)
                         {
                             IsThereCheckOfEnemy.Add(false);
                             IsThereMateOfEnemy.Add(false);
@@ -10087,7 +10099,7 @@ namespace RefrigtzDLL
                             }
                             CheckedM = -1;
                         }
-                        if (Order == 1 && AA.CheckBrown)
+                        if (AllDraw.OrderPlateDraw == 1 && AA.CheckBrown)
                         {
                             IsThereCheckOfEnemy.Add(false);
                             IsThereMateOfEnemy.Add(false);
@@ -10102,7 +10114,7 @@ namespace RefrigtzDLL
                             }
                             CheckedM = -1;
                         }
-                        if (Order == -1 && AA.CheckGray)
+                        if (AllDraw.OrderPlateDraw == -1 && AA.CheckGray)
                         {
                             IsThereCheckOfEnemy.Add(false);
                             IsThereMateOfEnemy.Add(false);
@@ -14638,28 +14650,24 @@ namespace RefrigtzDLL
                     }
                     if (Order == -1 && AAA.CheckBrown)
                     {
-                        IsThereCheckOfSelf.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == -1 && AAA.CheckGray)
                     {
-                        IsThereCheckOfEnemy.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == -1 && AAA.CheckGray)
                     {
-                        IsThereCheckOfEnemy.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == 1 && AAA.CheckBrown)
                     {
-                        IsThereCheckOfSelf.Add(true);
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
@@ -14820,10 +14828,7 @@ namespace RefrigtzDLL
 
                     }
                 }
-                else
-                      if (Order == AllDraw.OrderPlateDraw)
-                    LoseOcuuredatChiled[0] = -4;
-            }
+              }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
         {
@@ -14877,10 +14882,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-                else
-                         if (Order == AllDraw.OrderPlateDraw)
-                    LoseOcuuredatChiled[0] = -4;
-            }
+              }
         }
         int IndexOfMoved()
         {

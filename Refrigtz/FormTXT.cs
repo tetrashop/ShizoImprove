@@ -359,7 +359,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.SolderesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                                    if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
@@ -510,7 +510,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.ElephantOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                                  if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
@@ -685,7 +685,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.HoursesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                              if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
@@ -861,7 +861,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.CastlesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                                if (Draw.IsCurrentDraw)
 
@@ -1131,7 +1131,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.MinisterOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                                if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;
@@ -1309,7 +1309,7 @@ namespace Refrigtz
                             {
                                 TreeNode tt = new TreeNode();
                                 if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
+                                    tt.BackColor = Color.Black;
                                 else
                                 if (Draw.IsCurrentDraw)
                                     tt.BackColor = Color.DeepPink;

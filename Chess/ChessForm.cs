@@ -2399,8 +2399,10 @@ namespace Chess
 
         private void نمایشToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Refrigtz.FormTXT t = new FormTXT(Draw);
-            t.Show();
+            AllDraw D = Draw;
+            Refrigtz.FormTXT t = new FormTXT(RootFound());
+            t.ShowDialog();
+            Draw = D;
         }
 
         private void دیالالToolStripMenuItem_Click(object sender, EventArgs e)

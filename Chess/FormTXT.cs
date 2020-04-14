@@ -337,6 +337,71 @@ namespace Refrigtz
                                 tt.Text = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                                 tt.Name = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                                 tt.Tag = j;
+
+                                if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf[j])
+                                {
+                                    tt.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j])
+                                    {
+                                        tt.BackColor = Color.Green;
+                                    }
+                                    else
+                                    {
+                                        if (Draw.SolderesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                        {
+                                            tt.ForeColor = Color.Red;
+                                            tt.BackColor = Color.Black;
+                                        }
+                                        else
+                                        {
+                                            if (Draw.SolderesOnTable[i].WinOcuuredatChiled > 0)
+                                            {
+                                                tt.ForeColor = Color.Green;
+                                                tt.BackColor = Color.Black;
+                                            }
+                                            else
+                                            {
+
+                                                if (Draw.SolderesOnTable[i].SoldierThinking[0].KishEnemy[j])
+                                                {
+                                                    tt.BackColor = Color.Blue;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf[j])
+                                                    {
+                                                        tt.BackColor = Color.Yellow;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Draw.HaveKilled > 0)
+                                                        {
+                                                            tt.BackColor = Color.Gray;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled < 0)
+                                                            {
+                                                                tt.BackColor = Color.Brown;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.IsCurrentDraw)
+                                                                {
+                                                                    tt.BackColor = Color.DeepPink;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                           
                                 if (childNode == null)
                                 {
                                     Invoke((MethodInvoker)delegate ()
@@ -358,28 +423,7 @@ namespace Refrigtz
                             for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.SolderesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                                   if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                       if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                     if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
-
-                                if (Draw.SolderesOnTable[i].SoldierThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
-                                else
-                          if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
+                                
                                 tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
                                 tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
                                 tt.Tag = j;
@@ -430,7 +474,7 @@ namespace Refrigtz
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.ElefantHigh; i++)
                 {
-                    if (Draw.SolderesOnTable == null)
+                    if (Draw.ElephantOnTable == null)
                     {
                         Call = false;
                         TreeNode t = new TreeNode();
@@ -509,28 +553,73 @@ namespace Refrigtz
                             for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.ElephantOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                                 if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                           if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                         if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
 
-                                if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
+                                if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf[j])
+                                {
+                                    tt.BackColor = Color.Red;
+                                }
                                 else
-                          if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
+                                {
+                                    if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy[j])
+                                    {
+                                        tt.BackColor = Color.Green;
+                                    }
+                                    else
+                                    {
+
+                                        if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy[j])
+                                        {
+                                            tt.BackColor = Color.Blue;
+                                        }
+                                        else
+                                        {
+                                            if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf[j])
+                                            {
+                                                tt.BackColor = Color.Yellow;
+                                            }
+                                            else
+                                            {
+                                                if (Draw.ElephantOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                                {
+                                                    tt.ForeColor = Color.Red;
+                                                    tt.BackColor = Color.Black;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.ElephantOnTable[i].WinOcuuredatChiled > 0)
+                                                    {
+                                                        tt.ForeColor = Color.Green;
+                                                        tt.BackColor = Color.Black;
+                                                    }
+                                                    else
+                                                    {
+
+                                                        if (Draw.HaveKilled > 0)
+                                                        {
+                                                            tt.BackColor = Color.Gray;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled < 0)
+                                                            {
+                                                                tt.BackColor = Color.Brown;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.IsCurrentDraw)
+                                                                {
+                                                                    tt.BackColor = Color.DeepPink;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                
                                 tt.Text = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
                                 tt.Name = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
                                 tt.Tag = j;
@@ -684,28 +773,72 @@ namespace Refrigtz
                             for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.HoursesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                             if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                         if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                       if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
 
-                                if (Draw.HoursesOnTable[i].HourseThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
+                                if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf[j])
+                                {
+                                    tt.BackColor = Color.Red;
+                                }
                                 else
-                          if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
+                                {
+                                    if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy[j])
+                                    {
+                                        tt.BackColor = Color.Green;
+                                    }
+                                    else
+                                    {
+
+                                        if (Draw.HoursesOnTable[i].HourseThinking[0].KishEnemy[j])
+                                        {
+                                            tt.BackColor = Color.Blue;
+                                        }
+                                        else
+                                        {
+                                            if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf[j])
+                                            {
+                                                tt.BackColor = Color.Yellow;
+                                            }
+                                            else
+                                            {
+                                                if (Draw.HoursesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                                {
+                                                    tt.ForeColor = Color.Red;
+                                                    tt.BackColor = Color.Black;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.HoursesOnTable[i].WinOcuuredatChiled > 0)
+                                                    {
+                                                        tt.ForeColor = Color.Green;
+                                                        tt.BackColor = Color.Black;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Draw.HaveKilled > 0)
+                                                        {
+                                                            tt.BackColor = Color.Gray;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled < 0)
+                                                            {
+                                                                tt.BackColor = Color.Brown;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.IsCurrentDraw)
+                                                                {
+                                                                    tt.BackColor = Color.DeepPink;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                
                                 tt.Text = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
                                 tt.Name = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
                                 tt.Tag = j;
@@ -860,29 +993,71 @@ namespace Refrigtz
                             for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.CastlesOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                               if (Draw.IsCurrentDraw)
 
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                      if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf[j])
+                                if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf[j])
+                                {
                                     tt.BackColor = Color.Red;
+                                }
                                 else
-                    if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
+                                {
+                                    if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy[j])
+                                    {
+                                        tt.BackColor = Color.Green;
+                                    }
+                                    else
+                                    {
 
-                                if (Draw.CastlesOnTable[i].CastleThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
-                                else
-                          if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
+                                        if (Draw.CastlesOnTable[i].CastleThinking[0].KishEnemy[j])
+                                        {
+                                            tt.BackColor = Color.Blue;
+                                        }
+                                        else
+                                        {
+                                            if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf[j])
+                                            {
+                                                tt.BackColor = Color.Yellow;
+                                            }
+                                            else
+                                            {
+                                                if (Draw.CastlesOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                                {
+                                                    tt.ForeColor = Color.Red;
+                                                    tt.BackColor = Color.Black;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.CastlesOnTable[i].WinOcuuredatChiled > 0)
+                                                    {
+                                                        tt.ForeColor = Color.Green;
+                                                        tt.BackColor = Color.Black;
+                                                    }
+                                                    else
+                                                    {
+
+                                                        if (Draw.HaveKilled > 0)
+                                                        {
+                                                            tt.BackColor = Color.Gray;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled < 0)
+                                                            {
+                                                                tt.BackColor = Color.Brown;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.IsCurrentDraw)
+                                                                {
+                                                                    tt.BackColor = Color.DeepPink;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 tt.Text = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
                                 tt.Name = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
                                 tt.Tag = j;
@@ -1130,28 +1305,71 @@ namespace Refrigtz
                             for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.MinisterOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                               if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                         if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                       if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
 
-                                if (Draw.MinisterOnTable[i].MinisterThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
+                                if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf[j])
+                                {
+                                    tt.BackColor = Color.Red;
+                                }
                                 else
-                          if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
+                                {
+                                    if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy[j])
+                                    {
+                                        tt.BackColor = Color.Green;
+                                    }
+                                    else
+                                    {
+
+                                        if (Draw.MinisterOnTable[i].MinisterThinking[0].KishEnemy[j])
+                                        {
+                                            tt.BackColor = Color.Blue;
+                                        }
+                                        else
+                                        {
+                                            if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf[j])
+                                            {
+                                                tt.BackColor = Color.Yellow;
+                                            }
+                                            else
+                                            {
+                                                if (Draw.MinisterOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                                {
+                                                    tt.ForeColor = Color.Red;
+                                                    tt.BackColor = Color.Black;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.MinisterOnTable[i].WinOcuuredatChiled > 0)
+                                                    {
+                                                        tt.ForeColor = Color.Green;
+                                                        tt.BackColor = Color.Black;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Draw.HaveKilled > 0)
+                                                        {
+                                                            tt.BackColor = Color.Gray;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled < 0)
+                                                            {
+                                                                tt.BackColor = Color.Brown;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.IsCurrentDraw)
+                                                                {
+                                                                    tt.BackColor = Color.DeepPink;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
                                 tt.Text = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
                                 tt.Name = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
                                 tt.Tag = j;
@@ -1308,29 +1526,73 @@ namespace Refrigtz
                             for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HeuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HeuristicListKing.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
-                                    tt.BackColor = Color.Lime;
-                                else
-                                if (Draw.IsCurrentDraw)
-                                    tt.BackColor = Color.DeepPink;
-                                else
-                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf[j])
-                                    tt.BackColor = Color.Red;
-                                else
-                      if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j])
-                                    tt.BackColor = Color.Green;
+                       
+            tt.Text = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString(); if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
 
-                                if (Draw.KingOnTable[i].KingThinking[0].KishEnemy[j])
-                                    tt.BackColor = Color.Blue;
-                                else
-                          if (Draw.KingOnTable[i].KingThinking[0].KishSelf[j])
-                                    tt.BackColor = Color.Yellow;
-                                else
-                                if (Draw.HaveKilled > 0)
-                                    tt.BackColor = Color.Gray;
-                                else if (Draw.HaveKilled < 0)
-                                    tt.BackColor = Color.Brown;
-                                tt.Text = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                                    if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf[j])
+                                    {
+                                        tt.BackColor = Color.Red;
+                                    }
+                                    else
+                                    {
+                                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy[j])
+                                        {
+                                            tt.BackColor = Color.Green;
+                                        }
+                                        else
+                                        {
+
+                                            if (Draw.KingOnTable[i].KingThinking[0].KishEnemy[j])
+                                            {
+                                                tt.BackColor = Color.Blue;
+                                            }
+                                            else
+                                            {
+                                                if (Draw.KingOnTable[i].KingThinking[0].KishSelf[j])
+                                                {
+                                                    tt.BackColor = Color.Yellow;
+                                                }
+                                                else
+                                                {
+                                                    if (Draw.KingOnTable[i].LoseOcuuredatChiled[0] < 0)
+                                                    {
+                                                        tt.ForeColor = Color.Red;
+                                                        tt.BackColor = Color.Black;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Draw.KingOnTable[i].WinOcuuredatChiled > 0)
+                                                        {
+                                                            tt.ForeColor = Color.Green;
+                                                            tt.BackColor = Color.Black;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Draw.HaveKilled > 0)
+                                                            {
+                                                                tt.BackColor = Color.Gray;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (Draw.HaveKilled < 0)
+                                                                {
+                                                                    tt.BackColor = Color.Brown;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (Draw.IsCurrentDraw)
+                                                                    {
+                                                                        tt.BackColor = Color.DeepPink;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
                                 tt.Name = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
                                 tt.Tag = j;
 
