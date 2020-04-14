@@ -2338,7 +2338,11 @@ namespace RefrigtzChessPortable
                                 Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
+                                    bool ab = false;
+                                    var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1));
+                                    th.Wait();
+                                    th.Dispose();
+                                    if (ab)
                                     {
                                         InAttackedNotSelfSupported = true;
                                         a = Color.Gray;
@@ -2362,8 +2366,12 @@ namespace RefrigtzChessPortable
                                                     for (var jk = 0; jk < 8; jk++)
                                                         Tab[ik, jk] = TableS[ik, jk];
                                                 //When There is Supporter For Attacked Self Object and Is Greater than Attacking Object.
-                                                if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
+                                                var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)));
+                                                th1.Wait();
+                                                th1.Dispose();
+                                                if (ab)
                                                 {
+
                                                     SelfSupported = true;
                                                     S = S && true;
                                                     break;
@@ -2576,7 +2584,10 @@ namespace RefrigtzChessPortable
                     Tabl[RowD, ColD] = Tabl[RowS, ColS];
                     Tabl[RowS, ColS] = 0;
                     ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
-                    A.CheckMate(Tabl, Order);
+                    var th = Task.Factory.StartNew(() => A.CheckMate(Tabl, Order));
+                    th.Wait();
+                    th.Dispose();
+
                     if (!(A.CheckMateGray || A.CheckMateBrown))
                     {
                         if (A.CheckGray || A.CheckBrown)
@@ -2604,7 +2615,9 @@ namespace RefrigtzChessPortable
                 else
                 {
                     ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
-                    A.CheckMate(Tabl, Order);
+                    var th = Task.Factory.StartNew(() => A.CheckMate(Tabl, Order));
+                    th.Wait();
+                    th.Dispose();
                     if (A.CheckGray || A.CheckBrown)
                     {
                         HA += RationalRegard;
@@ -2640,11 +2653,15 @@ namespace RefrigtzChessPortable
                 int HAE = 0;
                 Parallel.Invoke(() =>
                 {
-                    HAS = HeuristicSelfSupported(CloneATable(Tab), Ord, aa, RowS, ColS, RowD, ColD);
+                    var th = Task.Factory.StartNew(() => HAS = HeuristicSelfSupported(CloneATable(Tab), Ord, aa, RowS, ColS, RowD, ColD));
+                    th.Wait();
+                    th.Dispose();
                 }
                 , () =>
                 {
-                    HAE = HeuristicEnemySupported(CloneATable(Tab), Ord, aa, RowS, ColS, RowD, ColD);
+                    var th = Task.Factory.StartNew(() => HAS = HAE = HeuristicEnemySupported(CloneATable(Tab), Ord, aa, RowS, ColS, RowD, ColD));
+                    th.Wait();
+                    th.Dispose();
 
                 });
                 return HAS + (HAE);
@@ -2712,7 +2729,11 @@ namespace RefrigtzChessPortable
                             else
                                 return HeuristicSelfSupportedValue;
                             //For Support Movments.
-                            if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
+                            bool ab = false;
+                            var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order));
+                            th.Wait();
+                            th.Dispose();
+                            if (ab)
                             {
                                 //Calculate Local Support Heuristic.
                                 HA += RationalRegard;
@@ -2754,8 +2775,13 @@ namespace RefrigtzChessPortable
                                             //When Enemy is Supported.
                                             bool A = new bool();
                                             bool B = new bool();
-                                            A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
-                                            B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
+                                            var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order));
+                                            th1.Wait();
+                                            th1.Dispose();
+                                            var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1));
+                                            th2.Wait();
+                                            th2.Dispose();
+
                                             //When Enemy is Supported.
                                             if (A)
                                             {
@@ -2834,7 +2860,11 @@ namespace RefrigtzChessPortable
                                         else
                                             return HeuristicSelfSupportedValue;
                                         //For Support Movments.
-                                        if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
+                                        bool ab = false;
+                                        var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order));
+                                        th.Wait();
+                                        th.Dispose();
+                                        if (ab)
                                         {
                                             //Calculate Local Support Heuristic.
                                             HA += RationalRegard;
@@ -2876,8 +2906,12 @@ namespace RefrigtzChessPortable
                                                         //When Enemy is Supported.
                                                         bool A = new bool();
                                                         bool B = new bool();
-                                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
-                                                        B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
+                                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order));
+                                                        th1.Wait();
+                                                        th1.Dispose();
+                                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1));
+                                                        th2.Wait();
+                                                        th2.Dispose();
                                                         //When Enemy is Supported.
                                                         if (A)
                                                         {
