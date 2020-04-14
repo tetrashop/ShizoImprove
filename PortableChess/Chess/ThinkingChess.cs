@@ -958,64 +958,79 @@ namespace RefrigtzChessPortable
                     {
                         //if (Before)
                         {
-                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD))
+                            bool ab = false;
+                            var th = Task.Factory.StartNew(() => ab = IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD));
+                            th.Wait();
+                            th.Dispose();
+                            if (ab)
                                 HA += RationalPenalty;
                             else
-                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
-                                HA += RationalRegard;
-                                //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
-                                int Supported = new int();
-                                int SupportedS = new int();
-                                Supported = 0;
-                                SupportedS = 0;
-                                //For All Enemy Obejcts.                                             
-                                ////Parallel.For(0, 8, g =>
-                                for (int g = 0; g < 8; g++)
+                                var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                                th1.Wait();
+                                th1.Dispose();
+
+                                if (ab)
                                 {
-                                    ////Parallel.For(0, 8, h =>
-                                    for (int h = 0; h < 8; h++)
+                                    HA += RationalRegard;
+                                    //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
+                                    int Supported = new int();
+                                    int SupportedS = new int();
+                                    Supported = 0;
+                                    SupportedS = 0;
+                                    //For All Enemy Obejcts.                                             
+                                    ////Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
-                                        //Ignore Of Self Objects.
-                                        if (Order == 1 && Table[g, h] >= 0)
-                                            continue;
-                                        if (Order == -1 && Table[g, h] <= 0)
-                                            continue;
-                                        Color aaa = new Color();
-                                        //Assgin Enemy ints.
-                                        aaa = Color.Gray;
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
+                                        ////Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
+                                        {
+                                            //Ignore Of Self Objects.
+                                            if (Order == 1 && Table[g, h] >= 0)
+                                                continue;
+                                            if (Order == -1 && Table[g, h] <= 0)
+                                                continue;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
                                             aaa = Color.Gray;
-                                        //When Enemy is Supported.
-                                        bool A = new bool();
-                                        bool B = new bool();
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
-                                            B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                        }
-                                        //When Enemy is Supported.
-                                        if (B)
-                                        {
-                                            //Assgine variable.
-                                            SupportedS++;
-                                        }
-                                        if (A)
-                                        {
-                                            //Assgine variable.
-                                            Supported++;
-                                            continue;
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            //When Enemy is Supported.
+                                            bool A = new bool();
+                                            bool B = new bool();
+                                            Object O2 = new Object();
+                                            lock (O2)
+                                            {
+                                                var th2 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                                th2.Wait();
+                                                th2.Dispose();
+                                                var th3 = Task.Factory.StartNew(() => B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                                th3.Wait();
+                                                th3.Dispose();
+                                            }
+                                            //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                SupportedS++;
+                                            }
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Supported++;
+                                                continue;
+                                            }
                                         }
                                     }
+
+                                    if (SupportedS > 0 && Supported == 0)
+                                        HA *= (int)System.Math.Pow(2, SupportedS);
+                                    else
+                                    if (Supported > 0)
+                                        HA *= (int)(-1 * System.Math.Pow(2, Supported));
                                 }
-                                if (SupportedS > 0 && Supported == 0)
-                                    HA *= (int)System.Math.Pow(2, SupportedS);
-                                else
-                                if (Supported > 0)
-                                    HA *= (int)(-1 * System.Math.Pow(2, Supported));
                             }
                         }
                     }
@@ -1057,12 +1072,20 @@ namespace RefrigtzChessPortable
                     {
                         //if (Before)
                         {
-                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD))
+                            bool ab = false;
+                            var th = Task.Factory.StartNew(() => ab = IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD));
+                            th.Wait();
+                            th.Dispose();
+                            if (ab)
                                 HA += RationalPenalty;
-                            else
-                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                            var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                            th1.Wait();
+                            th1.Dispose();
+
+                            if (ab)
                             {
-                                HA += RationalRegard;
+                         
+                                    HA += RationalRegard;
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 //For All Enemy Obejcts.                                             
@@ -1096,8 +1119,12 @@ namespace RefrigtzChessPortable
                                         Object O12 = new Object();
                                         lock (O12)
                                         {
-                                            A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
-                                            B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
+                                            var th2 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                            th2.Wait();
+                                            th2.Dispose();
+                                            var th3 = Task.Factory.StartNew(() => B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                            th3.Wait();
+                                            th3.Dispose();
                                         }
                                         //When Enemy is Supported.
                                         if (B)
@@ -1157,7 +1184,11 @@ namespace RefrigtzChessPortable
             {
                 if (Table[RowS, ColS] == MinisterGray)
                 {
-                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31));
+                    th.Wait();
+                    th.Dispose();
+                    if (!ab)
                     {
                         if (ColS < 5)
                             return false;
@@ -1168,7 +1199,11 @@ namespace RefrigtzChessPortable
             {
                 if (Table[RowS, ColS] == MinisterBrown)
                 {
-                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31));
+                    th.Wait();
+                    th.Dispose();
+                    if (!ab)
                     {
                         if (ColS > 2)
                             return false;
@@ -1238,7 +1273,11 @@ namespace RefrigtzChessPortable
                             {
                                 //if (Before)
                                 {
-                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
+                                    bool ab = false;
+                                    var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order));
+                                    th.Wait();
+                                    th.Dispose();
+                                    if (ab)
                                     {
                                         MinisterOnAttack = true;
                                         HA += RationalPenalty;
@@ -1272,8 +1311,12 @@ namespace RefrigtzChessPortable
                                                 Object O2 = new Object();
                                                 lock (O2)
                                                 {
-                                                    A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
-                                                    B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
+                                                    var th2 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                                    th2.Wait();
+                                                    th2.Dispose();
+                                                    var th3 = Task.Factory.StartNew(() => B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                                    th3.Wait();
+                                                    th3.Dispose();
                                                 }
                                                 //When Enemy is Supported.
                                                 if (B)
@@ -1310,118 +1353,128 @@ namespace RefrigtzChessPortable
                 //For All Table Homes find Attack Heuristic.
                 else
                 {
+
+                    int Order = new int();
+                    Color a = new Color();
+                    a = aa;
                     {
+                        //Ignore Current Home.
+                        //if (Order == 1 && Table[RowD, ColD] >= 0)
+                        //if (Order == -1 && Table[RowD, ColD] <= 0)
+                        //if (!Scop(RowD, ColD, RowS, ColS, System.Math.Abs(Table[RowD, ColD])))
+                        ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
+                        ///What is Attack!
+                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
+                        if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
+                            Order = 1;
+                            Sign = 1 * AllDraw.SignAttack;
+                            ChessRules.CurrentOrder = 1;
+                            a = Color.Gray;
+                        }
+                        else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
+                        {
+                            Order = -1;
+                            Sign = 1 * AllDraw.SignAttack;
+                            ChessRules.CurrentOrder = -1;
+                            a = Color.Brown;
+                        }
+                        else
+                            return HeuristicReducedAttackValue;
+                        //For Attack Movments.
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            //if (Before)
                             {
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order));
+                                th.Wait();
+                                th.Dispose();
+                                if (ab)
                                 {
-                                    int Order = new int();
-                                    Color a = new Color();
-                                    a = aa;
+                                    MinisterOnAttack = true;
+                                    HA += RationalPenalty;
+                                    //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
+                                    int Supported = new int();
+                                    int SupportedS = new int();
+                                    Supported = 0;
+                                    SupportedS = 0;
+                                    //For All Enemy Obejcts.                                             
+                                    ////Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
-                                        //Ignore Current Home.
-                                        //if (Order == 1 && Table[RowD, ColD] >= 0)
-                                        //if (Order == -1 && Table[RowD, ColD] <= 0)
-                                        //if (!Scop(RowD, ColD, RowS, ColS, System.Math.Abs(Table[RowD, ColD])))
-                                        ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
-                                        ///What is Attack!
-                                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
-                                        if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
+                                        ////Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
                                         {
-                                            Order = 1;
-                                            Sign = 1 * AllDraw.SignAttack;
-                                            ChessRules.CurrentOrder = 1;
-                                            a = Color.Gray;
-                                        }
-                                        else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
-                                        {
-                                            Order = -1;
-                                            Sign = 1 * AllDraw.SignAttack;
-                                            ChessRules.CurrentOrder = -1;
-                                            a = Color.Brown;
-                                        }
-                                        else
-                                            return HeuristicReducedAttackValue;
-                                        //For Attack Movments.
-                                        Object O1 = new Object();
-                                        lock (O1)
-                                        {
-                                            //if (Before)
+                                            //Ignore Of Self Objects.
+                                            if (Order == 1 && Table[g, h] >= 0)
+                                                continue;
+                                            if (Order == -1 && Table[g, h] <= 0)
+                                                continue;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
+                                            aaa = Color.Gray;
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            //When Enemy is Supported.
+                                            bool A = new bool();
+                                            bool B = new bool();
+                                            Object O2 = new Object();
+                                            lock (O2)
                                             {
-                                                if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
-                                                {
-                                                    MinisterOnAttack = true;
-                                                    HA += RationalPenalty;
-                                                    //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
-                                                    int Supported = new int();
-                                                    int SupportedS = new int();
-                                                    Supported = 0;
-                                                    SupportedS = 0;
-                                                    //For All Enemy Obejcts.                                             
-                                                    ////Parallel.For(0, 8, g =>
-                                                    for (int g = 0; g < 8; g++)
-                                                    {
-                                                        ////Parallel.For(0, 8, h =>
-                                                        for (int h = 0; h < 8; h++)
-                                                        {
-                                                            //Ignore Of Self Objects.
-                                                            if (Order == 1 && Table[g, h] >= 0)
-                                                                continue;
-                                                            if (Order == -1 && Table[g, h] <= 0)
-                                                                continue;
-                                                            Color aaa = new Color();
-                                                            //Assgin Enemy ints.
-                                                            aaa = Color.Gray;
-                                                            if (Order * -1 == -1)
-                                                                aaa = Color.Brown;
-                                                            else
-                                                                aaa = Color.Gray;
-                                                            //When Enemy is Supported.
-                                                            bool A = new bool();
-                                                            bool B = new bool();
-                                                            Object O2 = new Object();
-                                                            lock (O2)
-                                                            {
-                                                                A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
-                                                                B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                                            }
-                                                            //When Enemy is Supported.
-                                                            if (B)
-                                                            {
-                                                                //Assgine variable.
-                                                                SupportedS++;
-                                                            }
-                                                            if (A)
-                                                            {
-                                                                //Assgine variable.
-                                                                Supported++;
-                                                                continue;
-                                                            }
-                                                        }
-                                                    }
-                                                    if (SupportedS > 0 && Supported == 0)
-                                                        HA *= (int)System.Math.Pow(2, SupportedS);
-                                                    else
-                                               if (Supported > 0)
-                                                        HA *= (int)(-1 * System.Math.Pow(2, Supported));
-                                                }
-                                                else
-                                                {
-                                                    if (IsMinisteBreakable(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD))
-                                                    {
-                                                        HA += (3 * RationalPenalty);
-                                                    }
-                                                }
+                                                var th2 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                                th2.Wait();
+                                                th2.Dispose();
+                                                var th3 = Task.Factory.StartNew(() => B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                                th3.Wait();
+                                                th3.Dispose();
+                                            }
+                                            //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                SupportedS++;
+                                            }
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Supported++;
+                                                continue;
                                             }
                                         }
+                                    }
+                                    if (SupportedS > 0 && Supported == 0)
+                                        HA *= (int)System.Math.Pow(2, SupportedS);
+                                    else
+                               if (Supported > 0)
+                                        HA *= (int)(-1 * System.Math.Pow(2, Supported));
+                                }
+                                else
+                                {
+                                    var th4 = Task.Factory.StartNew(() => ab = IsMinisteBreakable(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD));
+                                    th4.Wait();
+                                    th4.Dispose();
+                                    if (ab)
+                                    {
+                                        HA += (3 * RationalPenalty);
                                     }
                                 }
                             }
                         }
                     }
                 }
+
+
                 if (!MinisterOnAttack)
                 {
-                    if (IsMinistePowerfull(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD))
+                    bool ab = false;
+                    var th5 = Task.Factory.StartNew(() => ab = IsMinistePowerfull(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD));
+                    th5.Wait();
+                    th5.Dispose();
+                    if (ab)
                         HA += RationalRegard;
                 }
                 else
@@ -1490,11 +1543,19 @@ namespace RefrigtzChessPortable
                     }
                     else
                         return HeuristicCheckedMate;
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order));
+
+                    th.Wait();
+                    th.Dispose();
                     //For ObjectDanger Movments.
-                    if (ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
+                    if (ab)
                     {
-                        //Find Local Sumation of ObjectDanger Heuristic.                                
-                        HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS));
+                        var th1 = Task.Factory.StartNew(() => HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS)));
+                        th1.Wait();
+                        th1.Dispose();
+                        //Find Local Sumation of ObjectDanger Heuristic.                               
+
                     }
                 }
                 //For All Table Home Find ObjectDanger Heuristic
@@ -1534,10 +1595,17 @@ namespace RefrigtzChessPortable
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order));
+                        th.Wait();
+                        th.Dispose();
+
+                        if (ab)
                         {
                             //Find Local Sumation of ObjectDanger Heuristic.                                
-                            HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS));
+                            var th1 = Task.Factory.StartNew(() => HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS)));
+                            th1.Wait();
+                            th1.Dispose();
                         }
                     }
                 }
@@ -1589,21 +1657,32 @@ namespace RefrigtzChessPortable
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, CloneATable(Tab), Order, aa, RowS, ColS, RowD, ColD);
+                    var th = Task.Factory.StartNew(() => EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, CloneATable(Tab), Order, aa, RowS, ColS, RowD, ColD));
+                    th.Wait();
+                    th.Dispose();
+
                     //When there is Attacks to Current Objects and is killable..
-                    if (Attack(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
+                    bool ab = false;
+                    var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), RowD, ColD, RowS, ColS, a, Order));
+                    th1.Wait();
+                    th1.Dispose();
+                    if (ab)
                     {
                         if (EnemyNotSupported)
                         {
                             //Heuristic positive.
-                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
-                            ));
+                            var th2 = Task.Factory.StartNew(() => HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
+                            )));
+                            th2.Wait();
+                            th2.Dispose();
                         }
                         else
                         {
                             //Heuristic ngative.
-                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
-                            ) * -1);
+                            var th2 = Task.Factory.StartNew(() => HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
+                            ) * -1));
+                            th2.Wait();
+                            th2.Dispose();
                         }
                     }
                     a = colorAS;
@@ -1673,9 +1752,13 @@ namespace RefrigtzChessPortable
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order1 * -1)
-                                       && ObjectValueCalculator(CloneATable(Tab), i, j) >= ObjectValueCalculator(CloneATable(Tab), ii, jj)
-                                        )
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order1 * -1)
+                                        && ObjectValueCalculator(CloneATable(Tab), i, j) >= ObjectValueCalculator(CloneATable(Tab), ii, jj));
+
+                                th.Wait();
+                                th.Dispose();
+                                if (ab)
                                 //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
                                 //EnemyNotSupported method Should continue [valid]
                                 //By this situation continue not valid
@@ -1744,11 +1827,23 @@ namespace RefrigtzChessPortable
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        if (EnemyIsValuable && (!IsObjectValaubleObjectEnemy(ii, jj, Tab[ii, jj], ref ValuableEnemyNotSupported)))
-                                            continue;
+                                        bool ab = false;
+                                        List<int[]> ValuableEnemyNotSupportedA = ValuableEnemyNotSupported;
+                                        var th = Task.Factory.StartNew(() => ab = EnemyIsValuable && (!IsObjectValaubleObjectEnemy(ii, jj, Tab[ii, jj], ref ValuableEnemyNotSupportedA)));
+                                        th.Wait();
+                                        th.Dispose();
+
+                                        ValuableEnemyNotSupported = ValuableEnemyNotSupportedA;
+
+                                        if (ab)
+                                           continue;
                                         EnemyNotSupported = true;
                                         InAttackedNotEnemySupported = false;
-                                        if (Attack(CloneATable(Tab), i, j, ii, jj, a, Order))
+                                        var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), i, j, ii, jj, a, Order));
+                                        th1.Wait();
+                                        th1.Dispose();
+
+                                        if (ab)
                                         {
                                             InAttackedNotEnemySupported = true;
                                             //Enemy
@@ -1766,7 +1861,11 @@ namespace RefrigtzChessPortable
                                                     if (Order * -1 == -1)
                                                         a = Color.Brown;
                                                     //
-                                                    if (Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order * -1)
+                                                    var th2 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order * -1));
+                                                    th2.Wait();
+                                                    th2.Dispose();
+
+                                                    if (ab
                                                         //&& (ObjectValueCalculator(CloneATable(Tab),i,j) >= ObjectValueCalculator(CloneATable(Tab),ii,jj)
                                                         //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
                                                         //EnemyNotSupported method Should return [valid]
@@ -1880,8 +1979,12 @@ namespace RefrigtzChessPortable
                                 a = Color.Gray;
                                 if (Order * -1 == -1)
                                     a = Color.Brown;
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), ii, jj, RowS, ColS, a, Order * -1));
+                                th.Wait();
+                                th.Dispose();
                                 //when there is attack to some self node.
-                                if (Attack(CloneATable(Tab), ii, jj, RowS, ColS, a, Order * -1))
+                                if (ab)
                                 {
                                     bool Supporte = false;
                                     //For All Self
@@ -1904,7 +2007,10 @@ namespace RefrigtzChessPortable
                                             if (Order == -1)
                                                 a = Color.Brown;
                                             //when there is attack of self node to that enemy node.
-                                            if (Support(CloneATable(Tab), RowD, ColD, RowS, ColS, a, Order) || Attack(CloneATable(Tab), RowD, ColD, ii, jj, a, Order))
+                                            var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowD, ColD, RowS, ColS, a, Order) || Attack(CloneATable(Tab), RowD, ColD, ii, jj, a, Order));
+                                            th1.Wait();
+                                            th1.Dispose();
+                                            if (ab)
                                             {
                                                 Supporte = true;
                                                 continue;
