@@ -3015,8 +3015,13 @@ namespace RefrigtzChessPortable
                             else
                                 return HeuristicSelfSupportedValue;
                             //For Support Movments.
-                            if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
+                            bool ab = false;
+                            var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order));
+                            th.Wait();
+                            th.Dispose();
+                            if (ab)
                             {
+                             
                                 //Calculate Local Support Heuristic.
                                 HA += RationalPenalty;
                                 int Supported = new int();
@@ -3057,8 +3062,12 @@ namespace RefrigtzChessPortable
                                             //When Enemy is Supported.
                                             bool A = new bool();
                                             bool B = new bool();
-                                            A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
-                                            B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
+                                            var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order));
+                                            th1.Wait();
+                                            th1.Dispose();
+                                            var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1));
+                                            th2.Wait();
+                                            th2.Dispose();
                                             //When Enemy is Supported.
                                             if (A)
                                             {
@@ -3137,8 +3146,13 @@ namespace RefrigtzChessPortable
                                         else
                                             return HeuristicSelfSupportedValue;
                                         //For Support Movments.
-                                        if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
+                                        bool ab = false;
+                                        var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order));
+                                        th.Wait();
+                                        th.Dispose();
+                                        if (ab)
                                         {
+                                            
                                             //Calculate Local Support Heuristic.
                                             HA += RationalPenalty;
                                             int Supported = new int();
@@ -3179,8 +3193,12 @@ namespace RefrigtzChessPortable
                                                         //When Enemy is Supported.
                                                         bool A = new bool();
                                                         bool B = new bool();
-                                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
-                                                        B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
+                                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order));
+                                                        th1.Wait();
+                                                        th1.Dispose();
+                                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1));
+                                                        th2.Wait();
+                                                        th2.Dispose();
                                                         //When Enemy is Supported.
                                                         if (A)
                                                         {
@@ -3305,22 +3323,35 @@ namespace RefrigtzChessPortable
                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                 if (Order == 1 && Table[ii, jj] < 0)
                 {
-                    if (A.Rules(i, j, ii, jj, a, Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, a, Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
+                       
                         return true;
                     }
                 }
                 else
                  if (Order == -1 && Table[ii, jj] > 0)
                 {
-                    if (A.Rules(i, j, ii, jj, a, Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, a, Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         return true;
                     }
                 }
                 if (Order == 1 && Table[ii, jj] == 0)
                 {
-                    if (A.Rules(i, j, ii, jj, a, Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, a, Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         return true;
                     }
@@ -3328,7 +3359,11 @@ namespace RefrigtzChessPortable
                 else
                 if (Order == -1 && Table[ii, jj] == 0)
                 {
-                    if (A.Rules(i, j, ii, jj, a, Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, a, Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         return true;
                     }
@@ -3397,10 +3432,17 @@ namespace RefrigtzChessPortable
                         if (Order * -1 == -1)
                             a = Color.Brown;
                         //When there is movment to current OPbject.
-                        if (A.Rules(ii, jj, i, j, a, Table[ii, jj]))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = A.Rules(ii, jj, i, j, a, Table[ii, jj]));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
                             //Number of Attacks and take move.
-                            int Count = AttackerCount(CloneATable(Table), Order * -1, a, ii, jj);
+                            int Count = 0;
+                            var th1 = Task.Factory.StartNew(() => Count = AttackerCount(CloneATable(Table), Order * -1, a, ii, jj));
+                            th1.Wait();
+                            th1.Dispose();
                             //When there is Object Danger.
                             //Clone a Copy.
                             for (var RowS = 0; RowS < 8; RowS++)
@@ -3413,8 +3455,12 @@ namespace RefrigtzChessPortable
                             if (Order == -1)
                                 a = Color.Brown;
                             //When Current Movments Attacks Enemy.
-                            if (Attack(CloneATable(Table), i, j, ii, jj, a, Order))
+                            var th2 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), i, j, ii, jj, a, Order));
+                            th2.Wait();
+                            th2.Dispose();
+                            if (ab)
                             {
+
                                 //For Current Home.
                                 for (var RowS = 0; RowS < 8; RowS++)
                                     for (var ColS = 0; ColS < 8; ColS++)
@@ -3425,7 +3471,10 @@ namespace RefrigtzChessPortable
                                         if (Order == -1 && Tab[RowS, ColS] >= 0)
                                             continue;
                                         //Whn Value Of Current is Less That Enemy.
-                                        if (ObjectValueCalculator(CloneATable(Table), i, j) < ObjectValueCalculator(CloneATable(Table), ii, jj))
+                                        var th3 = Task.Factory.StartNew(() => ab = ObjectValueCalculator(CloneATable(Table), i, j) < ObjectValueCalculator(CloneATable(Table), ii, jj));
+                                        th3.Wait();
+                                        th3.Dispose();
+                                        if (ab)
                                         {
                                             //Take Move.
                                             Table[ii, jj] = Table[i, j];
@@ -3434,8 +3483,12 @@ namespace RefrigtzChessPortable
                                             if (Order * -1 == -1)
                                                 a = Color.Brown;
                                             //When Enemy Attacks Current Moved.
-                                            if (!Attack(CloneATable(Table), RowS, ColS, ii, jj, a, Order * -1))
+                                            var th4 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, ii, jj, a, Order * -1));
+                                            th4.Wait();
+                                            th4.Dispose();
+                                            if (ab)
                                             {
+                                             
                                                 //For Current Order.
                                                 for (int RowD = 0; RowD < 8; RowD++)
                                                     for (int ColD = 0; ColD < 8; ColD++)
@@ -3449,10 +3502,17 @@ namespace RefrigtzChessPortable
                                                         if (Order == -1)
                                                             a = Color.Brown;
                                                         //When Self Supported Current
-                                                        if (Support(CloneATable(Table), RowD, ColD, i, j, a, Order))
+                                                        var th5 = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowD, ColD, i, j, a, Order));
+                                                        th5.Wait();
+                                                        th5.Dispose();
+                                                        if (ab)
                                                         {
+
                                                             //If V alue of Enemy is Greater Than Current and Value of Enemy is Greater than Supporter.
-                                                            if (ObjectValueCalculator(CloneATable(Table), RowS, ColS) < ObjectValueCalculator(CloneATable(Table), ii, jj) && ObjectValueCalculator(CloneATable(Table), RowS, ColS) > ObjectValueCalculator(CloneATable(Table), Row, ColS))
+                                                            var th6 = Task.Factory.StartNew(() => ab = ObjectValueCalculator(CloneATable(Table), RowS, ColS) < ObjectValueCalculator(CloneATable(Table), ii, jj) && ObjectValueCalculator(CloneATable(Table), RowS, ColS) > ObjectValueCalculator(CloneATable(Table), Row, ColS));
+                                                            th6.Wait();
+                                                            th6.Dispose();
+                                                            if (ab)
                                                             {
                                                                 Remove = true;
                                                                 return Remove;
