@@ -5945,7 +5945,11 @@ namespace RefrigtzChessPortable
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
                 //opperation decision making  on pawn movment
-                if (IsTableRowColIsZero(RowS, ColS) && HeuristicAllReducedAttacked.Count == 0)
+                bool ab = false;
+                var th1 = Task.Factory.StartNew(() => ab = IsTableRowColIsZero(RowS, ColS) && HeuristicAllReducedAttacked.Count == 0);
+                th1.Wait();
+                th1.Dispose();
+                if (ab)
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
@@ -5958,7 +5962,10 @@ namespace RefrigtzChessPortable
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
-                if (ExistCastleInDouble(Order, CloneATable(Tab), RowS, ColS, RowD, ColD))
+                var th2 = Task.Factory.StartNew(() => ab = ExistCastleInDouble(Order, CloneATable(Tab), RowS, ColS, RowD, ColD));
+                th2.Wait();
+                th2.Dispose();
+                if (ab)
                     Dis += RationalRegard;
                 if (Order == 1)
                 {
@@ -5968,19 +5975,38 @@ namespace RefrigtzChessPortable
                         if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
                             Dis += RationalRegard;
                     }
-                    if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                       if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0))
+                        var th3 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0));
+                        th3.Wait();
+                        th3.Dispose();
+                        if (ab)
                             Dis += RationalPenalty;
                         else
-                     if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0))
-                            Dis += RationalPenalty;
-                        else
-                  if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0))
-                            Dis += RationalRegard;
-                        else
-                  if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0))
-                            Dis += RationalRegard;
+                        {
+                            var th4 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0));
+                            th4.Wait();
+                            th4.Dispose();
+                            if (ab)
+                                Dis += RationalPenalty;
+                            else
+                            
+                        {
+                                var th5 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0));
+                                th5.Wait();
+                                th5.Dispose();
+                                if (ab)
+                                    Dis += RationalRegard;
+                                else
+                                {
+                                    var th6 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0));
+                                    th6.Wait();
+                                    th6.Dispose();
+                                    if (ab)
+                                        Dis += RationalRegard;
+                                }
+                        }
+                        }
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
@@ -6001,21 +6027,45 @@ namespace RefrigtzChessPortable
 
                     }
 
-                    if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0))
+                    var th7 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0));
+                    th7.Wait();
+                    th7.Dispose();
+                    if (ab)
                         Dis += RationalPenalty;
                     else
-              if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0))
-                        Dis += RationalPenalty;
-                    else
-           if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0))
-                        Dis += RationalRegard;
-                    else
-           if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0))
-                        Dis += RationalRegard;
-
-                    if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                        var th8 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0));
+                        th8.Wait();
+                        th8.Dispose();
+                        if (ab)
+                            Dis += RationalPenalty;
+                        else
+                        {
+                            var th9 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0));
+                            th9.Wait();
+                            th9.Dispose();
+                            if (ab)
+                                Dis += RationalRegard;
+                            else
+                            {
+                                var th10 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0));
+                                th10.Wait();
+                                th10.Dispose();
+                                if (ab)
+                                    Dis += RationalRegard;
+                            }
+                        }
+                    }
+
+                    var th11 = Task.Factory.StartNew(() => ab = ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)));
+                    th11.Wait();
+                    th11.Dispose();
+                    if (!ab)
+                    {
+                        var th12 = Task.Factory.StartNew(() => ab = IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32));
+                        th12.Wait();
+                        th12.Dispose();
+                        if (!ab)
                         {
                             int Cor = 0;
                             var H3 = Task.Factory.StartNew(() => Cor = RefrigtzChessPortable.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
@@ -6040,19 +6090,40 @@ namespace RefrigtzChessPortable
                     }
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0))
+                        var th13 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0));
+                        th13.Wait();
+                        th13.Dispose();
+                        if (ab)
                             Dis += RationalPenalty;
                         else
-                              if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0))
-                            Dis += RationalPenalty;
-                        else
-                           if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0))
-                            Dis += RationalRegard;
-                        else
-                           if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0))
-                            Dis += RationalRegard;
+                        {
+                            var th14 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0));
+                            th14.Wait();
+                            th14.Dispose();
+                            if (ab)
+                                Dis += RationalPenalty;
+                            else
+                            {
+                                var th15 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0));
+                                th15.Wait();
+                                th15.Dispose();
+                                if (ab)
+                                    Dis += RationalRegard;
+                                else
+                                {
+                                    var th16 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0));
+                                    th16.Wait();
+                                    th16.Dispose();
+                                    if (ab)
+                                        Dis += RationalRegard;
+                                }
+                            }
+                        }
                     }
-                    if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    var th17 = Task.Factory.StartNew(() => ab = IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32));
+                    th17.Wait();
+                    th17.Dispose();
+                    if (ab)
                     {
                         int Cor = 0;
                         var H4 = Task.Factory.StartNew(() => Cor = RefrigtzChessPortable.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order));
@@ -6068,17 +6139,35 @@ namespace RefrigtzChessPortable
                             ColleralationBrown = Cor;
                         }
                     }
-                    if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0))
+                    var th18 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) > 0));
+                    th18.Wait();
+                    th18.Dispose();
+                    if (ab)
                         Dis += RationalPenalty;
                     else
-                    if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0))
-                        Dis += RationalPenalty;
-                    else
-                 if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0))
-                        Dis += RationalRegard;
-                    else
-                 if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0))
-                        Dis += RationalRegard;
+                    {
+                        var th19 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0));
+                        th19.Wait();
+                        th19.Dispose();
+                        if (ab)
+                            Dis += RationalPenalty;
+                        else
+                        {
+                            var th20 = Task.Factory.StartNew(() => ab = (Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD) == 0));
+                            th20.Wait();
+                            th20.Dispose();
+                            if (ab)
+                                Dis += RationalRegard;
+                            else
+                            {
+                                var th21 = Task.Factory.StartNew(() => ab = (Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) == 0));
+                                th21.Wait();
+                                th21.Dispose();
+                                if (ab)
+                                    Dis += RationalRegard;
+                            }
+                        }
+                    }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
@@ -6191,7 +6280,11 @@ namespace RefrigtzChessPortable
                                 continue;
                             if (Math.Abs(Table[RowS, ColS]) == 1 && SameSign(Table[RowS, ColS], Table[i, j]))
                             {
-                                if (Support(CloneATable(Table), i, j, RowS, ColS, color, Order))
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), i, j, RowS, ColS, color, Order));
+                                th.Wait();
+                                th.Dispose();
+                                if (ab)
                                 {
                                     IsSuported = true;
                                     break;
@@ -6200,7 +6293,11 @@ namespace RefrigtzChessPortable
                             else
                             if (Math.Abs(Table[RowD, ColD]) == 1 && SameSign(Table[RowD, ColD], Table[i, j]))
                             {
-                                if (Support(CloneATable(Table), i, j, RowD, ColD, color, Order))
+                                bool ab = false;
+                                var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), i, j, RowD, ColD, color, Order));
+                                th.Wait();
+                                th.Dispose();
+                                if (ab)
                                 {
                                     IsSuported = true;
                                     break;
@@ -6395,9 +6492,16 @@ namespace RefrigtzChessPortable
                                             {
                                                 if (HeuristicA[0] == 0)
                                                 {
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                    bool ab = false;
+                                                    var th = Task.Factory.StartNew(() => ab = Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false));
+                                                    th.Wait();
+                                                    th.Dispose();
+                                                    if (ab)
                                                     {
-                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                        var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1));
+                                                        th1.Wait();
+                                                        th1.Dispose();
+                                                        if (ab)
                                                         {
                                                             if (HeuristicA[0] == 0)
                                                                 HeuristicA[0] = RationalPenalty;
@@ -6411,9 +6515,16 @@ namespace RefrigtzChessPortable
                                         {
                                             if (HeuristicA[2] == 0)
                                             {
-                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                bool ab = false;
+                                                var th = Task.Factory.StartNew(() => ab = Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false));
+                                                th.Wait();
+                                                th.Dispose();
+                                                if (ab)
                                                 {
-                                                    if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1));
+                                                    th1.Wait();
+                                                    th1.Dispose();
+                                                    if (ab)
                                                     {
                                                         if (HeuristicA[2] == 0)
                                                             HeuristicA[2] = RationalPenalty;
@@ -6426,9 +6537,16 @@ namespace RefrigtzChessPortable
                                         {
                                             if (HeuristicA[1] == 0)
                                             {
-                                                if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
+                                                bool ab = false;
+                                                var th = Task.Factory.StartNew(() => ab = Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false));
+                                                th.Wait();
+                                                th.Dispose();
+                                                if (ab)
                                                 {
-                                                    if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord));
+                                                    th1.Wait();
+                                                    th1.Dispose();
+                                                    if (ab)
                                                     {
                                                         if (HeuristicA[1] == 0)
                                                             HeuristicA[1] = RationalRegard;
@@ -6441,9 +6559,16 @@ namespace RefrigtzChessPortable
                                          {
                                              if (HeuristicA[3] == 0)
                                              {
-                                                 if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                 bool ab = false;
+                                                 var th = Task.Factory.StartNew(() => ab = Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false));
+                                                 th.Wait();
+                                                 th.Dispose();
+                                                 if (ab)
                                                  {
-                                                     if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                     var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord));
+                                                     th1.Wait();
+                                                     th1.Dispose();
+                                                     if (ab)
                                                      {
                                                          if (HeuristicA[3] == 0)
                                                              HeuristicA[3] = RationalRegard;
