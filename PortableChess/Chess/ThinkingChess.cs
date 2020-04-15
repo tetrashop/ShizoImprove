@@ -3586,8 +3586,13 @@ namespace RefrigtzChessPortable
                                             int DummyCurrentOrder = ChessRules.CurrentOrder;
                                             A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TablCon[i, j], TablCon, -1, i, j);
                                             //When Enemy is Attacked Gray Objects.
-                                            if (A.Rules(i, j, ii, jj, Color.Brown, TablCon[i, j]))
+                                            bool ab = false;
+                                            var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, Color.Brown, TablCon[i, j]));
+                                            th.Wait();
+                                            th.Dispose();
+                                            if (ab)
                                             {
+                                                
                                                 //Take Movments.
                                                 TablCon[ii, jj] = TablCon[i, j];
                                                 TablCon[i, j] = 0;
@@ -3596,8 +3601,12 @@ namespace RefrigtzChessPortable
                                                 //Settting Object.
                                                 A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TablCon[ii, jj], TablCon, 1, ii, jj);
                                                 //When Occured Check.
-                                                if (A.Check(TablCon, 1))
+                                                var th1 = Task.Factory.StartNew(() => ab = A.Check(TablCon, 1));
+                                                th1.Wait();
+                                                th1.Dispose();
+                                                if (ab)
                                                 {
+                                                    
                                                     //When Gray is Check.
                                                     if (A.CheckGray)
                                                     {
@@ -3611,8 +3620,11 @@ namespace RefrigtzChessPortable
                                                                     //Setting Enemy.
                                                                     ChessRules.CurrentOrder = -1;
                                                                     //When Enemy is Supported 
-                                                                    if (Support(TablCon, RowD, ColD, i, j, Color.Brown, -1))
-                                                                    {
+                                                                    var th2 = Task.Factory.StartNew(() => ab = Support(TablCon, RowD, ColD, i, j, Color.Brown, -1));
+                                                                    th2.Wait();
+                                                                    th2.Dispose();
+                                                                    if (ab)
+                                                                    {                                                                        
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -3665,8 +3677,12 @@ namespace RefrigtzChessPortable
                                             A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TablCon[i, j], TablCon, 1, i, j);
                                             ChessRules.CurrentOrder = 1;
                                             //When Enemy Attacked Self Objects.
-                                            if (A.Rules(i, j, ii, jj, Color.Gray, TablCon[i, j]))
-                                            {
+                                            bool ab = false;
+                                            var th = Task.Factory.StartNew(() => ab = A.Rules(i, j, ii, jj, Color.Gray, TablCon[i, j]));
+                                            th.Wait();
+                                            th.Dispose();
+                                            if (ab)
+                                            {                                               
                                                 //Take movemnts.
                                                 TablCon[ii, jj] = TablCon[i, j];
                                                 TablCon[i, j] = 0;
@@ -3674,9 +3690,12 @@ namespace RefrigtzChessPortable
                                                 ChessRules.CurrentOrder = -1;
                                                 A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TablCon[ii, jj], TablCon, -1, ii, jj);
                                                 //When Check Occured.
-                                                if (A.Check(TablCon, -1))
+                                                var th1 = Task.Factory.StartNew(() => ab = A.Check(TablCon, -1));
+                                                th1.Wait();
+                                                th1.Dispose();
+                                                if (ab)
                                                 {
-                                                    //When Current is Check.
+                                                   //When Current is Check.
                                                     if (A.CheckBrown)
                                                     {
                                                         //For Enemy Objecvts.
@@ -3689,8 +3708,11 @@ namespace RefrigtzChessPortable
                                                                     //Setting Enemy Order
                                                                     ChessRules.CurrentOrder = 1;
                                                                     //When Enemy is Supported.
-                                                                    if (Support(TablCon, RowD, ColD, i, j, Color.Gray, 1))
-                                                                    {
+                                                                    var th2 = Task.Factory.StartNew(() => ab = Support(TablCon, RowD, ColD, i, j, Color.Gray, 1));
+                                                                    th2.Wait();
+                                                                    th2.Dispose();
+                                                                    if (ab)
+                                                                    {                                                                      
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -3735,13 +3757,21 @@ namespace RefrigtzChessPortable
                     else
                         color = Color.Brown;
                     //When Enemy Attack Currnet.
-                    if (A.Rules(ik, jk, iki, jki, color, Tab2[ik, jk]))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = A.Rules(ik, jk, iki, jki, color, Tab2[ik, jk]));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
+                        
                         Tab2[iki, jki] = Tab2[ik, jk];
                         Tab2[ik, jk] = 0;
                         A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab2[iki, jki], Tab2, Order * -1, iki, jki);
                         //When Current Always is in CheckedMate.
-                        if (A.CheckMate(Tab2, Order * -1))
+                        var th1 = Task.Factory.StartNew(() => ab = A.CheckMate(Tab2, Order * -1));
+                        th1.Wait();
+                        th1.Dispose();
+                        if (ab)
                         {
                             //When Order is Gray.
                             if (OrderPalte == 1)
@@ -3820,7 +3850,10 @@ namespace RefrigtzChessPortable
                         int[] IS = null;
                         lock (O1)
                         {
-                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(CloneATable(Tab), Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
+                            var th2 = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(CloneATable(Tab), Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1));
+                            th2.Wait();
+                            th2.Dispose();
+                           
                         }
                         if (Is[0] == 1) Is[0] = 1;
                         if (IS[2] == 1) Is[2] = 1;
@@ -3846,7 +3879,11 @@ namespace RefrigtzChessPortable
                 //When Enemy Attack Currnet.
                 A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab2[iki, jki], Tab2, OrderPalte, iki, jki);
                 //When Current Always is in CheckedMate.
-                if (A.CheckMate(Tab2, OrderPalte))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = A.CheckMate(Tab2, OrderPalte));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     //When for penalty.
                     if (OrderPalte == AllDraw.OrderPlate)
@@ -3971,7 +4008,9 @@ namespace RefrigtzChessPortable
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                                th.Wait();
+                                                th.Dispose();
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4001,7 +4040,9 @@ namespace RefrigtzChessPortable
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                            th.Wait();
+                                            th.Dispose();
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4028,7 +4069,9 @@ namespace RefrigtzChessPortable
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                            th.Wait();
+                                            th.Dispose();
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4056,7 +4099,10 @@ namespace RefrigtzChessPortable
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                                th.Wait();
+                                                th.Dispose();
+
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4085,7 +4131,9 @@ namespace RefrigtzChessPortable
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                            th.Wait();
+                                            th.Dispose();
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4112,7 +4160,10 @@ namespace RefrigtzChessPortable
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                            th.Wait();
+                                            th.Dispose();
+
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4143,7 +4194,10 @@ namespace RefrigtzChessPortable
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                                th.Wait();
+                                                th.Dispose();
+
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4173,7 +4227,9 @@ namespace RefrigtzChessPortable
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                var th = Task.Factory.StartNew(() => IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1));
+                                                th.Wait();
+                                                th.Dispose();
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4233,8 +4289,13 @@ namespace RefrigtzChessPortable
                     Color aa = Color.Gray;
                     if (Order * -1 == -1)
                         aa = Color.Brown;
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), ii, jj, RowS, ColS, aa, Order * -1) && (ObjectValueCalculator(CloneATable(Tab), ii, jj) < ObjectValueCalculator(CloneATable(Tab), RowS, ColS)));
+                    th.Wait();
+                    th.Dispose();
+
                     //When Enemy Attacked Current Movements.
-                    if (Attack(CloneATable(Tab), ii, jj, RowS, ColS, aa, Order * -1) && (ObjectValueCalculator(CloneATable(Tab), ii, jj) < ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
+                    if (ab)
                     {
                         NumberOfCurrentEnemyAttackSuchObject++;
                         //Clone a Table.
@@ -4278,7 +4339,10 @@ namespace RefrigtzChessPortable
                                         Object O2 = new Object();
                                         lock (O2)
                                         {
-                                            if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TabS[RowD, ColD], TabS, Order, RowD, ColD)).Rules(RowD, ColD, iiiii, jjjjj, a, TabS[RowD, ColD]))
+                                            var th1 = Task.Factory.StartNew(() => ab = (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TabS[RowD, ColD], TabS, Order, RowD, ColD)).Rules(RowD, ColD, iiiii, jjjjj, a, TabS[RowD, ColD]));
+                                            th1.Wait();
+                                            th1.Dispose();
+                                            if (ab)
                                             {
                                                 Attacked = Attacked && false;
                                                 continue;
