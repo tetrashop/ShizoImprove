@@ -4945,7 +4945,11 @@ namespace RefrigtzChessPortable
         }
         public bool EnemyKingHaveAtMostOneEmptyItemInAttack(int Rowk, int ColK, int[,] Table, int Order)
         {
-            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+            bool ab = false;
+            var th = Task.Factory.StartNew(() => ab = IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)));
+            th.Wait();
+            th.Dispose();
+            if (!ab)
                 return false;
             Object O = new Object();
             lock (O)
@@ -4954,12 +4958,15 @@ namespace RefrigtzChessPortable
 #pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
                 int NIs = 0;
 #pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
-//#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
+                //#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
                 for (int k = 0; k < 8; k++)
                 {
                     for (int p = 0; p < 8; p++)
                     {
-                        if (Attack(CloneATable(Table), k, p, Rowk, ColK, color, Order))
+                        var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), k, p, Rowk, ColK, color, Order));
+                        th1.Wait();
+                        th1.Dispose();
+                        if (ab)
                         {
                             for (int kk = 0; kk < 8; kk++)
                             {
@@ -4969,14 +4976,23 @@ namespace RefrigtzChessPortable
                                     {
                                         for (int ppp = 0; ppp < 8; ppp++)
                                         {
-                                            if (Movable(CloneATable(Table), kk, pp, kkk, ppp, color, Order))
+                                            var th2 = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), kk, pp, kkk, ppp, color, Order));
+                                            th2.Wait();
+                                            th2.Dispose();
+                                            if (ab)
                                             {
+
                                                 int[,] Ta = CloneATable(Table);
                                                 Ta[kkk, ppp] = Ta[kk, pp];
                                                 Ta[kk, pp] = 0;
                                                 ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Ta), Order, kkk, ppp);
-                                                if (G.CheckMate(CloneATable(Ta), Order))
+                                                var th3 = Task.Factory.StartNew(() => ab = G.CheckMate(CloneATable(Ta), Order));
+                                                th3.Wait();
+                                                th3.Dispose();
+                                                if (ab)
+                                                {
                                                     return true;
+                                                }
                                             }
                                         }
                                     }
@@ -5016,7 +5032,11 @@ namespace RefrigtzChessPortable
                     return false;
                 bool Is = false;
                 List<int> EmptyR = new List<int>(), EmptyC = new List<int>();
-                int NIs = EnemyKingHaveAtMostOneEmptyItem(RowK, ColK, CloneATable(Table), Order, ref EmptyR, ref EmptyC);
+                int NIs = 0;
+                var th = Task.Factory.StartNew(() => NIs = EnemyKingHaveAtMostOneEmptyItem(RowK, ColK, CloneATable(Table), Order, ref EmptyR, ref EmptyC));
+                th.Wait();
+                th.Dispose();
+
                 //King Have One HomeAtlist movment
                 if (NIs <= 2)
                 {
@@ -5038,7 +5058,11 @@ namespace RefrigtzChessPortable
                                     if (Order == -1 & Table[kk, pp] >= 0)
                                         continue;
                                     //Self Have Support
-                                    if (Support(CloneATable(Tab), kk, pp, k, p, color, Order))
+                                    bool ab = false;
+                                    var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Tab), kk, pp, k, p, color, Order));
+                                    th1.Wait();
+                                    th1.Dispose();
+                                    if (ab)
                                     {
                                         for (int kkk = 0; kkk < 8; kkk++)
                                         {
@@ -5049,7 +5073,10 @@ namespace RefrigtzChessPortable
                                                 if (Order == -1 & Table[kkk, ppp] < 0)
                                                     continue;
                                                 //Enemy King Attack
-                                                if (Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order))
+                                                var th2 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order));
+                                                th2.Wait();
+                                                th2.Dispose();
+                                                if (ab)                                                  
                                                 {
                                                     int[,] Ta = CloneATable(Tab);
                                                     Ta[kkk, ppp] = Ta[k, p];
@@ -5134,9 +5161,16 @@ namespace RefrigtzChessPortable
             const int ControlF = 3, ControlS = 4;
             if ((RowD == ControlF || RowD == ControlS || ColD == ControlF || ColD == ControlS))
             {
-                if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                     Is = true;
-                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                th1.Wait();
+                th1.Dispose();
+                if (ab)
                     Is = true;
             }
             return Is;
