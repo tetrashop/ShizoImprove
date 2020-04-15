@@ -7538,7 +7538,11 @@ namespace RefrigtzChessPortable
                     //if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
                             int[,] Tab = new int[8, 8];
                             for (var ik = 0; ik < 8; ik++)
@@ -7572,8 +7576,17 @@ namespace RefrigtzChessPortable
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1);
+                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order));
+                                        th1.Wait();
+                                        th1.Dispose();
+
+
+
+                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
+
+                                        
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -7644,8 +7657,13 @@ namespace RefrigtzChessPortable
                     //if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
+
                             HA += RationalRegard;
                             int Supported = 0;
                             int Attacked = 0;
@@ -7674,8 +7692,16 @@ namespace RefrigtzChessPortable
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Table), g, h, RowS, ColS, aaa, Order * -1);
+                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                        th1.Wait();
+                                        th1.Dispose();
+
+
+
+                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
+
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -7762,7 +7788,11 @@ namespace RefrigtzChessPortable
                     //if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
                             int[,] Tab = new int[8, 8];
                             for (var ik = 0; ik < 8; ik++)
@@ -7796,8 +7826,15 @@ namespace RefrigtzChessPortable
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1);
+                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order));
+                                        th1.Wait();
+                                        th1.Dispose();
+
+
+
+                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -7868,7 +7905,11 @@ namespace RefrigtzChessPortable
                     //if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
                             HA += RationalPenalty;
                             int Supported = 0;
@@ -7898,8 +7939,15 @@ namespace RefrigtzChessPortable
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Table), g, h, RowS, ColS, aaa, Order * -1);
+                                        var th1 = Task.Factory.StartNew(() => A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order));
+                                        th1.Wait();
+                                        th1.Dispose();
+
+
+
+                                        var th2 = Task.Factory.StartNew(() => B = Attack(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1));
+                                        th2.Wait();
+                                        th2.Dispose();
                                         //When Enemy is Supported.
                                         if (B)
                                         {
