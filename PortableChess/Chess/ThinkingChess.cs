@@ -5277,8 +5277,13 @@ namespace RefrigtzChessPortable
                         else
                             if (Order == -1 && Table[i, j] >= 0)
                             continue;
-                        if (Support(CloneATable(Table), i, j, ii, jj, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), i, j, ii, jj, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
+
                             Count++;
                         }
                     }
@@ -5311,7 +5316,11 @@ namespace RefrigtzChessPortable
                             if (Order == -1 && Tab[ii, jj] <= 0)
                             continue;
                         //If Current Attacks Enemy.
-                        if (Attack(CloneATable(Tab), i, j, ii, jj, a, Order))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Tab), i, j, ii, jj, a, Order));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
                             Count++;
                         }
@@ -5346,8 +5355,13 @@ namespace RefrigtzChessPortable
                         else
                             if (Order == -1 && Table[i, j] <= 0)
                             continue;
-                        if (Attack(CloneATable(Table), i, j, ii, jj, a, Order * -1))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), i, j, ii, jj, a, Order * -1));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
+
                             Count++;
                         }
                     }
@@ -5389,7 +5403,10 @@ namespace RefrigtzChessPortable
             Object O = new Object();
             lock (O)
             {
-                MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
+                var th = Task.Factory.StartNew(() => MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull());
+                th.Wait();
+                th.Dispose();
+
                 bool Is = false;
                 if (TableInitiationPreventionOfMultipleMove[Row, Col] == 0)
                 {
@@ -5462,52 +5479,113 @@ namespace RefrigtzChessPortable
                     return Is;
                 if (Tab[RowS, ColS] != 0)
                 {
-                    if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = (Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 4, a, Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                         Is = true;
-                    if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                    var th1 = Task.Factory.StartNew(() => ab = (Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 3, a, Order));
+                    th1.Wait();
+                    th1.Dispose();
+                    if (ab)
                         Is = true;
-                    if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                    var th2 = Task.Factory.StartNew(() => ab = (Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 3, a, Order));
+                    th2.Wait();
+                    th2.Dispose();
+                    if (ab)
                         Is = true;
-                    if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                    var th3 = Task.Factory.StartNew(() => ab = (Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 4, a, Order));
+                    th3.Wait();
+                    th3.Dispose();
+                    if (ab)
                         Is = true;
                     if (!Is)
                     {
                         if (Order == 1)
                         {
-                            if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1))
+                            var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1));
+                            th4.Wait();
+                            th4.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1))
+                            var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1));
+                            th5.Wait();
+                            th5.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1))
+                            var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1));
+                            th6.Wait();
+                            th6.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1))
+                            var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1));
+                            th7.Wait();
+                            th7.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                            var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order));
+                            th8.Wait();
+                            th8.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                            var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order));
+                            th9.Wait();
+                            th9.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                            var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order));
+                            th10.Wait();
+                            th10.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                            var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order));
+                            th11.Wait();
+                            th11.Dispose();
+                            if (ab)
                                 Is = true;
                         }
                         else
                         {
-                            if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1))
+                            var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1));
+                            th4.Wait();
+                            th4.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1))
+                            var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1));
+                            th5.Wait();
+                            th5.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1))
+                            var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1));
+                            th6.Wait();
+                            th6.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1))
+                            var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1));
+                            th7.Wait();
+                            th7.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                            var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order));
+                            th8.Wait();
+                            th8.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                            var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order));
+                            th9.Wait();
+                            th9.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                            var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order));
+                            th10.Wait();
+                            th10.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                            var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order));
+                            th11.Wait();
+                            th11.Dispose();
+                            if (ab)
                                 Is = true;
                         }
                         if (!Is)
@@ -5515,52 +5593,113 @@ namespace RefrigtzChessPortable
                             int[,] Ta = CloneATable(Tab);
                             Ta[RowD, ColD] = Tab[RowS, ColS];
                             Tab[RowS, ColS] = 0;
-                            if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+
+                            var th12 = Task.Factory.StartNew(() => ab = (Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                            th12.Wait();
+                            th12.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                            var th13 = Task.Factory.StartNew(() => ab = (Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                            th13.Wait();
+                            th13.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                            var th14 = Task.Factory.StartNew(() => ab = (Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                            th14.Wait();
+                            th14.Dispose();
+                            if (ab)
                                 Is = true;
-                            if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                            var th15 = Task.Factory.StartNew(() => ab = (Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                            th15.Wait();
+                            th15.Dispose();
+                            if (ab)
                                 Is = true;
                             if (!Is)
                             {
                                 if (Order == 1)
                                 {
-                                    if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
+                                    var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1));
+                                    th4.Wait();
+                                    th4.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
+                                    var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1));
+                                    th5.Wait();
+                                    th5.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
+                                    var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1));
+                                    th6.Wait();
+                                    th6.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
+                                    var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1));
+                                    th7.Wait();
+                                    th7.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                                    th8.Wait();
+                                    th8.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                                    th9.Wait();
+                                    th9.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                                    th10.Wait();
+                                    th10.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                                    th11.Wait();
+                                    th11.Dispose();
+                                    if (ab)
                                         Is = true;
                                 }
                                 else
                                 {
-                                    if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
+                                    var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1));
+                                    th4.Wait();
+                                    th4.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
+                                    var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1));
+                                    th5.Wait();
+                                    th5.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
+                                    var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1));
+                                    th6.Wait();
+                                    th6.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
+                                    var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1));
+                                    th7.Wait();
+                                    th7.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                                    th8.Wait();
+                                    th8.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                                    th9.Wait();
+                                    th9.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                                    th10.Wait();
+                                    th10.Dispose();
+                                    if (ab)
                                         Is = true;
-                                    if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                                    th11.Wait();
+                                    th11.Dispose();
+                                    if (ab)
                                         Is = true;
                                 }
                             }
@@ -5570,52 +5709,112 @@ namespace RefrigtzChessPortable
                     {
                         if (Tab[RowD, ColD] == 1 || Tab[RowD, ColD] == -1)
                             return Is;
-                        if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                        var th12 = Task.Factory.StartNew(() => ab = (Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                        th12.Wait();
+                        th12.Dispose();
+                        if (ab)
                             Is = true;
-                        if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                        var th13 = Task.Factory.StartNew(() => ab = (Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                        th13.Wait();
+                        th13.Dispose();
+                        if (ab)
                             Is = true;
-                        if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                        var th14 = Task.Factory.StartNew(() => ab = (Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                        th14.Wait();
+                        th14.Dispose();
+                        if (ab)
                             Is = true;
-                        if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                        var th15 = Task.Factory.StartNew(() => ab = (Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                        th15.Wait();
+                        th15.Dispose();
+                        if (ab)
                             Is = true;
                         if (!Is)
                         {
                             if (Order == 1)
                             {
-                                if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
+                                var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1));
+                                th4.Wait();
+                                th4.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
+                                var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1));
+                                th5.Wait();
+                                th5.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
+                                var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1));
+                                th6.Wait();
+                                th6.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
+                                var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1));
+                                th7.Wait();
+                                th7.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                                th8.Wait();
+                                th8.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                                th9.Wait();
+                                th9.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                                th10.Wait();
+                                th10.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                                th11.Wait();
+                                th11.Dispose();
+                                if (ab)
                                     Is = true;
                             }
                             else
                             {
-                                if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
+                                var th4 = Task.Factory.StartNew(() => ab = (Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1));
+                                th4.Wait();
+                                th4.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
+                                var th5 = Task.Factory.StartNew(() => ab = (Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1));
+                                th5.Wait();
+                                th5.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
+                                var th6 = Task.Factory.StartNew(() => ab = (Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1));
+                                th6.Wait();
+                                th6.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
+                                var th7 = Task.Factory.StartNew(() => ab = (Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1));
+                                th7.Wait();
+                                th7.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                var th8 = Task.Factory.StartNew(() => ab = (Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order));
+                                th8.Wait();
+                                th8.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                var th9 = Task.Factory.StartNew(() => ab = (Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order));
+                                th9.Wait();
+                                th9.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                var th10 = Task.Factory.StartNew(() => ab = (Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order));
+                                th10.Wait();
+                                th10.Dispose();
+                                if (ab)
                                     Is = true;
-                                if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                var th11 = Task.Factory.StartNew(() => ab = (Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order));
+                                th11.Wait();
+                                th11.Dispose();
+                                if (ab)
                                     Is = true;
                             }
                         }
