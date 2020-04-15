@@ -4417,11 +4417,19 @@ namespace RefrigtzChessPortable
                                         for (var jk = 0; jk < 8; jk++)
                                             Tabl1[ik, jk] = Table[ik, jk];
                                     //Take Movement.
-                                    if (Attack(Tabl1, i, j, ii, jj, a, Order * -1))
+                                    bool ab = false;
+                                    var th = Task.Factory.StartNew(() => ab = Attack(Tabl1, i, j, ii, jj, a, Order * -1));
+                                    th.Wait();
+                                    th.Dispose();
+                                    if (ab)
                                     {
-                                        //When Current Movments is
-                                        if (ObjectValueCalculator(Tabl1, i, j) <= ObjectValueCalculator(Tabl1, ii, jj))
-                                        {
+
+                                        var th1 = Task.Factory.StartNew(() => ab = ObjectValueCalculator(Tabl1, i, j) <= ObjectValueCalculator(Tabl1, ii, jj));
+                                        th1.Wait();
+                                        th1.Dispose();
+                                        if (ab)
+                                        {//When Current Movments is
+
                                             if (Order == OrderPlate)
                                                 IsGardHighPriority = true;
                                         }
@@ -4433,7 +4441,9 @@ namespace RefrigtzChessPortable
                                                 a = Color.Gray;
                                             else
                                                 a = Color.Brown;
-                                            IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, CloneATable(Table), Order * -1, a, ii, jj, i, j, OrderPlate);
+                                            var th2 = Task.Factory.StartNew(() => IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, CloneATable(Table), Order * -1, a, ii, jj, i, j, OrderPlate));
+                                            th2.Wait();
+                                            th2.Dispose();
                                         }
                                     }
                                 }
@@ -4539,12 +4549,20 @@ namespace RefrigtzChessPortable
                 bool Is = false;
                 if ((ColK == 7) && (ColK - 1 >= 0) && (RowK - 1 >= 0) && (RowK + 1 < 8))
                 {
-                    if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK - 1]))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = SameSign(Table[RowK, ColK], Table[RowK - 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK - 1]));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                         Is = true;
                 }
                 if ((ColK == 0) && (ColK + 1 < 8) && (RowK - 1 >= 0) && (RowK + 1 < 8))
                 {
-                    if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK + 1]))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = SameSign(Table[RowK, ColK], Table[RowK - 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK + 1]));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                         Is = true;
                 }
                 return Is;
@@ -4556,7 +4574,11 @@ namespace RefrigtzChessPortable
             lock (O)
             {
                 bool Is = false;
-                if (ThereIsOneSideToRanAwayByEnemyKing(RowK, ColK, CloneATable(Table)))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = ThereIsOneSideToRanAwayByEnemyKing(RowK, ColK, CloneATable(Table)));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     for (int k = 0; k < 8; k++)
                     {
@@ -4564,7 +4586,10 @@ namespace RefrigtzChessPortable
                             continue;
                         for (int p = 0; p < 8; p++)
                         {
-                            if (!SameSign(Table[RowK, ColK], Table[p, k]))
+                            var th1 = Task.Factory.StartNew(() => ab = SameSign(Table[RowK, ColK], Table[p, k]));
+                            th1.Wait();
+                            th1.Dispose();
+                            if (!ab)
                             {
                                 if (Table[p, k] != 0)
                                 {
@@ -4585,8 +4610,12 @@ namespace RefrigtzChessPortable
                             continue;
                         for (int p = 0; p < 8; p++)
                         {
-                            if (!SameSign(Table[RowK, ColK], Table[k, p]))
+                            var th1 = Task.Factory.StartNew(() => ab = SameSign(Table[RowK, ColK], Table[k, p]));
+                            th1.Wait();
+                            th1.Dispose();
+                            if (!ab)
                             {
+
                                 if (Table[k, p] != 0)
                                 {
                                     int Obj = System.Math.Abs(Table[k, p]) / Table[k, p];
@@ -4700,7 +4729,11 @@ namespace RefrigtzChessPortable
                 {
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowD, ColD);
                     int[,] Tab = CloneATable(Table);
-                    if (G.CheckMate(CloneATable(Tab), Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = G.CheckMate(CloneATable(Tab), Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         if (Order == 1 && G.CheckMateBrown)
                             HA += RationalRegard;
@@ -4713,7 +4746,11 @@ namespace RefrigtzChessPortable
                 {
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     int[,] Tab = CloneATable(Table);
-                    if (G.CheckMate(CloneATable(Tab), Order))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = G.CheckMate(CloneATable(Tab), Order));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         if (Order == -1 && G.CheckMateGray)
                             HA += RationalRegard;
