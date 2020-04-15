@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 /*****************************************************************************
  * "1" Boundry Heuristic Founding.
- * "2" Search in ThinkingQuantum Tree to found Max or Min Heuristic.
+ * "2" Search in ThinkingQuantumChess tree to found Max or Min Heuristic.
  **/
 namespace QuantumRefrigiz
 {

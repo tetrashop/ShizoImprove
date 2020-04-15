@@ -44,7 +44,7 @@ namespace QuantumRefrigiz
         public int Current = 0;
         public int Order;
         int CurrentAStarGredyMax = -1;
-        public ThinkingQuantumChess ThinkingQuantumString = null;
+        public ThinkingQuantumChess thinkingQuantumString = null;
 
         static void Log(Exception ex)
         {

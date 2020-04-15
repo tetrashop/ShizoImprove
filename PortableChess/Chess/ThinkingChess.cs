@@ -9716,7 +9716,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
@@ -9865,7 +9869,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
@@ -10009,7 +10017,11 @@ namespace RefrigtzChessPortable
                                     Color a = Color.Gray;
                                     if (Order * -1 == -1)
                                         a = Color.Brown;
-                                    if (Attack(CloneATable(TableS), ii, jj, i, j, a, Order * -1))
+                                    bool ab = false;
+                                    var th = Task.Factory.StartNew(() => ab = Attack(CloneATable(TableS), ii, jj, i, j, a, Order * -1));
+                                    th.Wait();
+                                    th.Dispose();
+                                    if (ab)
                                     {
                                         BREAK = 1;
                                         //Current
@@ -10026,7 +10038,10 @@ namespace RefrigtzChessPortable
                                                 a = Color.Gray;
                                                 if (Order == -1)
                                                     a = Color.Brown;
-                                                if (Support(CloneATable(TableS), RowS, ColS, i, j, a, Order))
+                                                var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(TableS), RowS, ColS, i, j, a, Order));
+                                                th1.Wait();
+                                                th1.Dispose();
+                                                if (ab)
                                                 {
                                                     BREAK = 2;
                                                     break;
@@ -10350,7 +10365,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -10480,7 +10499,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
@@ -10608,7 +10631,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
@@ -11767,7 +11794,11 @@ namespace RefrigtzChessPortable
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = RefrigtzChessPortableRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, CloneATable(TableS), Order, false, 0);
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -12825,7 +12856,7 @@ namespace RefrigtzChessPortable
             Object OO = new Object();
             lock (OO)
             {
-                for (var j = -7; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12924,7 +12955,7 @@ namespace RefrigtzChessPortable
             lock (OO)
             {
                 
-                for (var j = -7; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)

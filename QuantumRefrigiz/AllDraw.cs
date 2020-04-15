@@ -9199,7 +9199,7 @@ namespace QuantumRefrigiz
                         InitiateVars(i, j, k, 1);
                         //Set Max of Soldier.
                         MaxLess1 = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHeuristic(i, j, Order, AA, ref HaveKilled);
-                        if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                        if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                         {
                             if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                                 return true;
@@ -9286,7 +9286,7 @@ namespace QuantumRefrigiz
 
                     InitiateVars(i, j, k, 2);
                     MaxLess2 = (ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHeuristic(RW2, Ki2, Order, false, ref HaveKilled));
-                    if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                    if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
@@ -9353,7 +9353,7 @@ namespace QuantumRefrigiz
                     InitiateVars(i, j, k, 3);
 
                     MaxLess3 = (HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHeuristic(RW3, Ki3, Order, false, ref HaveKilled));
-                    if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                    if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
@@ -9417,7 +9417,7 @@ namespace QuantumRefrigiz
 
                     InitiateVars(i, j, k, 4);
                     MaxLess4 = (CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHeuristic(RW4, Ki4, Order, false, ref HaveKilled));
-                    if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                    if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
@@ -9485,7 +9485,7 @@ namespace QuantumRefrigiz
                     InitiateVars(i, j, k, 5);
 
                     MaxLess5 = (MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHeuristic(RW5, Ki5, Order, false, ref HaveKilled));
-                    if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                    if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
@@ -9550,7 +9550,7 @@ namespace QuantumRefrigiz
                     InitiateVars(i, j, k, 6);
 
                     MaxLess6 = (KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHeuristic(RW6, Ki6, Order, false, ref HaveKilled));
-                    if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+                    if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
@@ -9594,7 +9594,7 @@ namespace QuantumRefrigiz
         //determined verified victom occured
         bool KiilledForce(int HaveKiller)
         {
-            if (ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw)
+            if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
             {
                 if (HaveKilled > 0)
                     return true;
@@ -9604,7 +9604,7 @@ namespace QuantumRefrigiz
         //detrmined verfied ingured occured
         bool KillerForce(int HaveKiller)
         {
-            return ((ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw) || (!(HaveKiller > 0)));
+            return ((ThinkingQuantumChess.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
         //determine when there is lose or checked self
         bool Lose(int Kind, int i, int j, int Order)
@@ -21229,7 +21229,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
                 else
                     NumberOfLeafComputation = -1;
-                ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw = false;
+                ThinkingQuantumChess.IsAtLeastOneKillerAtDraw = false;
 
                 var parallelOptions = new ParallelOptions();
                 parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
