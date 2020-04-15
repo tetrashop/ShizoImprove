@@ -7093,9 +7093,17 @@ namespace RefrigtzChessPortable
                                             Object OO = new Object();
                                             lock (OO)
                                             {
-                                                if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                bool ab = false;
+                                                var th = Task.Factory.StartNew(() => ab = Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false));
+                                                th.Wait();
+                                                th.Dispose();
+                                                if (ab)
                                                 {
-                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+
+                                                    var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1));
+                                                    th1.Wait();
+                                                    th1.Dispose();
+                                                    if (ab)
                                                     {
                                                         Object OOO = new Object();
                                                         lock (OOO)
@@ -7119,10 +7127,19 @@ namespace RefrigtzChessPortable
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                        bool ab = false;
+                                                        var th = Task.Factory.StartNew(() => ab = Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false));
+                                                        th.Wait();
+                                                        th.Dispose();
+                                                        if (ab)
                                                         {
-                                                            if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+
+                                                            var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1));
+                                                            th1.Wait();
+                                                            th1.Dispose();
+                                                            if (ab)
                                                             {
+
                                                                 Object OOO = new Object();
                                                                 lock (OOO)
                                                                 {
@@ -7144,9 +7161,17 @@ namespace RefrigtzChessPortable
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
+                                                        bool ab = false;
+                                                        var th = Task.Factory.StartNew(() => ab = Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true));
+                                                        th.Wait();
+                                                        th.Dispose();
+                                                        if (ab)
                                                         {
-                                                            if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+
+                                                            var th1 = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1));
+                                                            th1.Wait();
+                                                            th1.Dispose();
+                                                            if (ab)
                                                             {
                                                                 Object OOO = new Object();
                                                                 lock (OOO)
@@ -7169,9 +7194,17 @@ namespace RefrigtzChessPortable
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
+                                                        bool ab = false;
+                                                        var th = Task.Factory.StartNew(() => ab = Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false));
+                                                        th.Wait();
+                                                        th.Dispose();
+                                                        if (ab)
                                                         {
-                                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+
+                                                            var th1 = Task.Factory.StartNew(() => ab = Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord));
+                                                            th1.Wait();
+                                                            th1.Dispose();
+                                                            if (ab)
                                                             {
                                                                 Object OOO = new Object();
                                                                 lock (OOO)
@@ -7193,9 +7226,16 @@ namespace RefrigtzChessPortable
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                        bool ab = false;
+                                                        var th = Task.Factory.StartNew(() => ab = Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false));
+                                                        th.Wait();
+                                                        th.Dispose();
+                                                        if (ab)
                                                         {
-                                                            if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                            var th1 = Task.Factory.StartNew(() => ab = Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord));
+                                                            th1.Wait();
+                                                            th1.Dispose();
+                                                            if (ab)
                                                             {
                                                                 Object OOO = new Object();
                                                                 lock (OOO)
@@ -7217,9 +7257,17 @@ namespace RefrigtzChessPortable
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
+                                                        bool ab = false;
+                                                        var th = Task.Factory.StartNew(() => ab = Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true));
+                                                        th.Wait();
+                                                        th.Dispose();
+                                                        if (ab)
                                                         {
-                                                            if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+
+                                                            var th1 = Task.Factory.StartNew(() => ab = Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord));
+                                                            th1.Wait();
+                                                            th1.Dispose();
+                                                            if (ab)
                                                             {
                                                                 Object OOO = new Object();
                                                                 lock (OOO)
@@ -7427,11 +7475,15 @@ namespace RefrigtzChessPortable
                 int HAE = 0;
                 Parallel.Invoke(() =>
                 {
-                    HAS = HeuristicMovmentSelf(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD);
+                    var th = Task.Factory.StartNew(() => HAS = HeuristicMovmentSelf(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD));
+                    th.Wait();
+                    th.Dispose();
                 }
                 , () =>
                 {
-                    HAE = HeuristicMovmentEnemy(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD);
+                    var th = Task.Factory.StartNew(() => HAE = HeuristicMovmentEnemy(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD));
+                    th.Wait();
+                    th.Dispose();
 
                 });
                 return HAS + (HAE);
