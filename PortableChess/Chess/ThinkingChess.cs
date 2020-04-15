@@ -40,15 +40,12 @@
 **************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Threading;
-using RefrigtzChessPortable;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Text;
-using System.Xml.Serialization;
-using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 namespace RefrigtzChessPortable
 {
     [Serializable]
@@ -8008,7 +8005,11 @@ namespace RefrigtzChessPortable
                 ChessRules.CurrentOrder = Order;
                 int[,] Table = CloneATable(Tab);
                 //when there is a Movment from Parameter One to Second Parameter return Attacke..
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
                     ChessRules.CurrentOrder = CCurentOrder;
                     return true;
@@ -8033,8 +8034,13 @@ namespace RefrigtzChessPortable
                     }
                 ChessRules.CurrentOrder = Order;
                 ///When [i,j] is Attacked [ii,jj] retrun true when enemy is located in [ii,jj].
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order))
+                bool ab = false;
+                var th = Task.Factory.StartNew(() => ab = (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order));
+                th.Wait();
+                th.Dispose();
+                if (ab)
                 {
+                  
                     //Initiate Local Variables.
                     for (var RowS = 0; RowS < 8; RowS++)
                         for (var ColS = 0; ColS < 8; ColS++)
@@ -8046,7 +8052,11 @@ namespace RefrigtzChessPortable
                     Table[i, j] = 0;
                     //Consider Check.
                     ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Order, ii, jj);
-                    if (AA.ObjectDangourKingMove(Order, CloneATable(Table), false))
+
+                    var th1 = Task.Factory.StartNew(() => ab = AA.ObjectDangourKingMove(Order, CloneATable(Table), false));
+                    th1.Wait();
+                    th1.Dispose();
+                    if (ab)
                     {
                         ChessRules.CurrentOrder = CCurrentOrder;
                         //Return ObjectDanger.
@@ -8100,7 +8110,11 @@ namespace RefrigtzChessPortable
                 if (Order == 1 && Table[i, j] > 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]))
+                    bool ab = false;
+                    var th = Task.Factory.StartNew(() => ab = (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]));
+                    th.Wait();
+                    th.Dispose();
+                    if (ab)
                     {
                         return true;
                     }
@@ -8109,8 +8123,13 @@ namespace RefrigtzChessPortable
                 {
                     if (Order == -1 && Table[i, j] < 0)
                     {  ///When [i,j] Supporte [ii,jj].
-                        if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]))
+                        bool ab = false;
+                        var th = Task.Factory.StartNew(() => ab = (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]));
+                        th.Wait();
+                        th.Dispose();
+                        if (ab)
                         {
+
                             return true;
                         }
                     }
@@ -8725,16 +8744,38 @@ namespace RefrigtzChessPortable
                     if (!AA)
                     {
                         if (ii >= 0 && UsePenaltyRegardMechnisamT)
-                            Hur = (int)((double)ReturnHeuristicCalculartor(0, ii, j, Order, ref HaveKilled) * LearniningTable.LearingValue(Row, Column));
+                        {
+                            int Hav = HaveKilled;
+                            var th = Task.Factory.StartNew(() => Hur = (int)((double)ReturnHeuristicCalculartor(0, ii, j, Order, ref Hav) * LearniningTable.LearingValue(Row, Column)));
+                            th.Wait();
+                            th.Dispose();
+                            HaveKilled = Hav;
+                        }
                         else
-                            Hur = ReturnHeuristicCalculartor(0, ii, j, Order, ref HaveKilled);
+                        {
+                            int Hav = HaveKilled;
+                            var th = Task.Factory.StartNew(() => Hur = ReturnHeuristicCalculartor(0, ii, j, Order, ref Hav));
+                            th.Wait();
+                            th.Dispose();
+                            HaveKilled = Hav;
+                        }
                     }
                     else
-                        Hur = ReturnHeuristicCalculartor(0, ii, j, Order, ref HaveKilled) + 1000;
+                    {
+                        int Hav = HaveKilled;
+                        var th = Task.Factory.StartNew(() => Hur = ReturnHeuristicCalculartor(0, ii, j, Order, ref Hav) + 1000);
+                        th.Wait();
+                        th.Dispose();
+                        HaveKilled = Hav;
+
+                    }
                     //Optimization depend of numbers of unpealties nodes quefficient.  
                     if (UsePenaltyRegardMechnisamT)
                     {
-                        return Hur * ((int)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (int)(NumbersOfAllNode));
+                        var th = Task.Factory.StartNew(() => Hur = Hur * ((int)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (int)(NumbersOfAllNode)));
+                        th.Wait();
+                        th.Dispose();
+                        return Hur;
                     }
 
                     return Hur;
@@ -9003,64 +9044,135 @@ namespace RefrigtzChessPortable
                             //Repeate for Solder.
                             for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
                             }
                             //Repeate for Elephant.
                             for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Hourse.
                             for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Castles.
                             for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Minstre.
                             for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for King.
                             for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                         }
                         else
                         {
                             for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Elephant.
                             for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Hourse.
                             for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Castles.
                             for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for Minstre.
                             for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                             //Repeate for King.
                             for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
                             {
-                                Heuristic += ReturnHeuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                int bo = BOUND;
+                                int hav = HaveKilled;
+                                var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref hav, ref bo));
+                                th.Wait();
+                                th.Dispose();
+                                BOUND = bo;
+                                HaveKilled = hav;
                             }
                         }
                     }
@@ -9077,7 +9189,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null || AStarGreedy[k].KingOnTable[m].KingThinking == null || AStarGreedy[k].KingOnTable[m].KingThinking[0] == null || AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
-                Heuristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
             return Heuristic;
         }
         //deeper for specific object
@@ -9087,7 +9205,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
-                Heuristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
             return Heuristic;
         }
         //deeper for specific object
@@ -9097,7 +9221,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking[0] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
-                Heuristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
             return Heuristic;
         }
         //deeper for specific object
@@ -9107,7 +9237,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking[0] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
-                Heuristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
             return Heuristic;
         }
         //deeper for specific object
@@ -9118,7 +9254,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
-                Heuristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
 
             return Heuristic;
         }
@@ -9130,7 +9272,13 @@ namespace RefrigtzChessPortable
             if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder == null)
                 return Heuristic;
             for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
-                Heuristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+            {
+                int hav = HaveKilled;
+                var th = Task.Factory.StartNew(() => Heuristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHeuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref hav));
+                th.Wait();
+                th.Dispose();
+                HaveKilled = hav;
+            }
 
             return Heuristic;
         }
@@ -9264,15 +9412,35 @@ namespace RefrigtzChessPortable
                 if (ii != -1)
                 {
                     //kiiler Heuristic determination//main deeper Heuristic
-                    Heuristic += ReturnHeuristicCalculartorKiller(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    int hav = HaveKilled;
+                    int bo = BOUND;
+                    var th = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorKiller(iAstarGready, ii, j, Order, ref hav, ref bo));
+                    th.Wait();
+                    th.Dispose();
+                    HaveKilled = hav;
+                    bo = BOUND;
+
                     //main deeper Heuristic
-                    Heuristic += ReturnHeuristicCalculartorDeeper(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    hav = HaveKilled;
+                    bo = BOUND;
+                    var th1 = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorDeeper(iAstarGready, ii, j, Order, ref hav, ref bo));
+                    th1.Wait();
+                    th1.Dispose();
+                    HaveKilled = hav;
+                    bo = BOUND;
 
                 }
                 else
                 {
                     //sufacive Heuristic
-                    Heuristic += ReturnHeuristicCalculartorSurface(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    int hav = HaveKilled;
+                    int bo = BOUND;
+                    var th1 = Task.Factory.StartNew(() => Heuristic += ReturnHeuristicCalculartorSurface(iAstarGready, ii, j, Order, ref hav, ref bo));
+                    th1.Wait();
+                    th1.Dispose();
+                    HaveKilled = hav;
+                    bo = BOUND;
+
                 }
                 Order = DummyOrder;
                 /*if (BOUND < 0)
