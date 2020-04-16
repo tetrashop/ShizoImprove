@@ -6997,7 +6997,14 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
+
 
                         }
                     //elephant
@@ -7014,7 +7021,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
 
                         }
                     //hourse
@@ -7031,8 +7044,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
-
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
 
                         }
                     //Castle
@@ -7049,7 +7067,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
 
                         }
                     //minister
@@ -7066,7 +7090,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
 
                         }
                     //king
@@ -7083,7 +7113,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
 
                         }
                 }
@@ -7103,7 +7139,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                     //elephant
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
@@ -7119,7 +7161,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                     //hourse
                     for (var i = HourseMidle; i < HourseHight; i++)
@@ -7135,7 +7183,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                     //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
@@ -7151,8 +7205,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
-
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                     //minister
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
@@ -7168,8 +7227,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
-
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                     //king
                     for (var i = KingMidle; i < KingHigh; i++)
@@ -7185,8 +7249,13 @@ namespace QuantumRefrigiz
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
-
+                                {
+                                    bool fou = Found;
+                                    var ah = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref fou, Order * -1));
+                                    ah.Wait();
+                                    ah.Dispose();
+                                    Found = fou;
+                                }
                         }
                 }
 
