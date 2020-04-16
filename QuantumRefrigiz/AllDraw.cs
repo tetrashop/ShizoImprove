@@ -1943,7 +1943,7 @@ namespace QuantumRefrigiz
                     ah.Wait();
                     ah.Dispose();
                     LessB = Le;
-                  
+
                     //When Greater LessB of First index Object Found.
                     if (LessB < MaxHeuristicAStarGreedytBackWard[ListIndex][1])
                     {
@@ -2443,7 +2443,7 @@ namespace QuantumRefrigiz
                                 ChessRules.CurrentOrder = CDummy;
                             }
                         }
-                        
+
                     //For Elephant.
                     for (var i = 0; i < ElefantMidle; i++)
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
@@ -2570,7 +2570,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                                
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2636,7 +2636,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                     
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2701,7 +2701,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                                
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2766,7 +2766,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                                
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2836,7 +2836,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                       
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2901,7 +2901,7 @@ namespace QuantumRefrigiz
                                     ah1.Dispose();
                                     Do = D;
                                 }
-                                
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -3462,7 +3462,7 @@ namespace QuantumRefrigiz
                                 ah1.Wait();
                                 ah1.Dispose();
                             }
-                        
+
                         }
                     //for gray minsiter
                     for (var i = 0; i < MinisterMidle; i++)
@@ -3480,7 +3480,7 @@ namespace QuantumRefrigiz
                                 ah1.Wait();
                                 ah1.Dispose();
                             }
-                            
+
                         }
                     //for gray minster
                     for (var i = 0; i < KingMidle; i++)
@@ -3696,59 +3696,126 @@ namespace QuantumRefrigiz
         public AllDraw FoundOfCurrentTableNodeAstardGreedy(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
             //soldier
-            if (BondryObjectNumber(i, 1, Order) && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
+            bool ac = false;
+            var ah = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 1, Order));
+            ah.Wait();
+            ah.Dispose();
+            if (ac && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
             {
 
+
+                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
                 {
-                    if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
-                        SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
+
                 }
             }
             //elephant
-            if (BondryObjectNumber(i, 2, Order) && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
+            var ah1 = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 2, Order));
+            ah1.Wait();
+            ah1.Dispose();
+            if (ac && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
             {
 
+
+                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
                 {
-                    if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
-                        ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
+
                 }
             }
             //hourse
-            if (BondryObjectNumber(i, 3, Order) && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
+            var ah2 = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 3, Order));
+            ah2.Wait();
+            ah2.Dispose();
+            if (ac && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
             {
 
+
+                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
                 {
-                    if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
+
                 }
+
             }
             //Castle
-            if (BondryObjectNumber(i, 4, Order) && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
+            var ah3 = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 4, Order));
+            ah3.Wait();
+            ah3.Dispose();
+            if (ac && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
             {
 
+                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
                 {
-                    if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
-                        CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
+
                 }
             }
             //minster
-            if (BondryObjectNumber(i, 5, Order) && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
+            var ah4 = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 5, Order));
+            ah4.Wait();
+            ah4.Dispose();
+            if (ac && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
             {
 
+
+                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
                 {
-                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
-                        MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
+
                 }
+
             }
             //king
-            if (BondryObjectNumber(i, 6, Order) && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null)
+            var ah5 = Task.Factory.StartNew(() => ac = BondryObjectNumber(i, 6, Order));
+            ah5.Wait();
+            ah5.Dispose();
+            if (ac && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null)
+            {
                 if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null)
                 {
+                    AllDraw This = THIS;
+                    bool fou = Found;
+                    var ah6 = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref This, ref fou));
+                    ah6.Wait();
+                    ah6.Dispose();
+                    THIS = This;
+                    Found = fou;
 
-                    {
-                        KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].FoundOfCurrentTableNode(CloneATable(Tab), Order * -1, ref THIS, ref Found);
-                    }
                 }
+            }
+
             return THIS;
         }
         //when current alldraw is equal of table state return node and set true
@@ -3759,7 +3826,15 @@ namespace QuantumRefrigiz
             lock (a)
             {
                 //when current stisgied
-                if ((TableList.Count > 0 && ThinkingQuantumChess.TableEqual(TableList[0], Tab)) || FoundOfCurrentTableNodeFirstLevel(CloneATable(Tab), Order, ref THIS, ref Found))
+                bool ac = false;
+                AllDraw This = THIS;
+                bool fou = Found;
+                var ah = Task.Factory.StartNew(() => ac = (TableList.Count > 0 && ThinkingQuantumChess.TableEqual(TableList[0], Tab)) || FoundOfCurrentTableNodeFirstLevel(CloneATable(Tab), Order, ref This, ref fou));
+                ah.Wait();
+                ah.Dispose();
+                THIS = This;
+                Found = fou;
+                if (ac)
                 {
                     if (!Found)
                     {
@@ -3777,11 +3852,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 1))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 1));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeSolderIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeSolderIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3789,7 +3876,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
 
@@ -3801,11 +3894,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 2))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 2));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeElephantIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeElephantIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3814,7 +3919,13 @@ namespace QuantumRefrigiz
 
 
                                 //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3825,11 +3936,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 3))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 3));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeHourseIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeHourseIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3837,7 +3960,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3848,12 +3977,24 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 4))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 4));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
 
-                            if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeCastleIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeCastleIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3861,7 +4002,13 @@ namespace QuantumRefrigiz
                             {
 
                                 // CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3872,11 +4019,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 5))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 5));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeMinisterIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeMinisterIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3884,7 +4043,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3895,11 +4060,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 6))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 6));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeKingIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeKingIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3907,7 +4084,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3921,11 +4104,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 1))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 1));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeSolderIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeSolderIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3933,7 +4128,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3944,12 +4145,24 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 2))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 2));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
 
-                            if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeElephantIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeElephantIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3957,7 +4170,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3968,12 +4187,24 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 3))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 3));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
 
-                            if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeHourseIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeHourseIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3981,7 +4212,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -3992,11 +4229,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 4))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 4));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeCastleIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeCastleIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -4004,7 +4253,13 @@ namespace QuantumRefrigiz
                             {
 
                                 ///CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -4015,12 +4270,24 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 5))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 5));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
 
-                            if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeMinisterIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeMinisterIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -4028,7 +4295,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -4039,11 +4312,23 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
-                            if (IsSupHuTrue(i, j, 0, 6))
+                            var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 6));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 continue;
-                            if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
+                            var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab));
+                            ah2.Wait();
+                            ah2.Dispose();
+                            if (ac)
                             {
-                                FoundOfCurrentTableNodeKingIJ(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeKingIJ(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
@@ -4051,7 +4336,13 @@ namespace QuantumRefrigiz
                             {
 
                                 //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].
-                                FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref THIS, ref Found);
+                                This = THIS;
+                                fou = Found;
+                                var ah6 = Task.Factory.StartNew(() => FoundOfCurrentTableNodeAstardGreedy(i, j, CloneATable(Tab), Order, ref This, ref fou));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                THIS = This;
+                                Found = fou;
                                 if (Found)
                                     return THIS;
                             }
