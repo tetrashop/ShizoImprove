@@ -5071,7 +5071,10 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreSoldier(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreSoldier(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
+
                         }
                     }
                 }
@@ -5083,7 +5086,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreElephant(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreElephant(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5095,7 +5100,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreHourse(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreHourse(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5107,7 +5114,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreCastle(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreCastle(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5119,7 +5128,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreMinister(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreMinister(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5131,7 +5142,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreKing(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreKing(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5149,7 +5162,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreSoldier(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreSoldier(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5161,7 +5176,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreElephant(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreElephant(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5173,7 +5190,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreHourse(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreHourse(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5185,7 +5204,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreCastle(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreCastle(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5197,7 +5218,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreMinister(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreMinister(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5209,7 +5232,9 @@ namespace QuantumRefrigiz
                         for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //when is not validity
-                            ClearAllTablesHeuristicsAndMoreKing(Order, i, j);
+                            var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreKing(Order, i, j));
+                            ah.Wait();
+                            ah.Dispose();
                         }
                     }
                 }
@@ -5224,12 +5249,15 @@ namespace QuantumRefrigiz
                 //gray
                 if (Order == 1)
                 {
-                    ClearAllTablesHeuristicsAndMoreGray(Order);
+                    var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreGray(Order));
+                    ah.Wait();
+                    ah.Dispose();
                 }
                 else//brown
                 {
-                    ClearAllTablesHeuristicsAndMoreBrown(Order);
-
+                    var ah = Task.Factory.StartNew(() => ClearAllTablesHeuristicsAndMoreBrown(Order));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
         }
@@ -5239,7 +5267,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Clear();
@@ -5259,7 +5291,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(2, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(2, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Clear();
@@ -5279,7 +5315,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(3, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(3, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Clear();
@@ -5299,7 +5339,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(4, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(4, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Clear();
@@ -5319,7 +5363,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(5, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(5, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Clear();
@@ -5339,7 +5387,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                if (IsNonValidityAllTablesHeuristicsAndMore(6, Order, i, j))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = IsNonValidityAllTablesHeuristicsAndMore(6, Order, i, j));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                 {
                     //clear all lists
                     KingOnTable[i].KingThinkingQuantum[0].TableListKing.Clear();
@@ -5487,7 +5539,9 @@ namespace QuantumRefrigiz
                     else
                         e = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count;
 
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             else if (Kind == 2)
@@ -5505,7 +5559,9 @@ namespace QuantumRefrigiz
                         e = -1;
                     else
                         e = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count;
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 2);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             else if (Kind == 3)
@@ -5523,7 +5579,9 @@ namespace QuantumRefrigiz
                         e = -1;
                     else
                         e = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count;
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 3);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             else if (Kind == 4)
@@ -5542,7 +5600,9 @@ namespace QuantumRefrigiz
                     else
                         e = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count;
                     //if (a == b && b == c && d == c && a > 0)
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 4);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             else if (Kind == 5)
@@ -5560,7 +5620,9 @@ namespace QuantumRefrigiz
                         e = -1;
                     else
                         e = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count;
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 5);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             else if (Kind == 6)
@@ -5578,7 +5640,9 @@ namespace QuantumRefrigiz
                         e = -1;
                     else
                         e = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count;
-                    Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 6);
+                    var ah = Task.Factory.StartNew(() => Is = A_B_C_D_E_ISNonEqual(a, b, c, d, e, i, j, 1));
+                    ah.Wait();
+                    ah.Dispose();
                 }
             }
             return (Is);
@@ -5591,8 +5655,12 @@ namespace QuantumRefrigiz
             if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
-                    //satisfied of created deeper three
-                    BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1);
+                //satisfied of created deeper three
+                {
+                    var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1));
+                    ah.Wait();
+                    ah.Dispose();
+                }
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]));
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
@@ -5605,8 +5673,12 @@ namespace QuantumRefrigiz
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count < j + 1)
             {
                 for (int h = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; h <= j; h++)
-                    //satisfied of created deeper three
-                    BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1);
+                //satisfied of created deeper three
+                {
+                    var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1));
+                    ah.Wait();
+                    ah.Dispose();
+                }
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]));
                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
