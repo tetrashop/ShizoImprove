@@ -7672,16 +7672,29 @@ namespace QuantumRefrigiz
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
-                        if (IsSupHuTrue(i, j, 0, 1))
+                        bool ac = false;
+                        var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 1));
+                        ah.Wait();
+                        ah.Dispose();
+                        if (ac)
                             continue;
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 1);
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 1));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
                     //when is suitable for computational operation on lists
@@ -7691,7 +7704,11 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            bool ac = false;
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -7721,7 +7738,11 @@ namespace QuantumRefrigiz
                                     FirstTraversalTree = false;
 
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    bool ac = false;
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -7740,7 +7761,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -7767,7 +7792,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -7785,12 +7814,16 @@ namespace QuantumRefrigiz
                                     FirstTraversalTree = false;
 
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    bool ac = false;
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
-
-
-                                this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -7810,17 +7843,30 @@ namespace QuantumRefrigiz
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
-                        if (IsSupHuTrue(i, j, 0, 2))
+                        bool ac = false;
+                        var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 2));
+                        ah.Wait();
+                        ah.Dispose();
+                        if (ac)
                             continue;
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
 
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(2, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 2);
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 2));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
 
@@ -7831,7 +7877,11 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            bool ac = false;
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -7860,7 +7910,11 @@ namespace QuantumRefrigiz
                                 {
                                     FirstTraversalTree = false;
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    bool ac = false;
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -7879,7 +7933,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -7906,7 +7964,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -7917,7 +7979,9 @@ namespace QuantumRefrigiz
                                 if (Order == -1)
                                     a = Color.Brown;
 
-                                this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -7937,16 +8001,29 @@ namespace QuantumRefrigiz
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
-                        if (IsSupHuTrue(i, j, 0, 3))
+                        bool ac = false;
+                        var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 3));
+                        ah.Wait();
+                        ah.Dispose();
+                        if (ac)
                             continue;
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(3, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 3);
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 3));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
 
@@ -7957,7 +8034,11 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            bool ac = false;
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -7986,7 +8067,11 @@ namespace QuantumRefrigiz
                                 {
                                     FirstTraversalTree = false;
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    bool ac = false;
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -8005,7 +8090,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -8031,7 +8120,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -8042,7 +8135,9 @@ namespace QuantumRefrigiz
                                 if (Order == -1)
                                     a = Color.Brown;
 
-                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -8061,20 +8156,33 @@ namespace QuantumRefrigiz
                 for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count
                                   ; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 4))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 4));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(4, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
 
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 4);
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 4));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
                     //when is suitable for computational operation on lists
@@ -8084,7 +8192,10 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -8113,7 +8224,10 @@ namespace QuantumRefrigiz
                                 {
                                     FirstTraversalTree = false;
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -8132,7 +8246,10 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -8158,7 +8275,10 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -8171,7 +8291,9 @@ namespace QuantumRefrigiz
                                     a = Color.Brown;
                                 int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -8189,20 +8311,33 @@ namespace QuantumRefrigiz
                 for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null
                   ; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 5))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 5));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(5, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
 
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 5);
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 3));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
                     //when is suitable for computational operation on lists
@@ -8212,7 +8347,10 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -8241,7 +8379,10 @@ namespace QuantumRefrigiz
                                 {
                                     FirstTraversalTree = false;
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -8260,7 +8401,10 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -8283,7 +8427,10 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -8295,7 +8442,9 @@ namespace QuantumRefrigiz
                                 if (Order == -1)
                                     a = Color.Brown;
 
-                                this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -8315,18 +8464,30 @@ namespace QuantumRefrigiz
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
-                        if (IsSupHuTrue(i, j, 0, 6))
+                        bool ac = false;
+                        var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 6));
+                        ah.Wait();
+                        ah.Dispose();
+                        if (ac)
                             continue;
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                     //determine about validity of list on current and deeper return true when successfull
-                    bool IA = IsNonValidityAllTablesHeuristicsAndMore(6, Order, i, j);
+                    bool IA = false;
+                    var ah2 = Task.Factory.StartNew(() => IA = IsNonValidityAllTablesHeuristicsAndMore(1, Order, i, j));
+                    ah2.Wait();
+                    ah2.Dispose();
 
                     //determine about situation of deeper against other lists computation in 4 state
-                    int Is = IsSuitableForInitiation(i, j, 6);
-
+                    int Is = 0;
+                    var ah3 = Task.Factory.StartNew(() => Is = IsSuitableForInitiation(i, j, 3));
+                    ah3.Wait();
+                    ah3.Dispose();
                     if (!IA)
                         Is = 4;
                     //when is suitable for computational operation on lists
@@ -8336,7 +8497,11 @@ namespace QuantumRefrigiz
                         lock (OOOO)
                         {
                             //when search finished stop and return
-                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            bool ac = false;
+                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            if (ac)
                                 return;
                         }
                         FullGameFound = true;
@@ -8366,7 +8531,11 @@ namespace QuantumRefrigiz
                                     FirstTraversalTree = false;
 
                                     //when search finished stop and return
-                                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                    bool ac = false;
+                                    var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    if (ac)
                                         return;
                                 }
 
@@ -8386,7 +8555,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
 
@@ -8413,7 +8586,11 @@ namespace QuantumRefrigiz
                             lock (OOOO)
                             {
                                 //when search finished stop and return
-                                if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                bool ac = false;
+                                var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                ah1.Wait();
+                                ah1.Dispose();
+                                if (ac)
                                     return;
                             }
                             Object OO1 = new Object();
@@ -8424,7 +8601,9 @@ namespace QuantumRefrigiz
                                 if (Order == -1)
                                     a = Color.Brown;
 
-                                this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                var ah4 = Task.Factory.StartNew(() => this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                ah4.Wait();
+                                ah4.Dispose();
 
                             }
                         }
@@ -8448,7 +8627,11 @@ namespace QuantumRefrigiz
                     lock (OOOO)
                     {
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
                     }
                 }
@@ -8474,13 +8657,21 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
+
                                         }
                                     }
                                 }, () =>
@@ -8492,13 +8683,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 }, () =>
@@ -8510,14 +8708,21 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                        }
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
+                                         }
                                     }
                                 }, () =>
                                 {
@@ -8528,13 +8733,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 }, () =>
@@ -8546,14 +8758,21 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                        }
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
+                                         }
                                     }
                                 }, () =>
                                 {
@@ -8564,13 +8783,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 });
@@ -8595,14 +8821,21 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                        }
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
+                                         }
                                     }
                                 }, () =>
                                 {
@@ -8613,14 +8846,21 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                        }
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
+                                           }
                                     }
                                 }, () =>
                                 {
@@ -8631,14 +8871,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                        }
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+            }
                                     }
                                 }, () =>
                                 {
@@ -8649,13 +8895,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 }, () =>
@@ -8667,13 +8920,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 }, () =>
@@ -8685,13 +8945,20 @@ namespace QuantumRefrigiz
                                         lock (OOOO)
                                         {
                                             //when search finished stop and return
-                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                            bool ac = false;
+                                            var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                                            ah1.Wait();
+                                            ah1.Dispose();
+                                            if (ac)
                                                 return;
                                         }
                                         Object P = new Object();
                                         lock (P)
                                         {
-                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                            var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, CloneATable(Table), Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy));
+                                            ah.Wait();
+                                            ah.Dispose();
+
                                         }
                                     }
                                 });
@@ -8707,7 +8974,11 @@ namespace QuantumRefrigiz
                     lock (O1)
                     {
                         //when search finished stop and return
-                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return;
 
                         Color a = Color.Gray;
