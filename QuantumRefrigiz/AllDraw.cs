@@ -9250,7 +9250,7 @@ namespace QuantumRefrigiz
 
         }
         //when all branches of root is lose and close ignore of learning autamata option  
-        int[,] HeuristicAStarGreadySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
+     /*   int[,] HeuristicAStarGreadySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
 
             Object a1 = new Object();
@@ -9283,7 +9283,14 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
-                                        SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
+
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -9553,7 +9560,13 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ij++)
-                                        ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -9736,7 +9749,13 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
-                                        HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -9922,7 +9941,13 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
-                                        CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -10106,7 +10131,13 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
-                                        MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -10291,7 +10322,13 @@ namespace QuantumRefrigiz
                                 if (UsePenaltyRegardMechnisamT)
                                 {
                                     for (int ij = 0; ij < KingOnTable[i].KingThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
-                                        KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij]);
+                                    {
+                                        int D = Do;
+                                        var ah = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref D, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]));
+                                        ah.Wait();
+                                        ah.Dispose();
+                                        Do = D;
+                                    }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
@@ -10467,7 +10504,7 @@ namespace QuantumRefrigiz
                 return TableHeuristic;
             }
         }
-        //method for monitor of main Heuristic found best movment (action string)
+       */ //method for monitor of main Heuristic found best movment (action string)
         void StringHeuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int[] LoseOcuuredatChiled)
         {
 
@@ -10696,37 +10733,90 @@ namespace QuantumRefrigiz
         { //soldier
             if (Kind == 1)
             {
-                if (Less < SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+
+                if (ac)
                     return true;
             }
             else//elephant
     if (Kind == 2)
             {
-                if (Less < ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+                if (ac)
                     return true;
             }
             else//hourse
     if (Kind == 3)
             {
-                if (Less < HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+
+                if (ac)
                     return true;
             }
             else//Castle
     if (Kind == 4)
             {
-                if (Less < CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+
+                if (ac)
                     return true;
             }
             else//minister
     if (Kind == 5)
             {
-                if (Less < MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+
+                if (ac)
                     return true;
             }
             else//king
     if (Kind == 6)
             {
-                if (Less < KingOnTable[i].KingThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                bool ac = false;
+                int HaKild = HaveKilled;
+                int Le = Less;
+                var ah = Task.Factory.StartNew(() => ac = Le < KingOnTable[i].KingThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaKild));
+                ah.Wait();
+                ah.Dispose();
+                HaveKilled = HaKild;
+                Less = Le;
+
+                if (ac)
                     return true;
             }
             return false;
@@ -10754,9 +10844,25 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 1);
-                        SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
-                        SaveLess(i, j, k, 1, ref Less, AA, Order);
+
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
+
                     }
                     Object O = new Object();
                     lock (O)
@@ -10794,9 +10900,23 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 2);
-                        SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
-                        SaveLess(i, j, k, 2, ref Less, AA, Order);
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
                     }
                     StringHeuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
                     RegardOccurred = true;
@@ -10813,9 +10933,23 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 3);
-                        SaveTableHeuristic(i, j, k, 3, ref TableHeuristic);
-                        SaveLess(i, j, k, 3, ref Less, AA, Order);
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
                     }
                     RegardOccurred = true;
                     StringHeuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
@@ -10832,9 +10966,23 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 4);
-                        SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
-                        SaveLess(i, j, k, 4, ref Less, AA, Order);
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
                     }
                     RegardOccurred = true;
                     StringHeuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
@@ -10851,9 +10999,23 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 5);
-                        SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
-                        SaveLess(i, j, k, 5, ref Less, AA, Order);
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
                     }
                     TableHeuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
                     RegardOccurred = true;
@@ -10871,9 +11033,23 @@ namespace QuantumRefrigiz
                     {
                         //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
 
-                        SaveBeginEndLocation(i, j, k, 6);
-                        SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
-                        SaveLess(i, j, k, 6, ref Less, AA, Order);
+                        var ah = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                        ah.Wait();
+                        ah.Dispose();
+
+                        int[,] Th = TableHeuristic;
+                        var ah1 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        TableHeuristic = Th;
+
+                        int le = Less;
+                        bool AAA = AA;
+                        var ah2 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        Less = le;
+                        AA = AAA;
                     }
                     RegardOccurred = true;
                     StringHeuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
@@ -10960,7 +11136,12 @@ namespace QuantumRefrigiz
             bool continued = false;
             ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinkingQuantum[k].Row, SolderesOnTable[i].SoldierThinkingQuantum[k].Column);
             //If there is kish or kshachamaz Order.
-            if (AB.Check(CloneATable(TableS), Order))
+            bool ac = false;
+            var ah = Task.Factory.StartNew(() => ac = AB.Check(CloneATable(TableS), Order));
+            ah.Wait();
+            ah.Dispose();
+
+            if (ac)
             {
                 //When Order is Gray.
                 if (Order == 1)
@@ -12298,7 +12479,7 @@ namespace QuantumRefrigiz
             }
         }
         //brown section of penalty Heuristic
-        int[,] BrownHeuristicAStarGreaedySearchPenalites(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
+        /*int[,] BrownHeuristicAStarGreaedySearchPenalites(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
 
             Object O = new Object();
@@ -13547,7 +13728,7 @@ namespace QuantumRefrigiz
             }
         }
         //AStarGreedy First Heuristic Method.
-        public int[,] HeuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
+      */  public int[,] HeuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
         {
 
             Object O = new Object();
@@ -13643,7 +13824,7 @@ namespace QuantumRefrigiz
                 return TableHeuristic;
             }
         }
-        public int[,] HeuristicAStarGreedySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
+    /*    public int[,] HeuristicAStarGreedySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
         {
 
             Object O = new Object();
@@ -13740,7 +13921,7 @@ namespace QuantumRefrigiz
             }
         }
         //Genethic Algorithm Game Method.
-        public void InitiateGenetic(int ii, int jj, Color a, int[,] Table, int Order, bool TB)
+    */    public void InitiateGenetic(int ii, int jj, Color a, int[,] Table, int Order, bool TB)
         {
 
             Object O = new Object();
