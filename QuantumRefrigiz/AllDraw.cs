@@ -7270,9 +7270,17 @@ namespace QuantumRefrigiz
         {
             int Is = 0;
             //determine deeper have right contained
-            bool a = IsNotAStarGreedyConanaied(i, j, Kind);
+            bool a = false;
+            var ah = Task.Factory.StartNew(() => a = IsNotAStarGreedyConanaied(i, j, Kind));
+            ah.Wait();
+            ah.Dispose();
+
             //determined deeper contained have computatinal list correctly.
-            bool b = IsNotComputationsConanaiedAStarGreedy(i, j, Kind);
+            bool b = false;
+            var ah1 = Task.Factory.StartNew(() => b = IsNotComputationsConanaiedAStarGreedy(i, j, Kind));
+            ah1.Wait();
+            ah1.Dispose();
+
             //when true
             if (a)
             {
@@ -7291,7 +7299,11 @@ namespace QuantumRefrigiz
             }
             //when is 2 consider determinstic results about contanied
             if (Is == 2)
-                IsThereCalculatedAStarGreedyNode(i, Kind);
+            {
+                var ah2 = Task.Factory.StartNew(() => IsThereCalculatedAStarGreedyNode(i, Kind));
+                ah2.Wait();
+                ah2.Dispose();
+            }
             return Is;
         }
         //when current side of alldraw is not contained and semi computated 
@@ -7442,7 +7454,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j])))
+                        bool ac = false;
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
@@ -7474,7 +7490,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j])))
+                        bool ac = false;
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
@@ -7505,7 +7525,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j])))
+                        bool ac = false;
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
@@ -7536,7 +7560,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j])))
+                        bool ac = false;
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
@@ -7567,7 +7595,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j])))
+                        bool ac = false;
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
@@ -7598,7 +7630,11 @@ namespace QuantumRefrigiz
                     if (a == e && e > j && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j])))
+                        bool ac = false; 
+                        var ah2 = Task.Factory.StartNew(() => ac = ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList[0], CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j])));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             Is = true;
                     }
                     else
