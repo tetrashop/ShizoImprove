@@ -2418,7 +2418,7 @@ namespace QuantumRefrigiz
                                         //Set Regard and Set Movements.
                                         Do = 1;
                                         //Regard Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                         //Set Superpostion.
@@ -2483,7 +2483,7 @@ namespace QuantumRefrigiz
                                         //Set Regard Continue.
                                         Do = 1;
                                         //Regard Subolders.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                         //Set Superposition.
@@ -2550,7 +2550,7 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Regard For Sub Branches.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2616,7 +2616,7 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Regard Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2681,7 +2681,7 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Subbranchs Regard.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2746,7 +2746,7 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2802,7 +2802,7 @@ namespace QuantumRefrigiz
                                     //Supperpoistion.
                                     SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs Soders Brown.
-                                    var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                     ah1.Wait();
                                     ah1.Dispose();
                                 }
@@ -2816,7 +2816,7 @@ namespace QuantumRefrigiz
                                         //Superpoition.
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Penalty Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2881,7 +2881,7 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regrad Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -2947,7 +2947,7 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regrad Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -3012,7 +3012,7 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranchs.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -3077,7 +3077,7 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard SubBranches.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
@@ -3141,7 +3141,7 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranches.
-                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
                                         ah1.Wait();
                                         ah1.Dispose();
                                     }
