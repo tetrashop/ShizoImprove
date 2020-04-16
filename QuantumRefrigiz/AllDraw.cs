@@ -9011,12 +9011,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             //make regard
-                            A.SolderesOnTable[i].SoldierThinkingQuantum[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.SolderesOnTable[i].SoldierThinkingQuantum[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
 
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //elephant
@@ -9025,12 +9032,19 @@ namespace QuantumRefrigiz
                         {
 
                             //make regard
-                            A.ElephantOnTable[i].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
-
+                            var ah = Task.Factory.StartNew(() => A.ElephantOnTable[i].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                          
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //hourse
@@ -9038,12 +9052,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             //make regard
-                            A.HoursesOnTable[i].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
-
+                            var ah = Task.Factory.StartNew(() => A.HoursesOnTable[i].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                      
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //Castle
@@ -9051,11 +9072,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             //make regard
-                            A.CastlesOnTable[i].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.CastlesOnTable[i].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //minister
@@ -9063,12 +9092,18 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //make regard
-                            A.MinisterOnTable[i].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
-
+                            var ah = Task.Factory.StartNew(() => A.MinisterOnTable[i].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                         
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //king
@@ -9076,11 +9111,17 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //make regard
-                            A.KingOnTable[i].KingThinkingQuantum[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.KingOnTable[i].KingThinkingQuantum[0].PenaltyRegardListKing[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
@@ -9091,11 +9132,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             //make regard
-                            A.SolderesOnTable[i].SoldierThinkingQuantum[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.SolderesOnTable[i].SoldierThinkingQuantum[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                           
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //elephant
@@ -9103,12 +9152,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             //make regard
-                            A.ElephantOnTable[i].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
-
+                            var ah = Task.Factory.StartNew(() => A.ElephantOnTable[i].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                          
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //hourse
@@ -9116,12 +9172,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             //make regard
-                            A.HoursesOnTable[i].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
-
+                            var ah = Task.Factory.StartNew(() => A.HoursesOnTable[i].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+                   
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //Castle
@@ -9129,11 +9192,19 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             //make regard
-                            A.CastlesOnTable[i].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.CastlesOnTable[i].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //minister
@@ -9141,11 +9212,18 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             //make regard
-                            A.MinisterOnTable[i].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
+                            var ah = Task.Factory.StartNew(() => A.MinisterOnTable[i].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
+
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //king
@@ -9153,11 +9231,18 @@ namespace QuantumRefrigiz
                         for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             //make regard
+                            var ah = Task.Factory.StartNew(() => A.KingOnTable[i].KingThinkingQuantum[0].PenaltyRegardListKing[j].LearningAlgorithmRegard());
+                            ah.Wait();
+                            ah.Dispose();
                             A.KingOnTable[i].KingThinkingQuantum[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
+                            {
+                                var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order));
+                                ah1.Wait();
+                                ah1.Dispose();
+                            }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
