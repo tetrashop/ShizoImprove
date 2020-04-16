@@ -909,6 +909,9 @@ namespace QuantumRefrigiz
                                         //Construct Soder Gray.
                                         SolderesOnTable[So1].Row = Row;
                                         SolderesOnTable[So1].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increase So1.
                                         So1++;
                                         if (So1 > SodierMidle)
@@ -923,6 +926,9 @@ namespace QuantumRefrigiz
                                         //Construct Soldeir Brown.
                                         SolderesOnTable[So2].Row = Row;
                                         SolderesOnTable[So2].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increase So2.
                                         So2++;
                                         if (So2 > SodierHigh)
@@ -950,7 +956,11 @@ namespace QuantumRefrigiz
                                         ElephantOnTable[El1].Row = Row;
                                         ElephantOnTable[El1].Column = Column;
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2));
+                                        ah.Wait();
+                                        ah.Dispose();
+
+
                                         //Increament of Gray Index.
                                         El1++;
                                         //If New Object Increament Gray Objects.
@@ -967,6 +977,10 @@ namespace QuantumRefrigiz
                                         ElephantOnTable[El2].Column = Column;
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         El2++;
                                         //When New Brown Elephant Object Increament of Index.
@@ -995,7 +1009,10 @@ namespace QuantumRefrigiz
                                         HoursesOnTable[Ho1].Row = Row;
                                         HoursesOnTable[Ho1].Column = Column;
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ho1++;
                                         //when There is New Gray Hourse Increase.
@@ -1010,6 +1027,10 @@ namespace QuantumRefrigiz
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho2].Row = Row;
                                         HoursesOnTable[Ho2].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ho2++;
                                         //When New Brown Hourse Exist Exist Index.
@@ -1037,6 +1058,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Gray Castles.
                                         CastlesOnTable[Br1].Row = Row;
                                         CastlesOnTable[Br1].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increamnt of Index.
                                         Br1++;
                                         //When New Gray Briges Increamnt Max Index.
@@ -1051,6 +1076,10 @@ namespace QuantumRefrigiz
                                         //Construction Draw of New Brown Castles.
                                         CastlesOnTable[Br2].Row = Row;
                                         CastlesOnTable[Br2].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Br2, OrderP, 4));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Br2++;
                                         //wehn Brown New Castles Detected Increament Max Index.
@@ -1079,6 +1108,10 @@ namespace QuantumRefrigiz
                                         //construction of new draw Gray Minster.
                                         MinisterOnTable[Mi1].Row = Row;
                                         MinisterOnTable[Mi1].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Mi1++;
                                         //Wehn New Gray Minster Detected Increament Max Indexes.
@@ -1093,6 +1126,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Brown Minster.
                                         MinisterOnTable[Mi2].Row = Row;
                                         MinisterOnTable[Mi2].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament Index.
                                         Mi2++;
                                         //When New Brown Minister Detected Increament Max Index.
@@ -1120,6 +1157,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Gray King.
                                         KingOnTable[Ki1].Row = Row;
                                         KingOnTable[Ki1].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ki1++;
                                         //when New Draw  Object Detected Increament Max Index.
@@ -1134,6 +1175,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw King Brown Object.
                                         KingOnTable[Ki2].Row = Row;
                                         KingOnTable[Ki2].Column = Column;
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ki2++;
                                         //When New Object Detected Increament Of Brown King Max Index.
@@ -1252,7 +1297,9 @@ namespace QuantumRefrigiz
                                         //Construct Soder Gray.
                                         SolderesOnTable[So1] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, So1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increase So1.
                                         So1++;
                                         if (So1 > SodierMidle)
@@ -1267,7 +1314,9 @@ namespace QuantumRefrigiz
                                         //Construct Soldeir Brown.
                                         SolderesOnTable[So2] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, So2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increase So2.
                                         So2++;
                                         if (So2 > SodierHigh)
@@ -1294,7 +1343,9 @@ namespace QuantumRefrigiz
                                         //Construction of Draw Object.
                                         ElephantOnTable[El1] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, El1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increament of Gray Index.
                                         El1++;
                                         //If New Object Increament Gray Objects.
@@ -1309,7 +1360,9 @@ namespace QuantumRefrigiz
                                         //Construction of Draw Brown Elephant Object. 
                                         ElephantOnTable[El2] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, El2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increament of Index.
                                         El2++;
                                         //When New Brown Elephant Object Increament of Index.
@@ -1337,7 +1390,9 @@ namespace QuantumRefrigiz
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho1] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ho1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increament of Index.
                                         Ho1++;
                                         //when There is New Gray Hourse Increase.
@@ -1352,7 +1407,9 @@ namespace QuantumRefrigiz
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho2] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ho2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3));
+                                        ah.Wait();
+                                        ah.Dispose();
                                         //Increament of Index.
                                         Ho2++;
                                         //When New Brown Hourse Exist Exist Index.
@@ -1380,7 +1437,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Gray Castles.
                                         CastlesOnTable[Br1] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Br1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increamnt of Index.
                                         Br1++;
                                         //When New Gray Briges Increamnt Max Index.
@@ -1395,7 +1455,10 @@ namespace QuantumRefrigiz
                                         //Construction Draw of New Brown Castles.
                                         CastlesOnTable[Br2] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Br2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Br2, OrderP, 4);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Br2, OrderP, 4));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Br2++;
                                         //wehn Brown New Castles Detected Increament Max Index.
@@ -1424,7 +1487,10 @@ namespace QuantumRefrigiz
                                         //construction of new draw Gray Minster.
                                         MinisterOnTable[Mi1] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Mi1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Mi1++;
                                         //Wehn New Gray Minster Detected Increament Max Indexes.
@@ -1439,7 +1505,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Brown Minster.
                                         MinisterOnTable[Mi2] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Mi2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament Index.
                                         Mi2++;
                                         //When New Brown Minister Detected Increament Max Index.
@@ -1467,7 +1536,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw Gray King.
                                         KingOnTable[Ki1] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ki1);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ki1++;
                                         //when New Draw  Object Detected Increament Max Index.
@@ -1482,7 +1554,10 @@ namespace QuantumRefrigiz
                                         //Construction of New Draw King Brown Object.
                                         KingOnTable[Ki2] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
                                         //satisfied of created deeper three
-                                        BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6);
+                                        var ah = Task.Factory.StartNew(() => BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6));
+                                        ah.Wait();
+                                        ah.Dispose();
+
                                         //Increament of Index.
                                         Ki2++;
                                         //When New Object Detected Increament Of Brown King Max Index.
@@ -1863,7 +1938,12 @@ namespace QuantumRefrigiz
                     //Initiate Variable.
                     bool Added = false;
                     //Recursive Method.
-                    BeginIndexFoundingMaxLessofMaxList(ListIndex++, Founded, ref LessB);
+                    int Le = LessB;
+                    var ah = Task.Factory.StartNew(() => BeginIndexFoundingMaxLessofMaxList(ListIndex++, Founded, ref Le));
+                    ah.Wait();
+                    ah.Dispose();
+                    LessB = Le;
+                  
                     //When Greater LessB of First index Object Found.
                     if (LessB < MaxHeuristicAStarGreedytBackWard[ListIndex][1])
                     {
@@ -2311,7 +2391,12 @@ namespace QuantumRefrigiz
                                 , SolderesOnTable[i].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]
                                 , SolderesOnTable[i].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
                             //When CheckMate Occured for Current Sodiers
-                            if (AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //When Self CheckMate
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2320,7 +2405,10 @@ namespace QuantumRefrigiz
                                     //Set Superposition.
                                     SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+
                                 }
                                 else
                                 {
@@ -2330,22 +2418,32 @@ namespace QuantumRefrigiz
                                         //Set Regard and Set Movements.
                                         Do = 1;
                                         //Regard Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                         //Set Superpostion.
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
                                 for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    SolderesOnTable[ii].SoldierThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+                                    var ah1 = Task.Factory.StartNew(() => SolderesOnTable[ii].SoldierThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
                         }
+                        
                     //For Elephant.
                     for (var i = 0; i < ElefantMidle; i++)
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
@@ -2358,7 +2456,12 @@ namespace QuantumRefrigiz
                             , ElephantOnTable[i].ElefantThinkingQuantum[0].RowColumnElefant[j][0]
                             , ElephantOnTable[i].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
                             //When CheckMate Occured for Current Elephant.
-                            if (AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //For Self Order CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2367,7 +2470,10 @@ namespace QuantumRefrigiz
                                     //Set Superposition.
                                     ElephantOnTable[i].ElefantThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+
                                 }
                                 else
                                 {
@@ -2377,18 +2483,29 @@ namespace QuantumRefrigiz
                                         //Set Regard Continue.
                                         Do = 1;
                                         //Regard Subolders.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                         //Set Superposition.
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
                                 for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    ElephantOnTable[ii].ElefantThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => ElephantOnTable[ii].ElefantThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2405,7 +2522,12 @@ namespace QuantumRefrigiz
                             , HoursesOnTable[i].HourseThinkingQuantum[0].RowColumnHourse[j][0]
                             , HoursesOnTable[i].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
                             //When CheckMate Occured.
-                            if (AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //For Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2414,7 +2536,9 @@ namespace QuantumRefrigiz
                                     //Set Superposition.
                                     HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2426,16 +2550,27 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Regard For Sub Branches.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Sub branchs For Hourse.
                                 for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                                
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2452,7 +2587,12 @@ namespace QuantumRefrigiz
                             , CastlesOnTable[i].CastleThinkingQuantum[0].RowColumnCastle[j][0]
                             , CastlesOnTable[i].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
                             //When Current Gray Castles CheckMate.
-                            if (AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //For Self CheckMate
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2461,8 +2601,11 @@ namespace QuantumRefrigiz
                                     //Set Superposition.
                                     CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Sub branchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
+
                                 else
                                 {
                                     //For Enemy CheckMate.
@@ -2473,16 +2616,27 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Regard Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Castles Gray Subbranchs.
                                 for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                     
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2499,7 +2653,12 @@ namespace QuantumRefrigiz
                             , MinisterOnTable[i].MinisterThinkingQuantum[0].RowColumnMinister[j][0]
                             , MinisterOnTable[i].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
                             //When M ate Occured in Minister Gray.
-                            if (AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2508,7 +2667,9 @@ namespace QuantumRefrigiz
                                     //Superpostion.
                                     MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2520,16 +2681,27 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Set Subbranchs Regard.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Gray Ministers Subbranchs.
                                 for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                                
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2546,7 +2718,12 @@ namespace QuantumRefrigiz
                             , KingOnTable[i].KingThinkingQuantum[0].RowColumnKing[j][0]
                             , KingOnTable[i].KingThinkingQuantum[0].RowColumnKing[j][1]);
                             //When CheckMate Occured in King Gray.
-                            if (AA.CheckMate(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2555,7 +2732,9 @@ namespace QuantumRefrigiz
                                     //Superposition.
                                     KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2567,16 +2746,27 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For King Gray Subbranchs.
                                 for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                                
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2599,8 +2789,12 @@ namespace QuantumRefrigiz
                             , SolderesOnTable[i].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]
                             , SolderesOnTable[i].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
                             //When Solders Brown CheckMate Occured.
-                            if (AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order))
-                                //Self CheckMate.
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {     //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Ignore Penalty.
@@ -2608,7 +2802,9 @@ namespace QuantumRefrigiz
                                     //Supperpoistion.
                                     SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs Soders Brown.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2620,16 +2816,27 @@ namespace QuantumRefrigiz
                                         //Superpoition.
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Penalty Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Solders Brown Subbranchs Calling.
                                 for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                       
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2646,7 +2853,12 @@ namespace QuantumRefrigiz
                             , ElephantOnTable[i].ElefantThinkingQuantum[0].RowColumnElefant[j][0]
                             , ElephantOnTable[i].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
                             //CheckMate Occured in Elephenat Brown.
-                            if (AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2655,7 +2867,9 @@ namespace QuantumRefrigiz
                                     //Superpoistion.
                                     ElephantOnTable[i].ElefantThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2667,16 +2881,27 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regrad Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Subbranchs Elephenat Brown Calling.
                                 for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+                                
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2693,7 +2918,13 @@ namespace QuantumRefrigiz
                             , HoursesOnTable[i].HourseThinkingQuantum[0].RowColumnHourse[j][0]
                             , HoursesOnTable[i].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
                             //When Hourse Broin CheckMate Ocuucred.
-                            if (AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
+
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2702,7 +2933,9 @@ namespace QuantumRefrigiz
                                     //Superposition.
                                     HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranchs.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2714,16 +2947,27 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         HoursesOnTable[i].HourseThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regrad Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Hourse Brown Calling Subbranchs.
                                 for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2740,7 +2984,12 @@ namespace QuantumRefrigiz
                             , CastlesOnTable[i].CastleThinkingQuantum[0].RowColumnCastle[j][0]
                             , CastlesOnTable[i].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
                             //When Brown Castles CheckMate Occured.
-                            if (AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2749,7 +2998,9 @@ namespace QuantumRefrigiz
                                     //Superpoistion.
                                     CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Subbranchs Penalty.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2761,16 +3012,27 @@ namespace QuantumRefrigiz
                                         //Superpoistion.
                                         CastlesOnTable[i].CastleThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranchs.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Brown Castles Calling Subbranches.
                                 for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
+
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2787,7 +3049,12 @@ namespace QuantumRefrigiz
                             , MinisterOnTable[i].MinisterThinkingQuantum[0].RowColumnMinister[j][0]
                             , MinisterOnTable[i].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
                             //When Minister Borwn CheckMate Occcured.
-                            if (AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2796,7 +3063,9 @@ namespace QuantumRefrigiz
                                     //Superpoistion.
                                     MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty Subbranches.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2808,17 +3077,26 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard SubBranches.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
-
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Minister Brown SubBranches Calling.
                                 for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
@@ -2835,7 +3113,12 @@ namespace QuantumRefrigiz
                             , KingOnTable[i].KingThinkingQuantum[0].RowColumnKing[j][0]
                             , KingOnTable[i].KingThinkingQuantum[0].RowColumnKing[j][1]);
                             //When King Brown Rules CheckMate Occcured.
-                            if (AA.CheckMate(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order))
+                            bool ac = false;
+                            var ah = Task.Factory.StartNew(() => ac = AA.CheckMate(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order));
+                            ah.Wait();
+                            ah.Dispose();
+                            if (ac)
+                            {
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2844,7 +3127,9 @@ namespace QuantumRefrigiz
                                     //Superposition.
                                     KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = -1;
                                     //Penalty SubBranches.
-                                    MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                    var ah1 = Task.Factory.StartNew(() => MakePenaltyAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                    ah1.Wait();
+                                    ah1.Dispose();
                                 }
                                 else
                                 {
@@ -2856,17 +3141,26 @@ namespace QuantumRefrigiz
                                         //Superposition.
                                         KingOnTable[i].KingThinkingQuantum[0].CheckMateAStarGreedy = 1;
                                         //Regard Subbranches.
-                                        MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate);
+                                        var ah1 = Task.Factory.StartNew(() => MakeRegardAllCheckMateBranches(Base, AllDraw.OrderPlate));
+                                        ah1.Wait();
+                                        ah1.Dispose();
                                     }
                                 }
-
+                            }
                             if (Do != -1)
                             {
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //King Brown Subbranches Calling.
                                 for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
+                                {
+                                    int D = Do;
+
+                                    var ah1 = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref D, Base));
+                                    ah1.Wait();
+                                    ah1.Dispose();
+                                    Do = D;
+                                }
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                             }
