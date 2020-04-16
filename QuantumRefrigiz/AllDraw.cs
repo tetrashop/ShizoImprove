@@ -6362,7 +6362,11 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 1))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 1));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if ((!SolderesOnTableMove[i]) && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
@@ -6429,7 +6433,11 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 2))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 2));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if ((!ElephantOnTableMove[i]) && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
@@ -6493,7 +6501,11 @@ namespace QuantumRefrigiz
                     return Leaf;
                 for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 3))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 3));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if ((!HoursesOnTableMove[i]) && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
@@ -6559,7 +6571,11 @@ namespace QuantumRefrigiz
                     return Leaf;
                 for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 4))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 4));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
 
                     //when leaf found set refer bool and alldraw refer objects
@@ -6624,7 +6640,11 @@ namespace QuantumRefrigiz
                     return Leaf;
                 for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 5))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 5));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if ((!MinisterOnTableMove[i]) && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
@@ -6689,7 +6709,11 @@ namespace QuantumRefrigiz
                     return Leaf;
                 for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                 {
-                    if (IsSupHuTrue(i, j, 0, 6))
+                    bool ac = false;
+                    var ah = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 6));
+                    ah.Wait();
+                    ah.Dispose();
+                    if (ac)
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if ((!KingOnTableMove[i]) && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
@@ -6764,8 +6788,15 @@ namespace QuantumRefrigiz
                 {
                     for (var i = 0; i < SodierMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindSoldier(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
+
                     if (UniqueLeafDetection)
                     {
                         if (Found)
@@ -6773,8 +6804,14 @@ namespace QuantumRefrigiz
                     }
                     for (var i = 0; i < ElefantMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
-                    }
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindElephant(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
+                   }
                     if (UniqueLeafDetection)
                     {
                         if (Found)
@@ -6782,7 +6819,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = 0; i < HourseMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindHourse(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6791,7 +6834,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = 0; i < CastleMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindCastle(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6800,7 +6849,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = 0; i < MinisterMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindMinister(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6809,8 +6864,14 @@ namespace QuantumRefrigiz
                     }
                     for (var i = 0; i < KingMidle; i++)
                     {
-                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
-                    }
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindKing(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
+                     }
                 }
                 else
                 {
@@ -6821,7 +6882,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = SodierMidle; i < SodierHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindSoldier(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6830,7 +6897,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindElephant(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6839,8 +6912,14 @@ namespace QuantumRefrigiz
                     }
                     for (var i = HourseMidle; i < HourseHight; i++)
                     {
-                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
-                    }
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindHourse(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
+                   }
                     if (UniqueLeafDetection)
                     {
                         if (Found)
@@ -6848,7 +6927,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindCastle(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6857,7 +6942,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindMinister(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                     if (UniqueLeafDetection)
                     {
@@ -6866,7 +6957,13 @@ namespace QuantumRefrigiz
                     }
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
-                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, LeafDeep, ik, jk, iii, jjj);
+                        AllDraw le = Leaf;
+                        bool fou = Found;
+                        var ah = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindKing(i, ref le, ref fou, Order, LeafDeep, ik, jk, iii, jjj));
+                        ah.Wait();
+                        ah.Dispose();
+                        Leaf = le;
+                        Found = fou;
                     }
                 }
 
