@@ -11187,7 +11187,17 @@ namespace QuantumRefrigiz
                 return true;
             if (Kind == 1)
             {
-                if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
 
                     Object O11 = new Object();
@@ -11208,12 +11218,25 @@ namespace QuantumRefrigiz
 
                         }
                         //When there is not Penalty regard mechanism.
-                        if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                        var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             return true;
 
-                        InitiateVars(i, j, k, 1);
+                        var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                        ah2.Wait();
+                        ah2.Dispose();
+
                         //Set Max of Soldier.
-                        MaxLess1 = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHeuristic(i, j, Order, AA, ref HaveKilled);
+                        AAA = AA;
+                        Havk = HaveKilled;
+                        var ah3 = Task.Factory.StartNew(() => MaxLess1 = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                        ah3.Wait();
+                        ah3.Dispose();
+                        AA = AAA;
+                        HaveKilled = Havk;
+
                         if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                         {
                             if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11240,9 +11263,23 @@ namespace QuantumRefrigiz
                             Object On = new Object();
                             lock (On)
                             {
-                                SaveBeginEndLocation(i, j, k, 1);
-                                SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
-                                SaveLess(i, j, k, 1, ref Less, AA, Order);
+                                var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                                ah4.Wait();
+                                ah4.Dispose();
+
+                                int[,] Th = TableHeuristic;
+                                var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                TableHeuristic = Th;
+
+                                int le = Less;
+                                AAA = AA;
+                                var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                                ah6.Wait();
+                                ah6.Dispose();
+                                Less = le;
+                                AA = AAA;
                             }
                             StringHeuristics(1, 3, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
 
@@ -11273,7 +11310,17 @@ namespace QuantumRefrigiz
             }
             else if (Kind == 2)
             {
-                if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
                     Object O = new Object();
                     lock (O)
@@ -11296,11 +11343,24 @@ namespace QuantumRefrigiz
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                    var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (ac)
                         return true;
 
-                    InitiateVars(i, j, k, 2);
-                    MaxLess2 = (ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHeuristic(RW2, Ki2, Order, false, ref HaveKilled));
+                    var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                    ah2.Wait();
+                    ah2.Dispose();
+
+                    AAA = AA;
+                    Havk = HaveKilled;
+                    var ah3 = Task.Factory.StartNew(() => MaxLess2 = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                    ah3.Wait();
+                    ah3.Dispose();
+                    AA = AAA;
+                    HaveKilled = Havk;
+                  
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11325,9 +11385,23 @@ namespace QuantumRefrigiz
                         Object On = new Object();
                         lock (On)
                         {
-                            SaveBeginEndLocation(i, j, k, 2);
-                            SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
-                            SaveLess(i, j, k, 2, ref Less, AA, Order);
+                            var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                            ah4.Wait();
+                            ah4.Dispose();
+
+                            int[,] Th = TableHeuristic;
+                            var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                            ah5.Wait();
+                            ah5.Dispose();
+                            TableHeuristic = Th;
+
+                            int le = Less;
+                            AAA = AA;
+                            var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                            ah6.Wait();
+                            ah6.Dispose();
+                            Less = le;
+                            AA = AAA;
                         }
                         Act = true;
                         StringHeuristics(2, 3, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
@@ -11337,7 +11411,17 @@ namespace QuantumRefrigiz
             }
             else if (Kind == 3)
             {
-                if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
                     Object O = new Object();
                     lock (O)
@@ -11363,11 +11447,24 @@ namespace QuantumRefrigiz
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                    var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (ac)
                         return true;
-                    InitiateVars(i, j, k, 3);
 
-                    MaxLess3 = (HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHeuristic(RW3, Ki3, Order, false, ref HaveKilled));
+                    var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                    ah2.Wait();
+                    ah2.Dispose();
+
+                    AAA = AA;
+                    Havk = HaveKilled;
+                    var ah3 = Task.Factory.StartNew(() => MaxLess3 = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                    ah3.Wait();
+                    ah3.Dispose();
+                    AA = AAA;
+                    HaveKilled = Havk;
+          
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11392,9 +11489,23 @@ namespace QuantumRefrigiz
                         Object On = new Object();
                         lock (On)
                         {
-                            SaveBeginEndLocation(i, j, k, 3);
-                            SaveTableHeuristic(i, j, k, 3, ref TableHeuristic);
-                            SaveLess(i, j, k, 3, ref Less, AA, Order);
+                            var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                            ah4.Wait();
+                            ah4.Dispose();
+
+                            int[,] Th = TableHeuristic;
+                            var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                            ah5.Wait();
+                            ah5.Dispose();
+                            TableHeuristic = Th;
+
+                            int le = Less;
+                            AAA = AA;
+                            var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                            ah6.Wait();
+                            ah6.Dispose();
+                            Less = le;
+                            AA = AAA;
                         }
                         Act = true;
                         StringHeuristics(3, 3, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
@@ -11403,7 +11514,17 @@ namespace QuantumRefrigiz
             }
             else if (Kind == 4)
             {
-                if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
                     Object O = new Object();
                     lock (O)
@@ -11427,11 +11548,24 @@ namespace QuantumRefrigiz
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                    var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (ac)
                         return true;
 
-                    InitiateVars(i, j, k, 4);
-                    MaxLess4 = (CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHeuristic(RW4, Ki4, Order, false, ref HaveKilled));
+                    var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                    ah2.Wait();
+                    ah2.Dispose();
+
+                    AAA = AA;
+                    Havk = HaveKilled;
+                    var ah3 = Task.Factory.StartNew(() => MaxLess4 = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                    ah3.Wait();
+                    ah3.Dispose();
+                    AA = AAA;
+                    HaveKilled = Havk;
+                    
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11457,9 +11591,23 @@ namespace QuantumRefrigiz
                         Object On = new Object();
                         lock (On)
                         {
-                            SaveBeginEndLocation(i, j, k, 4);
-                            SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
-                            SaveLess(i, j, k, 4, ref Less, AA, Order);
+                            var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                            ah4.Wait();
+                            ah4.Dispose();
+
+                            int[,] Th = TableHeuristic;
+                            var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                            ah5.Wait();
+                            ah5.Dispose();
+                            TableHeuristic = Th;
+
+                            int le = Less;
+                            AAA = AA;
+                            var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                            ah6.Wait();
+                            ah6.Dispose();
+                            Less = le;
+                            AA = AAA;
                         }
                         Act = true;
                         StringHeuristics(4, 3, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
@@ -11471,7 +11619,17 @@ namespace QuantumRefrigiz
             }
             else if (Kind == 5)
             {
-                if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
                     Object O = new Object();
                     lock (O)
@@ -11494,12 +11652,24 @@ namespace QuantumRefrigiz
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                    var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (ac)
                         return true;
 
-                    InitiateVars(i, j, k, 5);
+                    var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                    ah2.Wait();
+                    ah2.Dispose();
 
-                    MaxLess5 = (MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHeuristic(RW5, Ki5, Order, false, ref HaveKilled));
+                    AAA = AA;
+                    Havk = HaveKilled;
+                    var ah3 = Task.Factory.StartNew(() => MaxLess5 = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                    ah3.Wait();
+                    ah3.Dispose();
+                    AA = AAA;
+                    HaveKilled = Havk;
+
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11526,9 +11696,23 @@ namespace QuantumRefrigiz
                         Object On = new Object();
                         lock (On)
                         {
-                            SaveBeginEndLocation(i, j, k, 5);
-                            SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
-                            SaveLess(i, j, k, 5, ref Less, AA, Order);
+                            var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                            ah4.Wait();
+                            ah4.Dispose();
+
+                            int[,] Th = TableHeuristic;
+                            var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                            ah5.Wait();
+                            ah5.Dispose();
+                            TableHeuristic = Th;
+
+                            int le = Less;
+                            AAA = AA;
+                            var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                            ah6.Wait();
+                            ah6.Dispose();
+                            Less = le;
+                            AA = AAA;
                         }
                         Act = true;
                         StringHeuristics(5, 3, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
@@ -11537,7 +11721,17 @@ namespace QuantumRefrigiz
             }
             else if (Kind == 6)
             {
-                if (KingOnTable[i].KingThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
+                bool ac = false;
+                bool AAA = AA;
+                int Le = Less;
+                int Havk = HaveKilled;
+                var ah = Task.Factory.StartNew(() => ac = KingOnTable[i].KingThinkingQuantum[0].ReturnHeuristic(i, j, Order, AAA, ref Havk) > Le);
+                ah.Wait();
+                ah.Dispose();
+                AA = AAA;
+                Less = Le;
+                HaveKilled = Havk;
+                if (ac)
                 {
                     Object OO = new Object();
                     lock (OO)
@@ -11560,11 +11754,24 @@ namespace QuantumRefrigiz
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
+                    var ah1 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(TableS), Order, i, j, k));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (ac)
                         return true;
-                    InitiateVars(i, j, k, 6);
 
-                    MaxLess6 = (KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHeuristic(RW6, Ki6, Order, false, ref HaveKilled));
+                    var ah2 = Task.Factory.StartNew(() => InitiateVars(i, j, k, Kind));
+                    ah2.Wait();
+                    ah2.Dispose();
+
+                    AAA = AA;
+                    Havk = HaveKilled;
+                    var ah3 = Task.Factory.StartNew(() => MaxLess6 = KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHeuristic(i, j, Order, AAA, ref Havk));
+                    ah3.Wait();
+                    ah3.Dispose();
+                    AA = AAA;
+                    HaveKilled = Havk;
+                  
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
                         if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
@@ -11590,9 +11797,23 @@ namespace QuantumRefrigiz
                         Object On = new Object();
                         lock (On)
                         {
-                            SaveBeginEndLocation(i, j, k, 6);
-                            SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
-                            SaveLess(i, j, k, 6, ref Less, AA, Order);
+                            var ah4 = Task.Factory.StartNew(() => SaveBeginEndLocation(i, j, k, Kind));
+                            ah4.Wait();
+                            ah4.Dispose();
+
+                            int[,] Th = TableHeuristic;
+                            var ah5 = Task.Factory.StartNew(() => SaveTableHeuristic(i, j, k, Kind, ref Th));
+                            ah5.Wait();
+                            ah5.Dispose();
+                            TableHeuristic = Th;
+
+                            int le = Less;
+                            AAA = AA;
+                            var ah6 = Task.Factory.StartNew(() => SaveLess(i, j, k, Kind, ref le, AAA, Order));
+                            ah6.Wait();
+                            ah6.Dispose();
+                            Less = le;
+                            AA = AAA;
                         }
                         Act = true;
                         StringHeuristics(6, 3, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
