@@ -18707,8 +18707,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Soldeir
             for (ik = 0; ik < SodierMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 1)
-                    )
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 1));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HeuristicListSolder.Count; j++)
@@ -18721,10 +18724,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when node is empty deeper and there is not computatiional node continue
-                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                        var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (!ac)
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, ik, j, 0))
+                        var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, ik, j, 0));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -18735,9 +18744,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[0] = ik;
                                 jIndex[0] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessS;
+                                var ah3 = Task.Factory.StartNew(() => pre = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessS = pre;
                             }
                         }
                         else
@@ -18748,9 +18763,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[0] = ik;
                                 jIndex[0] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessS;
+                                var ah3 = Task.Factory.StartNew(() => pre = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessS = pre;
                             }
                         }
                     }
@@ -18764,8 +18785,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 2))
-                    continue;
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 2));
+                ah.Wait();
+                ah.Dispose();
+                if (ac) continue;
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HeuristicListElefant.Count; j++)
                 {
@@ -18777,10 +18801,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when node is empty deeper and there is not computatiional node continue
-                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                        var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (!ac)
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, ik, j, 0))
+                        var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, ik, j, 0));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -18791,9 +18821,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[1] = ik;
                                 jIndex[1] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessE;
+                                var ah3 = Task.Factory.StartNew(() => pre = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessE = pre;
                             }
                         }
                         else
@@ -18804,9 +18840,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[1] = ik;
                                 jIndex[1] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessE;
+                                var ah3 = Task.Factory.StartNew(() => pre = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessE = pre;
                             }
                         }
                     }
@@ -18819,8 +18861,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Hourse.
             for (ik = 0; ik < HourseMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 3))
-                    continue;
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 3));
+                ah.Wait();
+                ah.Dispose();
+                if (ac) continue;
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HeuristicListHourse.Count; j++)
                 {
@@ -18832,10 +18877,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when node is empty deeper and there is not computatiional node continue
-                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                        var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (!ac)
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, ik, j, 0))
+                        var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, ik, j, 0));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -18846,9 +18897,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[2] = ik;
                                 jIndex[2] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessH;
+                                var ah3 = Task.Factory.StartNew(() => pre = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessH = pre;
                             }
                         }
                         else
@@ -18859,9 +18916,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
-                                Index[2] = ik;
+                               Index[2] = ik;
                                 jIndex[2] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessH;
+                                var ah3 = Task.Factory.StartNew(() => pre = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessH = pre;
                             }
                         }
                     }
@@ -18874,8 +18937,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Castle.
             for (ik = 0; ik < CastleMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 4))
-                    continue;
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 4));
+                ah.Wait();
+                ah.Dispose();
+                if (ac) continue;
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HeuristicListCastle.Count; j++)
                 {
@@ -18887,10 +18953,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when node is empty deeper and there is not computatiional node continue
-                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                        var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (!ac)
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, ik, j, 0))
+                        var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, ik, j, 0));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -18901,9 +18973,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[3] = ik;
                                 jIndex[3] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessB;
+                                var ah3 = Task.Factory.StartNew(() => pre = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessB = pre;
                             }
                         }
                         else
@@ -18914,10 +18992,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             }
                             else
                             {
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
                                 Index[3] = ik;
                                 jIndex[3] = j;
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessB;
+                                var ah3 = Task.Factory.StartNew(() => pre = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessB = pre;
                             }
+                        
                         }
                     }
                 }
@@ -18929,7 +19014,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Minister.
             for (ik = 0; ik < MinisterMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 5))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 5));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HeuristicListMinister.Count; j++)
@@ -18939,10 +19028,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                       )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     Object O = new Object();
                     lock (O)
@@ -18958,7 +19053,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessM;
+                                var ah3 = Task.Factory.StartNew(() => pre = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessM = pre;
                             }
                         }
                         else
@@ -18971,7 +19072,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessM;
+                                var ah3 = Task.Factory.StartNew(() => pre = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessM = pre;
                             }
                         }
                     }
@@ -18984,7 +19091,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //King.
             for (ik = 0; ik < KingMidle; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 6))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 6));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HeuristicListKing.Count; j++)
@@ -18997,10 +19108,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when node is empty deeper and there is not computatiional node continue
-                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                        var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (!ac)
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, ik, j, 0))
+                        var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, ik, j, 0));
+                        ah2.Wait();
+                        ah2.Dispose();
+                        if (!ac)
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -19013,7 +19130,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessK;
+                                var ah3 = Task.Factory.StartNew(() => pre = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessK = pre;
                             }
                         }
                         else
@@ -19026,7 +19149,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                                int Hav = HaveKilled;
+                                int pre = PreviousLessK;
+                                var ah3 = Task.Factory.StartNew(() => pre = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                                ah3.Wait();
+                                ah3.Dispose();
+                                HaveKilled = Hav;
+                                PreviousLessK = pre;
                             }
                         }
                     }
@@ -19169,7 +19298,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
         {
             for (ik = SodierMidle; ik < SodierHigh; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 1))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 1));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //Soldier.
                 //when there is computational lists
@@ -19180,10 +19313,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                    )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19196,7 +19335,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[0] = ik;
                             jIndex[0] = j;
-                            PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessS;
+                            var ah3 = Task.Factory.StartNew(() => pre = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessS = pre;
                         }
                     }
                     else
@@ -19209,7 +19354,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[0] = ik;
                             jIndex[0] = j;
-                            PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessS;
+                            var ah3 = Task.Factory.StartNew(() => pre = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessS = pre;
                         }
                     }
                 }
@@ -19221,7 +19372,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Elephant
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 2))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 2));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HeuristicListElefant.Count; j++)
@@ -19231,10 +19386,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                  )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19247,7 +19408,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[1] = ik;
                             jIndex[1] = j;
-                            PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessE;
+                            var ah3 = Task.Factory.StartNew(() => pre = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessE = pre;
                         }
                     }
                     else
@@ -19260,7 +19427,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[1] = ik;
                             jIndex[1] = j;
-                            PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessE;
+                            var ah3 = Task.Factory.StartNew(() => pre = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessE = pre;
                         }
                     }
                 }
@@ -19272,7 +19445,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Hourse.
             for (ik = HourseMidle; ik < HourseHight; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 3))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 3));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HeuristicListHourse.Count; j++)
@@ -19282,10 +19459,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19298,7 +19481,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[2] = ik;
                             jIndex[2] = j;
-                            PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessH;
+                            var ah3 = Task.Factory.StartNew(() => pre = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessH = pre;
                         }
                     }
                     else
@@ -19311,7 +19500,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[2] = ik;
                             jIndex[2] = j;
-                            PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessH;
+                            var ah3 = Task.Factory.StartNew(() => pre = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessH = pre;
                         }
                     }
                 }
@@ -19348,6 +19543,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 Object O = new Object();
                 lock (O)
                 {
+                   
                     BlitzGameThinkingTreeSolderGray(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingTreeElephantGray(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingTreeHourseGray(ref PH, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
@@ -19452,7 +19648,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Castles.
             for (ik = CastleMidle; ik < CastleHigh; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 4))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 4));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HeuristicListCastle.Count; j++)
@@ -19462,10 +19662,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19478,7 +19684,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[3] = ik;
                             jIndex[3] = j;
-                            PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessB;
+
+                            var ah3 = Task.Factory.StartNew(() => pre = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessB = pre;
+
                         }
                     }
                     else
@@ -19491,7 +19705,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[3] = ik;
                             jIndex[3] = j;
-                            PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessB;
+                            var ah3 = Task.Factory.StartNew(() => pre = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessB = pre;
                         }
                     }
                 }
@@ -19503,7 +19723,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //Minister.
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 5))
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 5));
+                ah.Wait();
+                ah.Dispose();
+                if (ac)
                     continue;
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HeuristicListMinister.Count; j++)
@@ -19513,10 +19737,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                       )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19530,7 +19760,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[4] = ik;
                             jIndex[4] = j;
-                            PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessM;
+                            var ah3 = Task.Factory.StartNew(() => pre = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessM = pre;
                         }
                     }
                     else
@@ -19544,7 +19780,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[4] = ik;
                             jIndex[4] = j;
-                            PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessM;
+                            var ah3 = Task.Factory.StartNew(() => pre = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessM = pre;
                         }
                     }
                 }
@@ -19556,8 +19798,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //King.
             for (ik = KingMidle; ik < KingHigh; ik++)
             {
-                if (BlitzGameThinkingTreeBoundryConditions(ik, 6))
-                    continue;
+                bool ac = false;
+                var ah = Task.Factory.StartNew(() => ac = BlitzGameThinkingTreeBoundryConditions(ik, 6));
+                ah.Wait();
+                ah.Dispose();
+                if (ac) continue;
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HeuristicListKing.Count; j++)
                 {
@@ -19566,10 +19811,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                      )
                         continue;
                     //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                    var ah1 = Task.Factory.StartNew(() => ac = IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    if (!ac)
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, ik, j, 0))
+                    var ah2 = Task.Factory.StartNew(() => ac = CheckeHuristci(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, ik, j, 0));
+                    ah2.Wait();
+                    ah2.Dispose();
+                    if (!ac)
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -19582,7 +19833,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[5] = ik;
                             jIndex[5] = j;
-                            PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessK;
+                            var ah3 = Task.Factory.StartNew(() => pre = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessK = pre;
+
                         }
                     }
                     else
@@ -19595,7 +19853,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
                             Index[5] = ik;
                             jIndex[5] = j;
-                            PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled);
+                            int Hav = HaveKilled;
+                            int pre = PreviousLessK;
+                            var ah3 = Task.Factory.StartNew(() => pre = KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref Hav));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            HaveKilled = Hav;
+                            PreviousLessK = pre;
                         }
                     }
                 }
