@@ -12056,7 +12056,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 1))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 1));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12067,20 +12071,39 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[j] != null)
-                                SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
                             StringHeuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(1, i, j, Order))
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(1, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 1, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 1, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
                             //When There is No Movments in Such Order Enemy continue.
                             Object ol = new Object();
@@ -12090,8 +12113,19 @@ namespace QuantumRefrigiz
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 1, ref Do, AStarGreedyi, Order))
-                                    continue;
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 1, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac) continue;
                             }
                         }
                     }
@@ -12113,7 +12147,16 @@ namespace QuantumRefrigiz
                 if (SodierMidle != 0)
                 {
                     for (var i = 0; i < SodierMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchSoldier(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchSoldier(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12131,7 +12174,16 @@ namespace QuantumRefrigiz
                 if (SodierMidle != SodierHigh)
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchSoldier(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchSoldier(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12150,7 +12202,16 @@ namespace QuantumRefrigiz
                 {
                     //Do For Remaining Objects same as Soldeir Documentation.
                     for (var i = 0; i < ElefantMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchElephant(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12169,7 +12230,16 @@ namespace QuantumRefrigiz
                 {
                     //Do For Remaining Objects same as Soldeir Documentation.
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchElephant(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12195,7 +12265,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 2))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 2));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12206,20 +12280,38 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j] != null)
-                                ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
                             StringHeuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(2, i, j, Order))
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(2, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
-
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 2, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 2, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
 
                             Object ol = new Object();
@@ -12230,8 +12322,19 @@ namespace QuantumRefrigiz
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 2, ref Do, AStarGreedyi, Order))
-                                    continue;
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 2, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac) continue;
 
                             }
 
@@ -12256,7 +12359,16 @@ namespace QuantumRefrigiz
                 {
                     //For Every Soldeir
                     for (var i = 0; i < HourseMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchHourse(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchHourse(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 // else
 
@@ -12275,7 +12387,16 @@ namespace QuantumRefrigiz
                 {
                     //For Every Soldeir
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchHourse(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchHourse(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12302,7 +12423,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && j < HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 3))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 3));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12313,19 +12438,38 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j] != null)
-                                HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             StringHeuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(3, i, j, Order))
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(3, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
 
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 3, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 3, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
                             Object ol = new Object();
                             lock (ol)
@@ -12335,8 +12479,19 @@ namespace QuantumRefrigiz
                                     if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 3, ref Do, AStarGreedyi, Order))
-                                    continue;
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 3, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac) continue;
 
                             }
                         }
@@ -12358,8 +12513,17 @@ namespace QuantumRefrigiz
                 if (0 != HourseMidle)
                 {
                     for (var i = 0; i < CastleMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchCastle(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                }
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchCastle(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
+                 }
                 //else
 
 
@@ -12377,7 +12541,16 @@ namespace QuantumRefrigiz
                 if (CastleMidle != CastleHigh)
                 {
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchCastle(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchCastle(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12404,7 +12577,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && j < CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 4))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 4));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12415,18 +12592,37 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j] != null)
-                                CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Order = COrder;
                             StringHeuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(4, i, j, Order))
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(4, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 4, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 4, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
 
                             Object ol = new Object();
@@ -12437,7 +12633,19 @@ namespace QuantumRefrigiz
                                     if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 4, ref Do, AStarGreedyi, Order))
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 4, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac)
                                     continue;
                             }
                         }
@@ -12461,8 +12669,17 @@ namespace QuantumRefrigiz
                 if (0 != MinisterMidle)
                 {
                     for (var i = 0; i < MinisterMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                }
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchMinsister(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
+                 }
                 //else
 
 
@@ -12479,7 +12696,16 @@ namespace QuantumRefrigiz
                 if (MinisterHigh != MinisterMidle)
                 {
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchMinsister(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 //else
 
@@ -12505,7 +12731,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 5))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 5));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12516,19 +12746,38 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j] != null)
-                                MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             StringHeuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(5, i, j, Order))
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(5, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 5, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
                             Object ol = new Object();
                             lock (ol)
@@ -12536,8 +12785,19 @@ namespace QuantumRefrigiz
                                 if (Order != AllDraw.OrderPlateDraw)
                                     if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
-                                    continue;
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 5, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac) continue;
                             }
                         }
                     }
@@ -12559,7 +12819,16 @@ namespace QuantumRefrigiz
                 if (0 != KingMidle)
                 {
                     for (var i = 0; i < KingMidle; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchKing(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 // else
 
@@ -12577,7 +12846,16 @@ namespace QuantumRefrigiz
                 if (KingHigh != KingMidle)
                 {
                     for (var i = KingMidle; i < KingHigh; i++)
-                        TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    {
+                        int[,] Ta = TableHeuristic;
+                        bool Ac = Act;
+                        var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchKing(ref Ta, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                        ah.Wait();
+                        ah.Dispose();
+                        Act = Ac;
+                        TableHeuristic = Ta;
+
+                    }
                 }
                 // else
 
@@ -12603,7 +12881,11 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[k] != null && KingOnTable[i].KingThinkingQuantum != null && j < KingOnTable[i].KingThinkingQuantum[k].TableListKing.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 6))
+                        bool ac = false;
+                        var ah1 = Task.Factory.StartNew(() => ac = IsSupHuTrue(i, j, 0, 6));
+                        ah1.Wait();
+                        ah1.Dispose();
+                        if (ac)
                             continue;
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -12614,19 +12896,39 @@ namespace QuantumRefrigiz
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
                             if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j] != null)
-                                KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order * -1);
+                            {
+                                bool AAAA = AA;
+                                var ah = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AAAA, Order * -1));
+                                ah.Wait();
+                                ah.Dispose();
+                                AA = AAAA;
+                            }
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             StringHeuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(6, i, j, Order))
+
+                            var ah3 = Task.Factory.StartNew(() => ac = Lose(6, i, j, Order));
+                            ah3.Wait();
+                            ah3.Dispose();
+                            if (ac)
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
-                            if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 6, ref Do, AStarGreedyi, Order))
+                            bool Ac = Act;
+                            int[,] Ta = TableHeuristic;
+                            bool AAA = AA;
+                            int D = Do;
+                            var ah4 = Task.Factory.StartNew(() => ac = HeuristicRegardSection(i, j, k, ref Ac, ref Ta, ref AAA, a, 6, ref D, AStarGreedyi, Order));
+                            ah4.Wait();
+                            ah4.Dispose();
+                            Act = ac;
+                            TableHeuristic = Ta;
+                            AA = AAA;
+                            if (ac)
                                 continue;
                             Object ol = new Object();
                             lock (ol)
@@ -12636,8 +12938,19 @@ namespace QuantumRefrigiz
                                     if (KingOnTable[i].KingThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
-                                if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 6, ref Do, AStarGreedyi, Order))
-                                    continue;
+                                Ac = Act;
+                                Ta = TableHeuristic;
+                                bool CuTH = CurrentTableHeuristic;
+                                AAA = AA;
+                                D = Do;
+                                var ah5 = Task.Factory.StartNew(() => ac = HeuristicMainBody(i, j, k, ref Ac, ref Ta, ref CuTH, ref AAA, a, 6, ref D, AStarGreedyi, Order));
+                                ah5.Wait();
+                                ah5.Dispose();
+                                Act = ac;
+                                TableHeuristic = Ta;
+                                CurrentTableHeuristic = CuTH;
+                                AA = AAA;
+                                if (ac) continue;
                             }
                         }
                     }
