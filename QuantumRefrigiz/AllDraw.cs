@@ -12969,20 +12969,66 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 int[,] TableHeuristic = new int[8, 8];
-                HeuristicAStarGreadySearchSoldierGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                if (!OnlyWin)
-                    HeuristicAStarGreadySearchElephantGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                bool Ac = Act;
+                int[,] Ta = TableHeuristic;
+                var ah = Task.Factory.StartNew(() => HeuristicAStarGreadySearchSoldierGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                ah.Wait();
+                ah.Dispose();
+                Act = Ac;
+                TableHeuristic = Ta;
 
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchHourseGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchElephantGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchCastleGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchHourseGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
+               
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchMinsisterGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchCastleGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchKingGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchMinsisterGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
+                if (!OnlyWin)
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchKingGray(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
+              
                 return TableHeuristic;
             }
         }
@@ -12994,20 +13040,65 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 int[,] TableHeuristic = new int[8, 8];
-                if (!OnlyWin)
-                    HeuristicAStarGreadySearchSoldierBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                if (!OnlyWin)
-                    HeuristicAStarGreadySearchElephantBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                bool Ac = Act;
+                int[,] Ta = TableHeuristic;
+                var ah = Task.Factory.StartNew(() => HeuristicAStarGreadySearchSoldierBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                ah.Wait();
+                ah.Dispose();
+                Act = Ac;
+                TableHeuristic = Ta;
 
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchHourseBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchElephantBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
+                if (!OnlyWin)
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchHourseBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
 
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchCastleBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchCastleBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
                 if (!OnlyWin)
-                    HeuristicAStarGreadySearchMinsisterBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                if (!OnlyWin)
-                    HeuristicAStarGreadySearchKingBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchMinsisterBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
+               if (!OnlyWin)
+                {
+                    Ac = Act;
+                    Ta = TableHeuristic;
+                    var ah1 = Task.Factory.StartNew(() => HeuristicAStarGreadySearchKingBrown(ref Ta, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah1.Wait();
+                    ah1.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
+                }
 
                 return TableHeuristic;
             }
@@ -14262,7 +14353,8 @@ namespace QuantumRefrigiz
             }
         }
         //AStarGreedy First Heuristic Method.
-      */  public int[,] HeuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
+      */
+        public int[,] HeuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic)
         {
 
             Object O = new Object();
@@ -14309,11 +14401,23 @@ namespace QuantumRefrigiz
                 bool Act = false;
                 if (Order == 1)
                 {
-                    TableHeuristic = HeuristicAStarGreadySearchGray(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    bool Ac = Act;
+                    int[,] Ta = TableHeuristic;
+                    var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchGray(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah.Wait();
+                    ah.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
                 }
                 else
                 {
-                    TableHeuristic = HeuristicAStarGreadySearchBrown(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                    bool Ac = Act;
+                    int[,] Ta = TableHeuristic;
+                    var ah = Task.Factory.StartNew(() => Ta = HeuristicAStarGreadySearchBrown(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Ac));
+                    ah.Wait();
+                    ah.Dispose();
+                    Act = Ac;
+                    TableHeuristic = Ta;
                 }
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
