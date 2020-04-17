@@ -14683,7 +14683,10 @@ namespace QuantumRefrigiz
         {
 
             {
-                SetObjectNumbers(Tab);
+                var ah = Task.Factory.StartNew(() => SetObjectNumbers(Tab));
+                ah.Wait();
+                ah.Dispose();
+                
 
                 int[,] Table = new int[8, 8];
                 for (var iii = 0; iii < 8; iii++)
@@ -14734,7 +14737,16 @@ namespace QuantumRefrigiz
                             //Thinking of Gray Solder Operation.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = SolderesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = SolderesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            SolderesOnTable[iIndex].WinOcuuredatChiled = Win;
+
                         }
                         else if (ASS)
                         //If There is A Soldeir Movments.                                   
@@ -14742,7 +14754,15 @@ namespace QuantumRefrigiz
                             //Thinking of Gray Soldeir Operations.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = SolderesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = SolderesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            SolderesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     //Progressing.
@@ -14759,7 +14779,15 @@ namespace QuantumRefrigiz
                             //Operational Thinking Gray Elephant. 
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = ElephantOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = ElephantOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            ElephantOnTable[iIndex].WinOcuuredatChiled = Win;
                         }//If There is Movment Thinking Gary Elphant Object List.
                         else if (ASS)
                         {
@@ -14767,7 +14795,15 @@ namespace QuantumRefrigiz
                             //Gray Elephant Object Thinking Operations.
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = ElephantOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = ElephantOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            ElephantOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     //Progressing.
@@ -14783,7 +14819,15 @@ namespace QuantumRefrigiz
                             //Thinking of Gray Hourse Oprational.
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = HoursesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = HoursesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            HoursesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//If Table List Exist int The Thinking.
                         {
@@ -14791,7 +14835,15 @@ namespace QuantumRefrigiz
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT = HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableListHourse[j];
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = HoursesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = HoursesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            HoursesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     //Progressing.
@@ -14808,7 +14860,15 @@ namespace QuantumRefrigiz
                             //Thinking of Gray Castles Operational.
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = CastlesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = CastlesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            CastlesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)
                         {
@@ -14831,7 +14891,15 @@ namespace QuantumRefrigiz
                          //Thinking of Gray Minister Operational.
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Table Gray Minister Count of Thinking.
                         {
@@ -14839,7 +14907,15 @@ namespace QuantumRefrigiz
                             MinisterOnTable[iIndex].Table = MinisterOnTable[iIndex].MinisterThinkingQuantum[0].TableListMinister[j];
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     if (KindIndex == 6)
@@ -14854,14 +14930,30 @@ namespace QuantumRefrigiz
                          //Thinking Of Gray King Operatins.
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = KingOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = KingOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            KingOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            KingOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            KingOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            KingOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When Thinking Gray King Count of Existing Operations.
                         {
                             //Gray King Thinking Operations.                                        
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = KingOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = KingOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            KingOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            KingOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            KingOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            KingOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                 }
@@ -14879,14 +14971,30 @@ namespace QuantumRefrigiz
                             //Thinking Operations of Brown Current Objects.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = SolderesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = SolderesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            SolderesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
                             //Thinking of Thinking Brown CurrentTable Objective Operations.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = SolderesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = SolderesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            SolderesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            SolderesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     if (KindIndex == -2)
@@ -14900,7 +15008,15 @@ namespace QuantumRefrigiz
                             //Thinking Operations of Brown Current Objects.
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = ElephantOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = ElephantOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            ElephantOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
@@ -14908,7 +15024,15 @@ namespace QuantumRefrigiz
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                                   
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = ElephantOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = ElephantOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            ElephantOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            ElephantOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
 
@@ -14924,14 +15048,30 @@ namespace QuantumRefrigiz
 
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = HoursesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = HoursesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            HoursesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
 
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = HoursesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = HoursesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            HoursesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            HoursesOnTable[iIndex].WinOcuuredatChiled = Win;
 
                         }
                     }
@@ -14949,14 +15089,30 @@ namespace QuantumRefrigiz
                          //Thinking Operations of Brown Current Objects.
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = CastlesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = CastlesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            CastlesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
                             //Thinking of Thinking Brown CurrentTable Objective Operations.        
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = CastlesOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = CastlesOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            CastlesOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            CastlesOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     if (KindIndex == -5)
@@ -14970,14 +15126,30 @@ namespace QuantumRefrigiz
                          //Thinking Operations of Brown Current Objects.
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
 
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                     }
                     //Progressing.
@@ -14992,7 +15164,15 @@ namespace QuantumRefrigiz
                          //Thinking Operations of Brown Current Objects.
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
@@ -15000,7 +15180,15 @@ namespace QuantumRefrigiz
                             KingOnTable[iIndex].KingThinkingQuantum[0].TableT = KingOnTable[iIndex].KingThinkingQuantum[0].TableListKing[j];
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);
+                            int[] Lose = MinisterOnTable[iIndex].LoseOcuuredatChiled;
+                            int Win = MinisterOnTable[iIndex].WinOcuuredatChiled;
+                            var ah1 = Task.Factory.StartNew(() => MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref Lose, ref Win));
+                            ah1.Wait();
+                            ah1.Dispose();
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[0] = Lose[0];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[1] = Lose[1];
+                            MinisterOnTable[iIndex].LoseOcuuredatChiled[2] = Lose[2];
+                            MinisterOnTable[iIndex].WinOcuuredatChiled = Win;
 
                         }
 
@@ -15160,7 +15348,7 @@ namespace QuantumRefrigiz
             }
         }
         //gray object initiation second method
-        AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+   /*     AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
 
@@ -15566,7 +15754,7 @@ namespace QuantumRefrigiz
 
             return this;
         }
-        //return index of table state index at list
+      */  //return index of table state index at list
         int FoundTableIndex(List<int[,]> T, int[,] TAab)
         {
 
@@ -17915,7 +18103,7 @@ namespace QuantumRefrigiz
             return this;
         }
         //computational second object
-        public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+   /*     public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
 
@@ -18020,7 +18208,7 @@ namespace QuantumRefrigiz
                 return this;
             }
         }
-        //determistic of checked blitz game
+  */      //determistic of checked blitz game
         bool KingDan(int[,] Tab, int Order)
         {
 
