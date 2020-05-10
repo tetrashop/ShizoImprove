@@ -54,7 +54,14 @@ namespace RefrigtzChessPortable
     [Serializable]
     public class AllDraw//: IDisposable
     {
-        public static int CompleteNumber = 300;
+        float TimeNow = 0;
+        public static bool IdleInWork = true;
+        public const float MaxTimeInMillisseconds = 10;//Max 10 second
+        public static float TimeInitiation;
+
+        public static int CalIdle = 0;
+        public static int PlatformHelperProcessorCount = 2;
+
         public static bool CompleteTreeDo = false;
         public static bool CompleteTreeCancel = false;
         public static int[,,] QuntumTable = {
@@ -24320,6 +24327,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object o = new Object();
             lock (o)
             {
+                RefrigtzChessPortable.AllDraw.TimeInitiation = (DateTime.Now.Hour * 60 * 60 * 1000 + DateTime.Now.Minute * 60 * 1000 + DateTime.Now.Second * 1000);
+              
                 LeafSemaphoreIndex = false;
                 if (tH != null)
                     tH.Clear();

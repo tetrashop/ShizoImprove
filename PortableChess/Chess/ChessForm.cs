@@ -20,7 +20,8 @@ namespace RefrigtzChessPortable
     [Serializable]
     public class RefrigtzChessPortableForm : System.Windows.Forms.Form
     {
-        bool LoadP = false;
+        ArtificialInteligenceMove f = new ArtificialInteligenceMove();
+        public bool LoadP = false;
         static readonly bool UsePenaltyRegardMechnisam = false;
         static readonly bool AStarGreedyHeuristic = false;
         int AllDrawKind = 0;
@@ -685,6 +686,16 @@ namespace RefrigtzChessPortable
                 
                 try
                 {
+                    object f = new object();
+                    lock (f)
+                    {
+                        if (RefrigtzChessPortable.AllDraw.CalIdle == 0)
+                        {
+                            RefrigtzChessPortable.AllDraw.CalIdle = 2;
+                            do { } while (RefrigtzChessPortable.AllDraw.CalIdle != 1);
+                        }
+                    }
+
                     bool Com = false;
                     int k = 0;
                     int played = 0;
@@ -723,10 +734,11 @@ namespace RefrigtzChessPortable
                         }
                         RefrigtzChessPortable.AllDraw.AllowedSupTrue = false;
 
+                        if (RefrigtzChessPortable.AllDraw.CalIdle == 0)
+                            return 0;
 
 
-
-                        RefrigtzChessPortable.AllDraw.TableListAction.Add(CloneATable(Table));
+                            RefrigtzChessPortable.AllDraw.TableListAction.Add(CloneATable(Table));
                         R = new RefrigtzChessPortable.RefrigtzChessPortableGeneticAlgorithm(false, false, false, false, false, false, false, true);
                         if (R.FindGenToModified(RefrigtzChessPortable.AllDraw.TableListAction[RefrigtzChessPortable.AllDraw.TableListAction.Count - 2], RefrigtzChessPortable.AllDraw.TableListAction[RefrigtzChessPortable.AllDraw.TableListAction.Count - 1], RefrigtzChessPortable.AllDraw.TableListAction, 0, -1, true))
                         {
@@ -1647,13 +1659,15 @@ namespace RefrigtzChessPortable
 
 
                                         Play(-1, -1);
-                                        
-                                        
-                                        
+
+                                        RefrigtzChessPortable.AllDraw.CalIdle = 0;
+
+
                                     }
                                     else
                               if (Com && (order == 2))
                                     {
+                                     
                                         MovmentsNumber++;
                                         Table = brd.GetTable();
                                         ClearTableInitiationPreventionOfMultipleMove();
@@ -1723,13 +1737,16 @@ namespace RefrigtzChessPortable
 
 
                                 Play(-1, -1);
-                                
-                                
-                                
+
+
+                                RefrigtzChessPortable.AllDraw.CalIdle = 0;
+
                             }
                             else
                               if (Com && (order == 2))
                             {
+                              
+
                                 Table = brd.GetTable();
                                 MovmentsNumber++;
                                 ClearTableInitiationPreventionOfMultipleMove();
